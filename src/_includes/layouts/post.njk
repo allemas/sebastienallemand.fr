@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-post
+---
+<h1>{{ title }}</h1>
+
+{% set  tagList = tags  %}{% include 'layouts/tags-list.njk' %}
+
+{{ date }}
+{{ content | safe }}

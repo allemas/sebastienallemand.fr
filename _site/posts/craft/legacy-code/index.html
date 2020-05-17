@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+
+  <meta name="title" content="Blog | Sébastien ALLEMAND">
+  <meta name="description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sebastienallemand.fr/">
+  <meta property="og:title" content="Legacy Code | Sébastien ALLEMAND">
+  <meta property="og:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sebastienallemand.fr/">
+  <meta property="twitter:title" content="Legacy Code | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+
+  <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
+
+  <title>Legacy Code | Sébastien ALLEMAND</title>
+  <style>body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #444;
+  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
+  line-height: 1.6;
+  text-align: center
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 20px
+  }
+}
+
+a:link,
+a:visited {
+  color: #222
+}
+
+footer,
+header {
+  color: #888;
+  font-size: .7em;
+  padding-bottom: 2em;
+  padding-top: 2em
+}
+
+header {
+  border-bottom: 1px solid #eee
+}
+
+.header-logo {
+  border-bottom: 0px solid #eee;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.header-posts {
+  padding: 1rem 0 1rem 0;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  margin-top: 6em
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #111;
+  font-family: sans-serif;
+  line-height: 1
+}
+
+h2 {
+  font-size: 34px;
+  letter-spacing: -.01em
+}
+
+h2 small {
+  color: #888;
+  font-size: .5em;
+  font-weight: 400
+}
+
+h3 {
+  margin-top: 2em
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0
+}
+
+figcaption {
+  color: #888;
+  font-size: .7em;
+  text-align: center
+}
+
+blockquote {
+  border-left: 3px solid #888;
+  font-style: italic;
+  margin-bottom: 0;
+  margin-left: -2em;
+  margin-top: 0;
+  padding-bottom: .5em;
+  padding-left: 2em;
+  padding-top: .5em
+}
+
+blockquote em {
+  font-style: normal
+}
+
+pre {
+  background-color: #eee;
+  font-size: .7em;
+  margin-bottom: 0;
+  margin-top: 0;
+  overflow-x: scroll;
+  padding-left: 1em;
+  padding-right: 1em
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+hr {
+  border-bottom: 1px solid #eee;
+  border-style: none;
+  margin-bottom: 3em;
+  margin-top: 2em
+}
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
+ul.listing {
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 0;
+  padding-top: 1.5em
+}
+
+ul.listing li {
+  margin-bottom: 1em
+}
+
+ul.listing h3 {
+  margin-top: .2rem;
+  margin-bottom: .2rem;
+  padding: 0;
+}
+
+ul.listing p.meta {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.menu-container {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.tag {
+  text-transform: capitalize;
+  border-bottom: 1px dotted #515151;
+}
+
+.tag:hover {
+  text-transform: capitalize;
+  border-bottom: 1px solid #000;
+}
+
+.tag-homepage {
+  text-transform: lowercase;
+  border-bottom: 1px dotted #515151;
+  font-size: 1.1rem;
+}
+
+.tag-homepage:hover {
+  border-bottom: 1px solid #000;
+  font-size: 1.1rem;
+}
+
+.nav-element-left {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.nav-element-right {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: right;
+}
+
+img[src*='#left'] {
+  float: left;
+}
+img[src*='#right'] {
+  float: right;
+}
+img[src*='#center'] {
+  position: relative;
+  display: block;
+  margin: auto;
+}
+img[src*='#banner'] {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+
+.pager {
+  text-align: center;
+}
+
+.footer-article {
+  margin-top: 3rem;
+}
+</style>
+  <style>@import url('https://fonts.googleapis.com/css?family=Poppins');
+.logo-wrapper {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hp-logo {
+    padding-top: 2rem
+}
+
+.logo-wrapper a {
+    text-decoration: none;
+}
+
+.logo-wrapper>a>.logo {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.logo-wrapper>a>.logo>.name-title {
+    margin: 0px;
+    font-size: calc(1.6rem + .6 * ((100vw - 320px) / 2680));
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-wrapper span.background-title,
+.blog-title {
+    text-transform: uppercase;
+    font-size: calc(4.5rem + .5 * ((100vw - 320px) / 2680));
+    letter-spacing: -11px;
+    line-height: 3.8rem;
+    display: inline;
+    text-align: left;
+}
+
+span.background-title .background-title-spare,
+.blog-title .background-title-spare {
+    display: inline;
+    color: #f02;
+}
+
+.baseline {
+    color: #444;
+    text-align: center;
+    font-weight: 300;
+    font-size: calc(1.2rem + .3 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header {
+    text-align: left;
+}
+
+.logo-post-header>a>.logo>.name-title {
+    font-size: calc(1.2rem + .6 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header span.background-title,
+.blog-title {
+    letter-spacing: -8px;
+    font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
+}</style>
+</head>
+<body>
+<header class="container header-logo">
+  <div class="logo-wrapper hp-logo">
+    <a href="/" class="site-link">
+      <div class="logo">
+        <h1 class="name-title">SEBASTIEN</h1>
+        <h1 class="name-title">ALLEMAND</h1>
+      </div>
+      <div class="blog-title">
+        <span class="background-title">Blog <span class="background-title-spare">.</span></span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<div class="container menu-container">
+  <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
+</div>
+<div class="content" role="main" id="main">
+    <article class="container">
+        <h1>Legacy Code</h1>
+  <div class="meta">
+    
+    <time datetime="15-02-2020">15-02-2020</time>
+    
+     - <span>Temps de lecture environ 3 min</span>
+  </div>
+  <p>Si vous travaillez avec des développeurs vous avez certainement entendu parler de legacy. Un projet fréquemment perçu comme quelque chose de mystique, opaque, mal conçu faisant souvent référence à une période douloureuse ravivant de vieilles douleurs du passé…</p>
+<p>Mais qu’en est t'il vraiment ? Qu’appelle on Legacy ou bien Legacy Code ?<br>
+J’aimerais partager avec vous ma définition: ce qu’est un projet legacy, le code legacy et comment on a fait pour en arriver la.</p>
+<h2 id="projet-legacy%2C-c%E2%80%99est-quoi-%3F">Projet legacy, c’est quoi ? <a class="direct-link" href="#projet-legacy%2C-c%E2%80%99est-quoi-%3F">#</a></h2>
+<p>Selon moi un Projet Legacy est un projet terminé, un projet en production qui a débuté sa phase d’amortissement. Quand je parle d’amortissement je fais référence au fait que l’investissement financier et énergétique permet d’amorcer une phase de retour sur investissement.</p>
+<p>Nous arrivons donc dans une phase ou le projet est stable, matur et viable pour répondre au besoin pour lequel il a été écrit. La base de code sur lequel il est bâti est considéré comme terminée et ne subira plus d’évolution majeure.</p>
+<p>Il arrive très souvent, pour ne pas dire toujours, que pour répondre plus rapidement aux besoins du métier que des raccourcis soient pris dans l’architecture logicielle. Ces raccourcis mis bout à bout pris et repris par différentes équipes créent le code legacy de demain.</p>
+<h2 id="code-legacy%2C-c%E2%80%99est-quoi-%3F">Code legacy, c’est quoi ? <a class="direct-link" href="#code-legacy%2C-c%E2%80%99est-quoi-%3F">#</a></h2>
+<p>Lorsque vous travaillez sur un code opaque, ou les acteurs, le vocabulaire et les règles qui régissent le système, sont difficiles à identifier il y a fort à parier que vous travaillez sur un code legacy.</p>
+<h3 id="code-legacy%2C-un-code-sans-test-unitaire-%3F">Code legacy, un code sans Test Unitaire ? <a class="direct-link" href="#code-legacy%2C-un-code-sans-test-unitaire-%3F">#</a></h3>
+<p>Oui ! Il m’est difficile de comprendre que du code puisse partir en production s'il n’est pas couvert par une solide couche de tests représentant la réalité du métier.<br>
+A ne pas confondre avec de la couverture de composants techniques : couverture de getters/setters, système d’injection de dépendances, services ou que sais-je…</p>
+<p>Peu importe la taille du projet, si le métier n’est pas couvert, il est impossible de garantir sa qualité. S'il n’y à pas de couverture il sera impossible d’itérer et de maîtriser les changements dans le système.</p>
+<h2 id="code-legacy%2C-un-code-douloureux-%C3%A0-comprendre-et-difficile-%C3%A0-modifier-.">Code legacy, un code douloureux à comprendre et difficile à modifier . <a class="direct-link" href="#code-legacy%2C-un-code-douloureux-%C3%A0-comprendre-et-difficile-%C3%A0-modifier-.">#</a></h2>
+<p>Lorsque vous débutez sur un projet legacy, il est quasiment impossible de comprendre les éléments que vous manipulez, comprendre les interdépendances entres les acteurs du système relève certainement du miracle.</p>
+<p>Cette douleur est dû à la qualité du code, qui, au fil du temps, se dégrade parce qu’elle n'a pas ou rarement été revue. Vous évoluez dans un code ou les frontière du systèmes sont invisibles et modifier un acteur du système peut engendrer de lourdes régressions.</p>
+<h2 id="code-legacy%2C-est-un-risque.">Code legacy, est un risque. <a class="direct-link" href="#code-legacy%2C-est-un-risque.">#</a></h2>
+<p>Reprendre du code legacy et le faire évoluer, est un risque majeur. Si vous opérez des modifications dans un système sans boucle de feedback sur laquelle vous reposer opérer un changement du système est très risqué. Il sera alors très coûteux de s’engager sur une qualité de service.</p>
+<p>Selon moi, reprendre une application legacy complètement fonctionnelle en production avec utilisateurs heureux, pourrait s’apparenter à créer un nouveau projet. Il très difficile de maintenir le système, sans risque de régressions : c’est un risque à accepter.</p>
+<p>Le code legacy peut aussi devenir un risque face aux problèmes de sécurité dont il peut être victime. Un code non maintenu à jour, accessible par le net, est une porte sur le SI de son  organisation.</p>
+<h2 id="code-legacy%2C-une-formation-forc%C3%A9e.">Code legacy, une formation forcée. <a class="direct-link" href="#code-legacy%2C-une-formation-forc%C3%A9e.">#</a></h2>
+<p>Et c’est bien là que l'on retrouve la principale caractéristique d’un développeur, la gestion de base de code ‘legacy’ oblige une certaine compréhension de toute la chaîne de valeur métier de l’application.</p>
+<p>Cette compréhension passe par une formation forcée du métier. D’autant plus que dans notre cas il est difficile de comprendre le code qu’on manipule une compréhension et une anticipation des adhérences entre les entités du système est vital.</p>
+<h2 id="projet%2Fcode-legacy%2C-une-bonne-exp%C3%A9rience-pour-progresser">Projet/Code legacy, une bonne expérience pour progresser <a class="direct-link" href="#projet%2Fcode-legacy%2C-une-bonne-exp%C3%A9rience-pour-progresser">#</a></h2>
+<p>Travailler dans un système ancien, développé par d’autres, en production avec des utilisateurs est très formateur. Peu importe votre niveau, travailler dans un legacy éveillera votre esprit d’analyse et critique.</p>
+<p>Vous pouvez chercher à éviter de travailler sur de tels systèmes ou bien vous pouvez voir cette opportunité comme l’occasion d’apprendre et d'acquérir de l’expérience sur nouveaux concepts.</p>
+<p>Avec la généralisation de l’informatique, le besoin de culture du legacy risque de s’intensifier. Nous devrons être en mesure de maintenir un niveau de service et de faire cohabiter les nouveaux systèmes avec les plus anciens.</p>
+
+  <div class="footer-article">
+    
+    <i>Mots clés :   <a href="/tags/crafting/" class="tag">crafting</a>  <a href="/tags/refactoring/" class="tag">refactoring</a>  <a href="/tags/legacycode/" class="tag">legacycode</a></i><br>
+    
+    <i>Auteur : Allemand Sébastien</i>
+  </div>
+</article>
+<hr>
+</div>
+<div class="container">
+  
+    <p class="ctr nav-element-left">
+      <a class="previous" href="/posts/devops/docker-cmd/">← Prev.</a>
+    </p>
+  
+
+  
+    <p class="ctr nav-element-right">
+      <a class="next" href="/posts/devops/openssl-toolbox/">Suiv. →</a>
+    </p>
+  
+</div>
+
+  </div>
+</div>
+<footer>
+  <div class="container">
+    © 2020 <a href="https://twitter.com/allema_s">Sébastien Allemand</a> généré avec <a href="https://11ty.io">Eleventy</a>.
+  </div>
+</footer>
+</body>
+</html>
+

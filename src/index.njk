@@ -1,0 +1,33 @@
+---
+layout: layouts/home.njk
+title: Blog
+pagination:
+  reverse: true
+  data: collections.posts
+  size: 4
+---
+
+<ul class="listing">
+  {% for post in pagination.items %}
+  {% set tags = post.data.tags | categories %}
+  <li>
+    <article>
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <div class="meta">
+        <time datetime="{{ post.date | readableDate }}">{{ post.date | readableDate }}</time>
+        - {% for tag in tags %} {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="tag-homepage">{{ tag }}</a>{% endfor %}
+        <p>{{ post.data.keywords }}</p>
+      </div>
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+
+
+<div class="pager">
+  {%- for pageEntry in pagination.pages %}
+  <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url== pagination.hrefs[ loop.index0 ] %}
+     aria-current="page" {% endif %}>{{ loop.index }}</a>
+  {%- endfor %}
+</div>

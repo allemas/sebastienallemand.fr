@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Allemand Sébastien</title>
+	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+	<link href="https://myurl.com/feed/feed.xml" rel="self"/>
+	<link href="https://sebastienallemand.fr"/>
+	<updated>2020-04-14T02:00:00+02:00</updated>
+	<id>https://myurl.com/</id>
+	<author>
+		<name>ALLEMAND Sébastien</name>
+		<email>sebastienallemand.as@gmail.com</email>
+	</author>
+	
+	<entry>
+		<title>Software Craftsmanship : Qu&#39;est-ce ?</title>
+		<link href="https://sebastienallemand.fr/posts/craft/software-craftsmanship/"/>
+		<updated>2018-06-19T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/craft/software-craftsmanship/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/crating.png#banner&quot; alt=&quot;crafting&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Le manifeste Software Craftsmanship est sous titré par Raising the bar, élever le niveau.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Le Software Craftsmanship réunit une communauté de développeurs passionnés. La principale motivation de ces personnes est de créer des produits logiciels d’une très haute maîtrise et qualité technique.&lt;/p&gt;
+&lt;p&gt;Il ne s’agit pas d’une méthode à mettre en place mais d’une véritable culture, qui implique des changements, dans la mentalité et dans le fonctionnement des équipes.&lt;br&gt;
+La communauté a repris et actualisée les principales valeurs développées dans le livre Pragmatic programmer: from journeyman to master (Andy Hunt &amp;amp; David Thomas – 1999).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La notion principale du Software Craftsmanship est qu’il ne suffit pas qu’un logiciel fonctionne. Un logiciel doit être correctement conçu, avec une certaine fiabilité et facile à maintenir.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Une seconde valeur est liée à la notion de “communauté de professionnels”,  une communauté d’humain, qui échange. Une organisation de professionnels qui partage méthodes, savoir-faire et idées, dans le but de renforcer la cohésion et la reconnaissance des professionnels en tant qu’artisans de logiciels de qualité.&lt;br&gt;
+La communauté promeut la culture de l’amélioration continue et la transmission du savoir par le biais de référentiels de bonnes pratiques (qui sont définies par consensus), de retours d’expérience, d’exercices pratiques réguliers comme les coding dojo avec les kata, coderetreat, 100daysofcode etc.&lt;/p&gt;
+&lt;p&gt;L’approche prônée par cette nouvelle philosophie consiste à replacer la technique, et les pratiques de développement et de conception au cœur de la production. Pratiques qui, avec l&#39;avènement des Méthodes Agiles, avaient étés mises de côté. Une mise à l’écart justifiée par une prétendue facilité à corriger les erreurs commises dans les sprints antérieur (et des dictons comme “le seul bon code est le code en Production”).&lt;br&gt;
+Grâce à l’expérience des Méthodes Agiles, nous pouvons aujourd’hui nous accorder pour dire que si l’exécution de la qualité ne permet pas l’adaptation et la maintenance d’un logiciel sur le long terme, le produit final ne fonctionnera pas correctement ou qu’en apparence.&lt;/p&gt;
+&lt;h2 id=&quot;des-valeurs-et-une-vision-de-la-qualit%C3%A9&quot;&gt;Des valeurs et une vision de la qualité &lt;a class=&quot;direct-link&quot; href=&quot;#des-valeurs-et-une-vision-de-la-qualit%C3%A9&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;La qualité logicielle n’est pas un nouveau sujet (la norme ISO/IEC 25062, une des premières “SQuaRE”, date de 2006), mais dans un monde où le logiciel devient omniprésent, la qualité est devenue un plus stratégique, à la fois dans la réalisation et dans la communication de ce savoir-faire. Dans notre monde numérique, il est devenu très important d’être en mesure de produire des fonctionnalités interopérables rapidement dans le but de satisfaire ses utilisateurs et ne pas se faire dépasser par ses concurrents. La qualité trouvera sa place dans un contexte où les besoins évoluent, avec une attention particulière à la stabilité. Une application stable et sécurisée est une application qui est, par exemple, en mesure d’évoluer sans subir de fortes régressions techniques (dysfonctionnements) ou fonctionnels (dégradation de l’UX, non-respect de règles métiers).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/crafting3.png#banner&quot; alt=&quot;crafting&quot;&gt;&lt;/p&gt;
+&lt;p&gt;La qualité peut être vu de différentes façons. Pour moi, la qualité logicielle se retrouve dans :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Une application qui permet &lt;a href=&quot;https://www.investopedia.com/terms/v/valueproposition.asp&quot;&gt;la proposition de valeur&lt;/a&gt;, sans que la technique devienne un frein a son développement&lt;/li&gt;
+&lt;li&gt;Un logiciel qui répond aux besoin simplement et efficacement. Inutile de toujours bâtir une cathédrale, à l&#39;état de l’art de toutes les nouvelles technologies ;&lt;/li&gt;
+&lt;li&gt;Une application composé de technologies connues, qui ont fait leurs preuves et pour lesquelles une communauté existe, assurant la disponibilité d’un capital humain en mesure de la maintenir&lt;/li&gt;
+&lt;li&gt;Maintenance qui, après formation, doit pouvoir se faire par une nouvelle équipe sans douleurs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Je pourrais synthétiser en disant qu’un logiciel de qualité, est un logiciel équilibré entre ses qualités intrinsèques , sa correspondance aux besoins, et les méthodes d’écriture de code mises en places pour en faciliter la maintenance.&lt;/p&gt;
+&lt;p&gt;À l’inverse la non-qualité est une application contenant des bugs très difficiles à identifier, fondée sur une base technique obligeant les développeurs à connaître l’historique du projet pour faire la faire évoluer pour comprendre les solutions de contournement mises en place et les compromis réalisés . La non-qualité a un coût, financier, stratégique et surtout humain.&lt;/p&gt;
+&lt;p&gt;Selon une étude du mouvement français pour la qualité, la non qualité représenterait un cout de 15% du chiffre d’affaire des entreprises.&lt;/p&gt;
+&lt;p&gt;Travailler sur une application sans contrôle qualité et sans plan d’évolution, peut décourager un crafteur au point de lui faire envisager de quitter l’équipe, voire l’entreprise.&lt;/p&gt;
+&lt;h2 id=&quot;une-communaut%C3%A9-encore-en-construction&quot;&gt;Une communauté encore en construction &lt;a class=&quot;direct-link&quot; href=&quot;#une-communaut%C3%A9-encore-en-construction&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;La communauté d’acteurs du logiciel est composée de profil très différents, certains voient les “craftsman” comme des artisans qui pourraient avoir la tentation de se comporter en diva  et de ne se concentrer uniquement  sur leur “art”.&lt;/p&gt;
+&lt;p&gt;Robert C. Martin dans Bringing Balance to the force répond à ces fausses idées, en communiquant sur le fait que la pratique technique est un bon moyen pour répondre aux problèmes d’évolution et de sécurité d’une application. Situation souvent rencontré par les équipe agiles se concentrant peut-être un peu trop sur la méthode au détriment du reste.&lt;/p&gt;
+&lt;p&gt;Des échanges et points de vues intéressant qui permettent d&#39;établir un ensemble de valeurs humaines et compétences techniques.&lt;/p&gt;
+&lt;h2 id=&quot;des-valeurs-humaines&quot;&gt;Des valeurs humaines &lt;a class=&quot;direct-link&quot; href=&quot;#des-valeurs-humaines&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Humilité : une constante remise en question et recherche d’amélioration&lt;/li&gt;
+&lt;li&gt;Apprentissage: j’apprend en permanence de manière a mieux répondre aux besoins&lt;/li&gt;
+&lt;li&gt;Beaucoup de partage : Je tente de partager avec mes pairs mes expériences et découvertes&lt;/li&gt;
+&lt;li&gt;Pragmatisme : une compréhension des besoins et dans quel contexte ils s’inscrivent&lt;/li&gt;
+&lt;li&gt;Professionnalisme : Je traite mon clients comme un pair, je sais communiquer mes points de vues quand nécessaire.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;techniquement&quot;&gt;Techniquement &lt;a class=&quot;direct-link&quot; href=&quot;#techniquement&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Vision de la conception juste : tiny is beautiful.&lt;/li&gt;
+&lt;li&gt;Adhérence aux notion DDD &amp;amp; SOLID&lt;/li&gt;
+&lt;li&gt;Clean code&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;li&gt;Techniques de testing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;ou-en-sommes-nous-%3F&quot;&gt;Ou en sommes nous ? &lt;a class=&quot;direct-link&quot; href=&quot;#ou-en-sommes-nous-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;En 2018, la philosophie des méthodes agile est plus présente dans les équipes. On observe globalement un changement de paradigme dans les échanges entre les acteurs projets. La culture craftsman est encore a construire et défendre au sein de ces équipes. Dans The Tragedy of Craftsmanship,  Robert C. Martin (Uncle Bob) défend l’idée que le craftman n’occupe pas la place qu’il devrait et que les esprits ont encore besoin d’évoluer.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>L&#39;art de nommer</title>
+		<link href="https://sebastienallemand.fr/posts/craft/l-art-de-nommer/"/>
+		<updated>2019-06-17T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/craft/l-art-de-nommer/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/crafting2.png#banner&quot; alt=&quot;crafting&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are only two hard things in Computer Science: cache invalidation and naming things. — Phil Karlton&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ca fait maintenant quelques années que je suis chargé de maintenir (legacy) et créer des systèmes en équipe et que je suis confronté aux problèmes de nommages.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Selon moi&lt;/strong&gt;, le nommage permet de mieux-transmettre le sens des composants que l’on utilise : un nommage compréhensif et cohérent avec le système permet aux nouveaux arrivants d&#39;appréhender les concepts plus rapidement.&lt;/p&gt;
+&lt;h2 id=&quot;mauvais-nommage&quot;&gt;Mauvais nommage &lt;a class=&quot;direct-link&quot; href=&quot;#mauvais-nommage&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Un mauvais nommage demandera à sa relecture un effort de re-compréhension du domaine. C’est un effort qui, sur le long terme, peut devenir pénible et vecteur de stress. Par manque d’informations et d’expérience, trouver le bon nom peut rapidement devenir difficile. C’est pourquoi, parfois, nous ne pouvons pas l’améliorer dans un système déjà existant. De plus, ce genre d’améliorations peuvent demander des modifications avec de lourdes conséquences pouvant entraîner des régréssions sur le fonctionnement du système global.&lt;/p&gt;
+&lt;h2 id=&quot;nommage-correct&quot;&gt;Nommage correct &lt;a class=&quot;direct-link&quot; href=&quot;#nommage-correct&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Un bon nommage donne assez d’informations pour comprendre ce qui est réalisé. Dans le cas d’un objet, le nom permet de comprendre le rôle et le contexte d’utilisation. Le nom d’une classe nous aidera à comprendre le concept modélisé sans avoir besoin de lire sa définition. Un nommage cohérent entre l’objet et la classe rendra alors la compréhension du contexte d’utilisation plus simple.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Il faut retenir que les aspects de nommage de code sont uniquement pertinents pour les humains. Un ordinateur ne verra aucun intérêt à ce qu’une variable soit nommée de telle ou telle manière. L’ordinateur ne verra qu’une succession de symboles et n&#39;éprouvera aucune peine supplémentaire à les&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nous, humains sommes capables de donner sens à ce que nous lisons. Une définition cohérente des concepts utilisés dans un système nous permettra d&#39;appréhender plus facilement l’historique du projet, voire de comprendre certaines orientations techniques. C’est pourquoi le refactoring est important pour nous développeurs : conserver et élever la qualité du code et la communication qu’on peut y retrouver.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Maintenant que les problématiques sont partagées, je pense qu’il est important de dire et comprendre que ces conventions logicielles ne sont pas immuables : quelque-chose fait dans le passé et qui ne changera plus. Pourquoi ? Parce qu’il sera possible, par l’évolution du système, de se tromper et itérativement de se rapprocher vers des conventions qui ont du sens pour le système et l’équipe.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;une-solution-%3F&quot;&gt;Une solution ? &lt;a class=&quot;direct-link&quot; href=&quot;#une-solution-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Le &lt;em&gt;Domain Driven Design (DDD)&lt;/em&gt; est une approche qui prône une conception très proche des concepts métier. Le DDD a pour objectif de définir une même vision et un même langage partagé par toutes les personnes impliquées dans le projet.&lt;/p&gt;
+&lt;p&gt;Les problématiques de nommage sont donc très présentes en DDD, notamment pour la définition des limites du contexte (Bounded Context) ou du langage commun (Ubiquitous Language) sur lesquels toute l’équipe est appuyée pour construire le code et communiquer.&lt;/p&gt;
+&lt;p&gt;Ubiquitous Language &amp;amp; Bounded Context :&lt;br&gt;
+En phase de modélisation, l’équipe définie un ensemble de User Stories. Ces US définissent le périmètre de l’application et les concepts (Bounded Context). Le langage commun (Ubiquitous Language) est le vocabulaire utilisé pour définir ces concepts et leurs interactions.&lt;/p&gt;
+&lt;h3 id=&quot;pour-le-contexte-suivant%3A&quot;&gt;Pour le contexte suivant: &lt;a class=&quot;direct-link&quot; href=&quot;#pour-le-contexte-suivant%3A&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;En tant que fournisseur je souhaite communiquer aux clients les nouvelles offres&lt;br&gt;
+En tant que client je souhaite acheter des produits aux fournisseurs&lt;br&gt;
+En tant que fournisseur je souhaite m’inscrire en centrale d’achat pour vendre&lt;br&gt;
+En tant que fournisseur je souhaite mettre en vente des produits&lt;br&gt;
+En tant que client je souhaite être avertis des disponibilités&lt;br&gt;
+Nous pouvons retrouver des expressions comme: “client”, “fournisseur”, “centrale d’achat”, ou bien “vente” et “achat”. Ces expressions définissent l’Ubiquitous Language, un langage pivot qui définit toujours les mêmes concepts et permet à l’équipe de communiquer sereinement.&lt;/p&gt;
+&lt;h3 id=&quot;comment-et-o%C3%B9-mod%C3%A9liser%3F&quot;&gt;Comment et où modéliser? &lt;a class=&quot;direct-link&quot; href=&quot;#comment-et-o%C3%B9-mod%C3%A9liser%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Suite à l’atelier de cadrage et pendant la définition des US, l’équipe devrait garder en tête que le système n’est pas défini dans le temps, il peut et risque fortement d’évoluer dans le futur.&lt;/p&gt;
+&lt;p&gt;Pour rappel, le développement est réalisé de manière à modéliser le Bounded Context: un problème précis qui se pose aujourd’hui et qui doit être implémentable.&lt;/p&gt;
+&lt;p&gt;Il risque donc d’être nécessaire d’entamer de nouvelles séances de cadrage et de refactoring si le besoin venait à évoluer.&lt;/p&gt;
+&lt;p&gt;L’adoption de l’Ubiquitous Language permet, selon moi, d’être plus pertinent et crédible avec nos interlocuteurs métier mais aussi plus efficace quand on code (on comprend les concepts et entités qu’on manipule, ils sont nommés correctement).&lt;br&gt;
+Je pense que cette hygiène commence par un alignement entre le nommage et les concepts décrits par le métiers et ce, à chaque fois que l’on code.&lt;br&gt;
+La reformulation des concepts, le pair programming ou utiliser le nommage rencontré dans le code pour leur poser une question est un bon moyen de nous aider à améliorer les choses.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;direct-link&quot; href=&quot;#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pour conclure, si je devais donner des conseils, je dirais d’opter pour des nommages simples et cohérents qui s’alignent au mieux avec le contexte d’utilisation. Je validerais mon point de vue sur le domaine durant les réunions de cadrage et inviterais les personnes impliquées à utiliser le même vocabulaire et, pourquoi pas, renseigner un lexique ?&lt;/p&gt;
+&lt;p&gt;S’il est possible, dans le cas de travaux sur une application legacy, j’enrichirais un référentiels listant les contextes en identifiant les zones d’ombres. Je partagerais ensuite mes interrogations avec l’équipe. Dans le cas d’incompréhensions, il est possible d’organiser son code pour qu’il puisse être évolutif et qu’il puisse être amélioré à l’occasion de séances de refactoring. Avec du commentaire, et un respect des concepts KISS, DRY, SOLID.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Coldstart Ruby / RubyOnRails en 2019</title>
+		<link href="https://sebastienallemand.fr/posts/experiments/coldstart-ruby/"/>
+		<updated>2019-06-18T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/experiments/coldstart-ruby/</id>
+		<content type="html">&lt;p&gt;Il y a plusieurs semaines j’ai fait le choix de découvrir l&#39;écosystème Ruby. N’utilisant pas cette technologie dans mon quotidien professionnel, j’ai choisi de pratiquer pendant mon temps libre.&lt;/p&gt;
+&lt;p&gt;Avec maintenant un peu de recul je souhaiterais vous partager une liste de ressources et vous aider à pratiquer le plus rapidement possible avec Ruby et Ruby On Rails.&lt;/p&gt;
+&lt;p&gt;Ruby est une technologie plutôt accessible, il ne sera pas nécessaire d’investir une grande quantité de temps pour commencer à voir ses premières pages et avancer sur un side project. La documentation est globalement de bonne qualitée et il n’est pas difficile de trouver réponse à ses questions.&lt;/p&gt;
+&lt;p&gt;Je dirais que la principale difficulté qu’on peut rencontrer serait de ne pas oublier qu’on travaille avec un langage tout objet et que sortir de cette approche sera vite douloureux. Le design du langage ne permettra peut être pas de faire ce que vous faites avec d’autres langage, comme PHP par exemple qui lui est plus permissif pour tout ce qui est typage et structure de données.&lt;/p&gt;
+&lt;h2 id=&quot;mon-side-projet&quot;&gt;Mon side projet &lt;a class=&quot;direct-link&quot; href=&quot;#mon-side-projet&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pour la pratique, j’ai fait le choix de développer un outil de suivi d’activité pour un jeu en ligne de conquête spatiale. Dans un premier temps l’objectif sera de proposer aux utilisateurs un rapport détaillé sur les combats qu’ils ont mené in-game.&lt;/p&gt;
+&lt;p&gt;Les données seront récupérées via une API, l’application traitera les données et produira un rapport de combat détaillant les joueurs, les vaisseaux engagés, les gains et les pertes.&lt;/p&gt;
+&lt;p&gt;Actuellement le projet n’est pas terminé, j’ai fait le choix de reprendre entièrement l’application pour piloter le développement par les tests et produire dans le temps un harnais de sécurité face aux régressions.&lt;/p&gt;
+&lt;p&gt;Les ressources&lt;br&gt;
+Voici une liste des ressources qui m&#39;ont permis de prendre la techno en mains, j&#39;espère quelles vous aideront autant qu&#39;elles mont aidées.&lt;/p&gt;
+&lt;h2 id=&quot;ruby&quot;&gt;Ruby &lt;a class=&quot;direct-link&quot; href=&quot;#ruby&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Installer Ruby&lt;/li&gt;
+&lt;li&gt;Structures
+&lt;ul&gt;
+&lt;li&gt;Arrays - Sort&lt;/li&gt;
+&lt;li&gt;Ruby arrays insert append length index remove&lt;/li&gt;
+&lt;li&gt;Create a JSON object&lt;/li&gt;
+&lt;li&gt;Présentation des Hash&lt;/li&gt;
+&lt;li&gt;Fusion de hashs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Conception
+&lt;ul&gt;
+&lt;li&gt;DDD - Entités et valeurs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;rubyonrails-(ror)&quot;&gt;RubyOnRails (ROR) &lt;a class=&quot;direct-link&quot; href=&quot;#rubyonrails-(ror)&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Présentation &amp;amp; installation&lt;/li&gt;
+&lt;li&gt;Présentation &amp;amp; Installation ROR&lt;/li&gt;
+&lt;li&gt;Installation sqlite
+&lt;ul&gt;
+&lt;li&gt;Installation de gem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Concept Modèle-Vue-Controller &amp;amp; organisation projet
+&lt;ul&gt;
+&lt;li&gt;Concept MVC&lt;/li&gt;
+&lt;li&gt;Les bases MVC avec Rails&lt;/li&gt;
+&lt;li&gt;Model view controller - en details&lt;/li&gt;
+&lt;li&gt;RAD - Create Read Update Delete&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Routing / Construction URL
+&lt;ul&gt;
+&lt;li&gt;Basics - Les routes qu&#39;est-ce ? comment ca fonctionne?&lt;/li&gt;
+&lt;li&gt;Comprendre les routes et le design RestFull&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Construction de routes pour API&lt;/p&gt;
+&lt;p&gt;[FR] - Description d&#39;URL avec ROR&lt;/p&gt;
+&lt;p&gt;Controller&lt;/p&gt;
+&lt;p&gt;Basics - les controllers&lt;/p&gt;
+&lt;p&gt;Persistance de données&lt;/p&gt;
+&lt;p&gt;Basics - Active record qu&#39;est-ce ?&lt;/p&gt;
+&lt;p&gt;Requêtes avancés avec ActiveRecord&lt;/p&gt;
+&lt;p&gt;Modèle de données&lt;/p&gt;
+&lt;p&gt;Schéma de donnée : Construction / maintenance&lt;/p&gt;
+&lt;p&gt;Les migrations Rails&lt;/p&gt;
+&lt;p&gt;Migration - Evolution &amp;amp; maintenance de schémas rails&lt;/p&gt;
+&lt;p&gt;Theming&lt;/p&gt;
+&lt;p&gt;Creating views in ruby on rails&lt;/p&gt;
+&lt;p&gt;The Beginner&#39;s Guide to Rails Helpers&lt;/p&gt;
+&lt;p&gt;API&lt;/p&gt;
+&lt;p&gt;How to configure your first rails rest API&lt;/p&gt;
+&lt;p&gt;ROR Configuration&lt;/p&gt;
+&lt;p&gt;Class Autoloading&lt;/p&gt;
+&lt;p&gt;How to safely store API keys in Rails apps&lt;/p&gt;
+&lt;p&gt;Tests unitaires&lt;/p&gt;
+&lt;p&gt;Test unitaire avec ROR&lt;/p&gt;
+&lt;p&gt;How to Properly Test a Rails API with Rspec&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>The Practical Test Pyramid</title>
+		<link href="https://sebastienallemand.fr/posts/craft/practical-test-pyramid/"/>
+		<updated>2019-06-20T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/craft/practical-test-pyramid/</id>
+		<content type="html">&lt;h2 id=&quot;tldr%3B&quot;&gt;tldr; &lt;a class=&quot;direct-link&quot; href=&quot;#tldr%3B&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Passer directement a la présentation de &lt;a href=&quot;#pyramid-testing&quot;&gt;Pyramid Testing&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;contexte&quot;&gt;Contexte &lt;a class=&quot;direct-link&quot; href=&quot;#contexte&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Dans mon parcours, il m&#39;a souvent été rappelé que  les développeurs devaient tester leur code. Des tests fait manuellement, afin de vérifier que le développement effectué corresponde bien a ce qui a été spécifié.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Le problème avec ces tests &lt;em&gt;manuels&lt;/em&gt; est qu&#39;il devient difficile de s&#39;engager sur  leur reussite et leur qualité dans le temps. De plus et pour plusieurs raisons, j&#39;ai remarqué qu&#39;il n&#39;est pas rare en phase de recette de voir apparaitre en plus des erreurs de tests classiques :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;des faux positifs et faux négatifs,&lt;/li&gt;
+&lt;li&gt;des oublis de tests,&lt;/li&gt;
+&lt;li&gt;des erreurs de manipulation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mais surtout un fort besoin de connaissance du métier&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Selon moi&lt;/strong&gt;, il est impossible d’envisager la qualité logicielle sans test automatique. Dans un monde idéal, les développeurs devraient être alertés automatiquement des régressions causées par leurs développements.&lt;/p&gt;
+&lt;p&gt;Avec cette approche, la phase de recette ne serait plus une période de stress mais une période d&#39;échange et d’affinage avec le métier. &lt;em&gt;&lt;strong&gt;Or, ce n’est pas toujours le cas&lt;/strong&gt;, d’autant moins lorsque l’application s’ankylose avec le temps, a cause d&#39;une intégration pas toujours cohérente avec l&#39;architecture logicielle générant des couplages complexes difficile a maintenir.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Les phases de recettes deviennent alors de vraies séances de pêches aux anomalies qu’il faut corriger avant de livrer. Heureusement, un délai de correction est toujours prévu ! Ha ? Vraiment?&lt;/p&gt;
+&lt;p&gt;Il arrive qu’on convainque le client que tester l’application automatiquement augmenterait sa qualité et qu’on y rencontrerait moins de régressions.&lt;br&gt;
+Cependant le projet est déjà démarré et on se heurte aux problèmes de complexités et de couplage. L&#39;effort d’initialisation est donc colossal et rime souvent avec de lourds travaux de refactoring.&lt;/p&gt;
+&lt;p&gt;Pour éviter cela, on se retrouve à déployer l&#39;artillerie lourde, des tests de très haut niveau, via l’IHM. On peut alors tester et s’assurer que que le système fonctionne globalement bien et réponde comme prévu dans la majorité des cas.&lt;/p&gt;
+&lt;p&gt;En revanche, avec cette méthode, il est très difficile d’identifier clairement où se trouvent les régressions. On se retrouve bloqué dans une configuration de test en mode boite noire dans lequel on ne peut s’assurer de chemin fonctionnel emprunté pour produire le résultat observé.&lt;/p&gt;
+&lt;p&gt;Avec le temps, l’équipe et le client se rendent bien compte que les résultats ne sont pas à la hauteur des attentes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;les tests sont très lents et provoquent un feedback tardif;&lt;/li&gt;
+&lt;li&gt;identifier les sources d’un échec est difficile ;&lt;/li&gt;
+&lt;li&gt;gérer les jeux de données devient un véritable casse-tête ;&lt;/li&gt;
+&lt;li&gt;il devient nécessaire de comprendre le fonctionnement d’outils, comme Sélénium ;&lt;/li&gt;
+&lt;li&gt;tester la logique des cas limites devient un défi.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;em&gt;Les test de bouts en bouts ne sont pas une mauvaise chose pour autant.&lt;/em&gt; Pour moi, le problème se situe surtout autour de ce qu’on cherche à résoudre: tester une application en faisant abstraction de son architecture.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Les tests d’IHM sont utiles pour tester un parcours utilisateur ou une succession d’écrans, mais ils ne peuvent assurer seuls la non-régression d’une application. Avec un test d’IHM on teste l’application dans sa globalité, mais on risque de passer à côté de plusieurs cas à la marge et de rencontrer des difficultés dans les feedback d’erreurs “hum… mais qu’est-ce qui a planté en fait?”.&lt;/p&gt;
+&lt;p&gt;Il est aussi très difficile d’avoir une vision claire de ce qui est testé ; exécutés en boîte noire, ils peuvent donner l’impression de fonctionner alors que non (faux positifs), ils ne testent pas les scénarios identifiés. Pour synthétiser: les test d’IHM sont un premier pas, mais il faudra investir ses ressources intelligemment pour bâtir une stratégie de tests cohérente avec les besoins.&lt;/p&gt;
+&lt;p&gt;La pyramide de test de Mike Cohn est sans doute l’approche le plus simple pour comprendre les différentes couches de tests et leurs proportions (ratio LoC). Si vous avez besoin de développer une application robuste et stable qui doit le rester dans le temps, investir dans une stratégie de tests est intéressante pour vous.&lt;/p&gt;
+&lt;p&gt;Cette stratégie s’adapte progressivement à vos besoins et aux spécificités de votre application. La pyramide des tests, se base sur les techniques les plus accessible pour, au fil du temps, intégrer des pratiques de plus en plus complexes à mettre en oeuvre.&lt;/p&gt;
+&lt;h2 id=&quot;pyramid-testing&quot;&gt;Pyramid Testing &lt;a class=&quot;direct-link&quot; href=&quot;#pyramid-testing&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/test-pyramid.png#center&quot; alt=&quot;Pyramid Testing&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;les-tests-unitaires&quot;&gt;Les tests unitaires &lt;a class=&quot;direct-link&quot; href=&quot;#les-tests-unitaires&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/tu.png#center&quot; alt=&quot;Test unitaires&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Les tests unitaires sont en général très accessibles et bien outillés sur quasiment tous les langages. Si le design de l’application est correct et que la complexité reste relativement basse, les tests unitaires deviendront de véritables alliés pour vos développements.Investir sur les tests unitaires garantit le fonctionnement des parties sensibles de l’application sur le long terme. Munie d’une couverture de tests unitaires conséquente, l’application dispose d’un véritable harnais de sécurité face aux modifications et régressions.&lt;/p&gt;
+&lt;p&gt;Rapides d’exécution, ces tests, couplés à une intégration continue, permettent un feedback rapide et précis. Le problème sera alors rapidement identifié et résolu; un atout non négligeable à l’occasion d’une livraison pour recette. De plus, les tests unitaires rendent plus accessible les séances de refactoring. Finies les séances de non-régressions manuelles pour vérifier que le composant n’est pas cassé.&lt;/p&gt;
+&lt;p&gt;Par cette méthode, l’application peut facilement évoluer vers du code de qualité la rendant plus simple à maintenir. Les développeurs se sentent alors en confiance lorsqu’ils apportent des améliorations à l’application. Sur le long terme, on remarque que la complexité des applications testables automatiquement est plus faible. Elle restent plus accessibles face à celles qui ont besoin d’une non régression, où nous développeurs préférons isoler le nouveau code et complexifier l’architecture de l’application.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Bad Architecture / Design comes from people that are afraid of going back on already written code. Because they are afraid they try to get their design right on the first attempt and build &amp;quot;generic&amp;quot; things. So you need to make people confident about their abilities to refactor existing code, and for that you need TDD&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;les-tests-d%E2%80%99int%C3%A9gration&quot;&gt;Les tests d’intégration &lt;a class=&quot;direct-link&quot; href=&quot;#les-tests-d%E2%80%99int%C3%A9gration&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/ti.png#center&quot; alt=&quot;Test d&#39;intégraitons&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Les tests d’intégration sont utiles pour tester le comportement d’un composant dans le système. Les tests d’intégrations valident l’intégration et les frontières du composant, permettant de vérifier les messages, les flux et l’interopérabilité dans un contexte de fonctionnement défini.&lt;/p&gt;
+&lt;p&gt;Dans le cadre de projets orientés services, les tests d’intégrations viendront renforcer la robustesse avec une isolation des composants par contexte. On retrouve ce genre de tests par exemple pour des traitements de données stockées dans un service ou une base de données.&lt;br&gt;
+Avec les tests unitaires, les test d’intégrations sont des tests faciles à mettre en place, rapidement exécutables et retournent un feedback de qualité. Ensemble, ils garantissent un socle opérationnel robuste, fiable et évolutif.&lt;/p&gt;
+&lt;h3 id=&quot;les-tests-d%E2%80%99ihm&quot;&gt;Les tests d’IHM &lt;a class=&quot;direct-link&quot; href=&quot;#les-tests-d%E2%80%99ihm&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/ui_tests.png#center&quot; alt=&quot;Test d&#39;intégraitons&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Les tests d’IHM, comme dit au début de l’article, ont la responsabilité de vérifier le fonctionnement global d’un composant dans l&#39;application. Ces tests valident à la fois que l’interface et le chemin de navigation(sur l’IHM) fonctionnement comme on le désire.&lt;/p&gt;
+&lt;p&gt;Par exemple: avec un test d’IHM, il est possible de vérifier que la création d’un objet métier (comme la création d’une nouvelle tâche) se passe bien d’un point de vu utilisateur, on teste autant l&#39;enchaînement des écrans que la cohérence entre les réponses visibles du système et la fonctionnalité. A la validation d’une tâche on vérifiera qu’en cas de succès la modalbox de validation soit bien verte avec le bon message à l’intérieur.&lt;/p&gt;
+&lt;p&gt;Ceci dit, avec cette méthode il est très difficile d’identifier, dans le cas d’erreurs, où se trouvent les régressions; le temps d’exécutions est aussi beaucoup plus long qu’un test traditionnel et ces tests ne permettent pas de disposer de feedback rapides, en plus d’être coûteux en maintenance, à cause de leurs fort couplage aux IHM.&lt;/p&gt;
+&lt;p&gt;Dans mon expérience, ces tests sont plus souvent exécutés en tâche de fond, et ne sont analysés qu’en cas d&#39;erreur. Ces tests sont souvent couplés à un système d’intégration continue et doivent rester passant.&lt;br&gt;
+Ces tests ne sont pas efficaces pour valider les échanges entre composants, les erreurs systèmes, les traitements de masses, ou bien les transformations de la donnée imposés par le métier. Il sera conseillé pour ces tests, d’investir dans des tests unitaires et d’intégrations qui eux proposent un feedback rapide et précis.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;direct-link&quot; href=&quot;#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Dans les projets sur lesquelles j’ai travaillé, la stratégie de la pyramide des tests s’est toujours montrée rentable sur la durée. Inexistante ou mal intégré, j’ai remarqué qu’au plus le temps passe au plus le coût de la recette augmente. Les sprints passants et le nombre de fonctionnalités augmentant, j’ai pu observer que la complexité requise pour tester un système et l’effort nécessaire pour maintenir une couverture fonctionnelle correcte ne cessait d’augmenter. Sans parler d’une qualité devenant discutable, basée sur des tests souvent manuels; les erreurs de manipulations sont donc très récurrentes et on rencontre alors des situations ou des erreurs se glissent jusqu&#39;à la production.&lt;/p&gt;
+&lt;p&gt;Le schéma inverse à la pyramide de Cohn se met alors en place : plus le temps passe, plus la complexité augmente, et plus le coût de la recette est important. Sans parler de l’incapacité à délivrer régulièrement, chose très problématique quand on se retrouve avec de hauts besoins de feedbacks utilisateurs.Vous comprendrez donc l&#39;intérêt d’automatiser les tests et de rendre la recette la plus autonome possible. Bien entendu, s’abstraire totalement de l’humain semble un peu ambitieux, mais disposer d’un socle de tests avec un feedback rapide vous permettra d’éviter d’investir du temps dans des tests toujours identiques, et vous permettra d’échanger pour affiner votre couverture fonctionnelle et répondre au mieux à la demande.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/corner-testing.png#center&quot; alt=&quot;Test d&#39;intégraitons&quot;&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Coldstart - Docker Basics</title>
+		<link href="https://sebastienallemand.fr/posts/devops/docker-cmd/"/>
+		<updated>2020-01-18T01:00:00+01:00</updated>
+		<id>https://sebastienallemand.fr/posts/devops/docker-cmd/</id>
+		<content type="html">&lt;h1 id=&quot;docker-basics-cmd&quot;&gt;Docker Basics Cmd &lt;a class=&quot;direct-link&quot; href=&quot;#docker-basics-cmd&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;.dockerignore&quot;&gt;.dockerignore &lt;a class=&quot;direct-link&quot; href=&quot;#.dockerignore&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;example:&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;node_modules
+npm-debug.log
+Dockerfile
+.dockerignore
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;build-image&quot;&gt;Build image &lt;a class=&quot;direct-link&quot; href=&quot;#build-image&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;docker build -t &amp;lt;docker_repository&amp;gt;/&amp;lt;image_name&amp;gt; .&lt;/code&gt;&lt;br&gt;
+The &lt;code&gt;.&lt;/code&gt; specifies that the build context is the current directory.&lt;/p&gt;
+&lt;h1 id=&quot;list-available-images&quot;&gt;List available images &lt;a class=&quot;direct-link&quot; href=&quot;#list-available-images&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;docker images&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;run-container&quot;&gt;Run container &lt;a class=&quot;direct-link&quot; href=&quot;#run-container&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;docker run --name &amp;lt;container_name&amp;gt; -p &amp;lt;local_port&amp;gt;:&amp;lt;container_port&amp;gt; -d &amp;lt;docker_repository&amp;gt;/&amp;lt;image_name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;run-shell&quot;&gt;Run shell &lt;a class=&quot;direct-link&quot; href=&quot;#run-shell&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;if stoped :&lt;br&gt;
+&lt;code&gt;docker exec -it &amp;lt;name_container&amp;gt; bash&lt;/code&gt;&lt;br&gt;
+&lt;em&gt;bash not stoped after exit because interactive mode&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&quot;remove-container-and-image&quot;&gt;Remove container and image &lt;a class=&quot;direct-link&quot; href=&quot;#remove-container-and-image&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;docker rm -v container_name&lt;/code&gt;&lt;br&gt;
+&lt;em&gt;remove all inactive containers&lt;/em&gt;&lt;code&gt;docker container prune&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;container-network&quot;&gt;Container network &lt;a class=&quot;direct-link&quot; href=&quot;#container-network&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;create-network&quot;&gt;Create network &lt;a class=&quot;direct-link&quot; href=&quot;#create-network&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;docker network create &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;connect-container-to-bridge&quot;&gt;connect container to bridge &lt;a class=&quot;direct-link&quot; href=&quot;#connect-container-to-bridge&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When you create a new container, you can specify one or more --network flags. This example connects a Nginx container to the my-net network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the my-net network has access to all ports on the my-nginx container, and vice versa.&lt;br&gt;
+&lt;code&gt;docker network connect &amp;lt;network_name&amp;gt; &amp;lt;container2&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;inspect-network&quot;&gt;inspect network &lt;a class=&quot;direct-link&quot; href=&quot;#inspect-network&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;docker network inspect&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+    {
+        &amp;quot;Name&amp;quot;: &amp;quot;my-net&amp;quot;,
+        &amp;quot;Id&amp;quot;: &amp;quot;b57e393b7c9ab38d596ad13b5a5341812cdc44600370afd74c25be0daada5663&amp;quot;,
+        &amp;quot;Created&amp;quot;: &amp;quot;2020-02-10T18:17:27.283066902Z&amp;quot;,
+[...]
+        &amp;quot;IPAM&amp;quot;: {
+            &amp;quot;Driver&amp;quot;: &amp;quot;default&amp;quot;,
+            &amp;quot;Options&amp;quot;: {},
+            &amp;quot;Config&amp;quot;: [
+                {
+                    &amp;quot;Subnet&amp;quot;: &amp;quot;172.18.0.0/16&amp;quot;,
+                    &amp;quot;Gateway&amp;quot;: &amp;quot;172.18.0.1&amp;quot;
+                }
+            ]
+        },
+[...]
+        &amp;quot;ConfigOnly&amp;quot;: false,
+        &amp;quot;Containers&amp;quot;: {
+            &amp;quot;13dee2f...7f907&amp;quot;: {
+                &amp;quot;Name&amp;quot;: &amp;quot;n2&amp;quot;,
+                &amp;quot;EndpointID&amp;quot;: &amp;quot;1d2b53ec0...e398c3bbf312&amp;quot;,
+                &amp;quot;MacAddress&amp;quot;: &amp;quot;02:42:ac:12:00:03&amp;quot;,
+                &amp;quot;IPv4Address&amp;quot;: &amp;quot;172.18.0.3/16&amp;quot;,
+                &amp;quot;IPv6Address&amp;quot;: &amp;quot;&amp;quot;
+            },
+            &amp;quot;89d2c008d9e6...049d5679a9a13ad&amp;quot;: {
+                &amp;quot;Name&amp;quot;: &amp;quot;n1&amp;quot;,
+                &amp;quot;EndpointID&amp;quot;: &amp;quot;30d1cd...9b5e246fd7b7fc133&amp;quot;,
+                &amp;quot;MacAddress&amp;quot;: &amp;quot;02:42:ac:12:00:02&amp;quot;,
+                &amp;quot;IPv4Address&amp;quot;: &amp;quot;172.18.0.2/16&amp;quot;,
+                &amp;quot;IPv6Address&amp;quot;: &amp;quot;&amp;quot;
+            }
+        },
+        &amp;quot;Options&amp;quot;: {},
+        &amp;quot;Labels&amp;quot;: {}
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;networking-container&quot;&gt;Networking container &lt;a class=&quot;direct-link&quot; href=&quot;#networking-container&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Connected to bridge manualy&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root@1f87bccac67c:/# cat /etc/hosts
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+172.17.0.2	1f87bccac67c
+172.18.0.2	1f87bccac67c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Disconnected to bridge manualy&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root@1f87bccac67c:/# cat /etc/hosts
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://runnable.com/docker/basic-docker-networking&quot;&gt;basic networking&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;links&quot;&gt;Links &lt;a class=&quot;direct-link&quot; href=&quot;#links&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-quickstart&quot;&gt;how-to-build-a-node-js-application-with-docker-quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;docker-volumes&quot;&gt;Docker Volumes &lt;a class=&quot;direct-link&quot; href=&quot;#docker-volumes&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;create : &lt;code&gt;docker volume create &amp;lt;name&amp;gt;&lt;/code&gt;&lt;br&gt;
+list : &lt;code&gt;docker volume ls &lt;/code&gt;&lt;br&gt;
+remove all unused : &lt;code&gt;docker volume prune&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;docker-mount-volume-to-container&quot;&gt;Docker mount volume to container &lt;a class=&quot;direct-link&quot; href=&quot;#docker-mount-volume-to-container&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;docker run --name snginx -p 8080:80 --mount source=my-vol,target=/var/www/html s/nginx&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Legacy Code</title>
+		<link href="https://sebastienallemand.fr/posts/craft/legacy-code/"/>
+		<updated>2020-02-15T01:00:00+01:00</updated>
+		<id>https://sebastienallemand.fr/posts/craft/legacy-code/</id>
+		<content type="html">&lt;p&gt;Si vous travaillez avec des développeurs vous avez certainement entendu parler de legacy. Un projet fréquemment perçu comme quelque chose de mystique, opaque, mal conçu faisant souvent référence à une période douloureuse ravivant de vieilles douleurs du passé…&lt;/p&gt;
+&lt;p&gt;Mais qu’en est t&#39;il vraiment ? Qu’appelle on Legacy ou bien Legacy Code ?&lt;br&gt;
+J’aimerais partager avec vous ma définition: ce qu’est un projet legacy, le code legacy et comment on a fait pour en arriver la.&lt;/p&gt;
+&lt;h2 id=&quot;projet-legacy%2C-c%E2%80%99est-quoi-%3F&quot;&gt;Projet legacy, c’est quoi ? &lt;a class=&quot;direct-link&quot; href=&quot;#projet-legacy%2C-c%E2%80%99est-quoi-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Selon moi un Projet Legacy est un projet terminé, un projet en production qui a débuté sa phase d’amortissement. Quand je parle d’amortissement je fais référence au fait que l’investissement financier et énergétique permet d’amorcer une phase de retour sur investissement.&lt;/p&gt;
+&lt;p&gt;Nous arrivons donc dans une phase ou le projet est stable, matur et viable pour répondre au besoin pour lequel il a été écrit. La base de code sur lequel il est bâti est considéré comme terminée et ne subira plus d’évolution majeure.&lt;/p&gt;
+&lt;p&gt;Il arrive très souvent, pour ne pas dire toujours, que pour répondre plus rapidement aux besoins du métier que des raccourcis soient pris dans l’architecture logicielle. Ces raccourcis mis bout à bout pris et repris par différentes équipes créent le code legacy de demain.&lt;/p&gt;
+&lt;h2 id=&quot;code-legacy%2C-c%E2%80%99est-quoi-%3F&quot;&gt;Code legacy, c’est quoi ? &lt;a class=&quot;direct-link&quot; href=&quot;#code-legacy%2C-c%E2%80%99est-quoi-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Lorsque vous travaillez sur un code opaque, ou les acteurs, le vocabulaire et les règles qui régissent le système, sont difficiles à identifier il y a fort à parier que vous travaillez sur un code legacy.&lt;/p&gt;
+&lt;h3 id=&quot;code-legacy%2C-un-code-sans-test-unitaire-%3F&quot;&gt;Code legacy, un code sans Test Unitaire ? &lt;a class=&quot;direct-link&quot; href=&quot;#code-legacy%2C-un-code-sans-test-unitaire-%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Oui ! Il m’est difficile de comprendre que du code puisse partir en production s&#39;il n’est pas couvert par une solide couche de tests représentant la réalité du métier.&lt;br&gt;
+A ne pas confondre avec de la couverture de composants techniques : couverture de getters/setters, système d’injection de dépendances, services ou que sais-je…&lt;/p&gt;
+&lt;p&gt;Peu importe la taille du projet, si le métier n’est pas couvert, il est impossible de garantir sa qualité. S&#39;il n’y à pas de couverture il sera impossible d’itérer et de maîtriser les changements dans le système.&lt;/p&gt;
+&lt;h2 id=&quot;code-legacy%2C-un-code-douloureux-%C3%A0-comprendre-et-difficile-%C3%A0-modifier-.&quot;&gt;Code legacy, un code douloureux à comprendre et difficile à modifier . &lt;a class=&quot;direct-link&quot; href=&quot;#code-legacy%2C-un-code-douloureux-%C3%A0-comprendre-et-difficile-%C3%A0-modifier-.&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Lorsque vous débutez sur un projet legacy, il est quasiment impossible de comprendre les éléments que vous manipulez, comprendre les interdépendances entres les acteurs du système relève certainement du miracle.&lt;/p&gt;
+&lt;p&gt;Cette douleur est dû à la qualité du code, qui, au fil du temps, se dégrade parce qu’elle n&#39;a pas ou rarement été revue. Vous évoluez dans un code ou les frontière du systèmes sont invisibles et modifier un acteur du système peut engendrer de lourdes régressions.&lt;/p&gt;
+&lt;h2 id=&quot;code-legacy%2C-est-un-risque.&quot;&gt;Code legacy, est un risque. &lt;a class=&quot;direct-link&quot; href=&quot;#code-legacy%2C-est-un-risque.&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Reprendre du code legacy et le faire évoluer, est un risque majeur. Si vous opérez des modifications dans un système sans boucle de feedback sur laquelle vous reposer opérer un changement du système est très risqué. Il sera alors très coûteux de s’engager sur une qualité de service.&lt;/p&gt;
+&lt;p&gt;Selon moi, reprendre une application legacy complètement fonctionnelle en production avec utilisateurs heureux, pourrait s’apparenter à créer un nouveau projet. Il très difficile de maintenir le système, sans risque de régressions : c’est un risque à accepter.&lt;/p&gt;
+&lt;p&gt;Le code legacy peut aussi devenir un risque face aux problèmes de sécurité dont il peut être victime. Un code non maintenu à jour, accessible par le net, est une porte sur le SI de son  organisation.&lt;/p&gt;
+&lt;h2 id=&quot;code-legacy%2C-une-formation-forc%C3%A9e.&quot;&gt;Code legacy, une formation forcée. &lt;a class=&quot;direct-link&quot; href=&quot;#code-legacy%2C-une-formation-forc%C3%A9e.&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Et c’est bien là que l&#39;on retrouve la principale caractéristique d’un développeur, la gestion de base de code ‘legacy’ oblige une certaine compréhension de toute la chaîne de valeur métier de l’application.&lt;/p&gt;
+&lt;p&gt;Cette compréhension passe par une formation forcée du métier. D’autant plus que dans notre cas il est difficile de comprendre le code qu’on manipule une compréhension et une anticipation des adhérences entre les entités du système est vital.&lt;/p&gt;
+&lt;h2 id=&quot;projet%2Fcode-legacy%2C-une-bonne-exp%C3%A9rience-pour-progresser&quot;&gt;Projet/Code legacy, une bonne expérience pour progresser &lt;a class=&quot;direct-link&quot; href=&quot;#projet%2Fcode-legacy%2C-une-bonne-exp%C3%A9rience-pour-progresser&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Travailler dans un système ancien, développé par d’autres, en production avec des utilisateurs est très formateur. Peu importe votre niveau, travailler dans un legacy éveillera votre esprit d’analyse et critique.&lt;/p&gt;
+&lt;p&gt;Vous pouvez chercher à éviter de travailler sur de tels systèmes ou bien vous pouvez voir cette opportunité comme l’occasion d’apprendre et d&#39;acquérir de l’expérience sur nouveaux concepts.&lt;/p&gt;
+&lt;p&gt;Avec la généralisation de l’informatique, le besoin de culture du legacy risque de s’intensifier. Nous devrons être en mesure de maintenir un niveau de service et de faire cohabiter les nouveaux systèmes avec les plus anciens.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>OpenSSL Toolbox</title>
+		<link href="https://sebastienallemand.fr/posts/devops/openssl-toolbox/"/>
+		<updated>2020-03-18T01:00:00+01:00</updated>
+		<id>https://sebastienallemand.fr/posts/devops/openssl-toolbox/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://raymii.org/s/articles/OpenSSL_manually_verify_a_certificate_against_a_CRL.html&quot;&gt;https://raymii.org/s/articles/OpenSSL_manually_verify_a_certificate_against_a_CRL.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;verify-ssl-certificate&quot;&gt;Verify SSL Certificate &lt;a class=&quot;direct-link&quot; href=&quot;#verify-ssl-certificate&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Get certificate&lt;br&gt;
+&lt;code&gt;openssl s_client -showcerts -connect &amp;lt;domain_name&amp;gt;:443&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;certificate-part&quot;&gt;Certificate part &lt;a class=&quot;direct-link&quot; href=&quot;#certificate-part&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;csr-(certificate-signing-request)&quot;&gt;CSR (Certificate Signing Request) &lt;a class=&quot;direct-link&quot; href=&quot;#csr-(certificate-signing-request)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;CSR is an encoded text that is given to a Certificate Authority when you apply for an SSL Certificate.&lt;/em&gt;  It&#39;s generaly generated on the server where the certificate will be instaled. It contains some informatiosn that will be included in the certificate such as the organization name, common name (domain name), locality, and country. It also contains the public key that will be included in the certificate.&lt;/p&gt;
+&lt;h4 id=&quot;what-is-contained-in-a-csr%3F&quot;&gt;What is contained in a CSR? &lt;a class=&quot;direct-link&quot; href=&quot;#what-is-contained-in-a-csr%3F&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Common Name&lt;/td&gt;
+&lt;td&gt;The fully qualified domain name (FQDN) of your server.&lt;/td&gt;
+&lt;td&gt;*.google.com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Organization&lt;/td&gt;
+&lt;td&gt;The legal name of your organization.&lt;/td&gt;
+&lt;td&gt;Google Inc.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Organizational Unit&lt;/td&gt;
+&lt;td&gt;The division of your organization handling the certificate.&lt;/td&gt;
+&lt;td&gt;Information Technology IT Department&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;City/Locality&lt;/td&gt;
+&lt;td&gt;The city where your organization is located.&lt;/td&gt;
+&lt;td&gt;Mountain View&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;State/County/Region&lt;/td&gt;
+&lt;td&gt;The state/region where your organization is located.&lt;/td&gt;
+&lt;td&gt;US&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Country&lt;/td&gt;
+&lt;td&gt;The two-letter ISO code for the country where your organization is location.&lt;/td&gt;
+&lt;td&gt;GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Email address&lt;/td&gt;
+&lt;td&gt;An email address used to contact your organization.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;mailto:webmaster@google.com&quot;&gt;webmaster@google.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Public Key&lt;/td&gt;
+&lt;td&gt;The public key that will go into the certificate.&lt;/td&gt;
+&lt;td&gt;The public key is created automatically&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.sslshopper.com/what-is-a-csr-certificate-signing-request.html&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;pem-%E2%80%9Cprivacy-enhanced-mail%E2%80%9D&quot;&gt;PEM “Privacy Enhanced Mail” &lt;a class=&quot;direct-link&quot; href=&quot;#pem-%E2%80%9Cprivacy-enhanced-mail%E2%80%9D&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A PEM file for an X.509 certificate is simply a text file that includes a Base64 encoding of certficiate text and a plain-text header and footer marking the beginning and end of the certificate &lt;a href=&quot;https://www.ssl.com/faqs/how-can-i-get-my-certificates-in-pem-format/&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Kubernetes Commands - Toolbox </title>
+		<link href="https://sebastienallemand.fr/posts/devops/kubernetes-cmd/"/>
+		<updated>2020-04-07T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/devops/kubernetes-cmd/</id>
+		<content type="html">&lt;hr&gt;
+&lt;h1 id=&quot;%E2%9D%97-the-golden-best-practice-%E2%9D%97%EF%B8%8F&quot;&gt;❗ The Golden best practice ❗️ &lt;a class=&quot;direct-link&quot; href=&quot;#%E2%9D%97-the-golden-best-practice-%E2%9D%97%EF%B8%8F&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;⛔️ &lt;strong&gt;Ne jamais, jamais, jamais déployer a la main&lt;/strong&gt; ⛔️&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Utiliser : kubectl apply -f&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Svp, merci.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;investigations-%26-debug&quot;&gt;Investigations &amp;amp; debug &lt;a class=&quot;direct-link&quot; href=&quot;#investigations-%26-debug&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Quelques commande pour s&#39;en sortir, quand ca va vraiment pas.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl logs &amp;lt;podid&amp;gt;
+kubectl describe pod &amp;lt;podid&amp;gt;
+kubectl describe deployer &amp;lt;deploymentid&amp;gt;
+kubectl describe service &amp;lt;serviceid&amp;gt;
+kubectl describe ingress &amp;lt;ingressid&amp;gt;
+kubectl get events
+
+# kubectl top
+kubectl top &amp;lt;pod_name&amp;gt;
+
+#logs
+tail -f /var/log/messages
+systemctl status kubelet
+journalctl -xe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;system&quot;&gt;System &lt;a class=&quot;direct-link&quot; href=&quot;#system&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;alias-system&quot;&gt;Alias system &lt;a class=&quot;direct-link&quot; href=&quot;#alias-system&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Retourner toutes les ressources avec tous les namespaces&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;alias kall = &#39;kubectl get all --all-namespaces&#39;
+alias kw = &#39;kubectl -owide&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;activer-l&#39;autocompletion&quot;&gt;Activer l&#39;autocompletion &lt;a class=&quot;direct-link&quot; href=&quot;#activer-l&#39;autocompletion&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;yum install bash-autocompletion
+// dans .bashrc &amp;lt;&amp;lt;
+source &amp;lt;(kubectl completion bash)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;fichiers-yaml&quot;&gt;Fichiers Yaml &lt;a class=&quot;direct-link&quot; href=&quot;#fichiers-yaml&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ne pas hésiter a regrouper plusieurs fichier Kube en un seul grace a &lt;code&gt;---&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Récupérer le Yaml d&#39;une ressource existante :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl get pod &amp;lt;ressource&amp;gt; -oyaml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Afficher en json et récupérer des commandes spécifiques&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl get nodes --output=jsonpath=&#39;{.items[0].metadata.name}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;utiliser-request-et-limit&quot;&gt;Utiliser request et limit &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-request-et-limit&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Détermine les ressources (CPU/ram) minimale toujours disponible (request) et limit limite les ressources dipo&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;pods sans request -&amp;gt; premier pod premier candidats supprimés&lt;/em&gt;&lt;br&gt;
+&lt;strong&gt;Bonne pratique&lt;/strong&gt;: en définir&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tips : garder des CPU REQUEST a 1, maximise les chances d&#39;etre schédulé / scalé&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;maximise les chances de trouver un pod avec ressources dispo&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&quot;limit-ressource-quota&quot;&gt;Limit ressource quota &lt;a class=&quot;direct-link&quot; href=&quot;#limit-ressource-quota&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;applique des ressources quota sur un cluster. S&#39;applique sur un namespaces&lt;/p&gt;
+&lt;h3 id=&quot;utiliser-propre-healtchek&quot;&gt;Utiliser propre healtchek &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-propre-healtchek&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;readiness probes&lt;/li&gt;
+&lt;li&gt;liveness probes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Utile dans le cas ou le container est pret mais pas l&#39;appli (temps de demarrage de spring)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;InitialDelaySecond : pour décaller le demarrage des sondes et attendre que l&#39;app soit up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;kubectl exe -it &lt;id&gt; -c apache bash&lt;/id&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;var d&#39;environnement / process / connectivité reseau / filesystem &amp;amp; passwords / volume&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;utiliser-portforward&quot;&gt;Utiliser portforward &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-portforward&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Se connecter depuis la machine locale vers le pod a travers le kubectl&lt;br&gt;
+kubectl port-forward &lt;pod&gt; 8080:88080&lt;/pod&gt;&lt;/p&gt;
+&lt;p&gt;possible entre services&lt;br&gt;
+kubectl port-forward svc/checkit 8080:808080&lt;/p&gt;
+&lt;h3 id=&quot;ingress&quot;&gt;Ingress &lt;a class=&quot;direct-link&quot; href=&quot;#ingress&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Collection de règles permettant a une connexion externe d&#39;atteindre des services a l&#39;intérieur du cluster&lt;/em&gt;_&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;terminaison SSL&lt;/li&gt;
+&lt;li&gt;vhost&lt;/li&gt;
+&lt;li&gt;path spliting (ex /admin -&amp;gt; spécialement sur un type de services)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;note-%3A-regarder-daemonset&quot;&gt;note : regarder daemonSet &lt;a class=&quot;direct-link&quot; href=&quot;#note-%3A-regarder-daemonset&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A regarder&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Mongodb - mongo-express - docker-compose</title>
+		<link href="https://sebastienallemand.fr/posts/devops/mongo-db/"/>
+		<updated>2020-04-14T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/devops/mongo-db/</id>
+		<content type="html">&lt;p&gt;&lt;strong&gt;Création d&#39;une instance mongodb avec docker &amp;amp; dockercompose 🚀&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;mongodb&quot;&gt;Mongodb &lt;a class=&quot;direct-link&quot; href=&quot;#mongodb&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Problèmes rencontrés&lt;/strong&gt; autour du système d&#39;authentification et droits a la base de données.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;d%C3%A9ploiement-via-docker-compose&quot;&gt;Déploiement via Docker-compose &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9ploiement-via-docker-compose&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;version: &#39;3&#39;
+
+services:
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=**root**
+      - MONGO_INITDB_ROOT_PASSWORD=**root**
+      - MONGO_INITDB_DATABASE=test
+    volumes:
+      - ./etc/mongo-volume:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    ports:
+      - &amp;quot;27017:27017&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;variables-d&#39;environnement&quot;&gt;Variables d&#39;environnement &lt;a class=&quot;direct-link&quot; href=&quot;#variables-d&#39;environnement&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ces variables créent un nouvel utilisateur :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MONGO_INITDB_ROOT_USERNAME&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MONGO_INITDB_ROOT_PASSWORD&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cet utilisateur est crée dans la table : &lt;a href=&quot;https://docs.mongodb.com/manual/core/security-users/#user-authentication-database&quot;&gt;&lt;code&gt;admin&lt;/code&gt;&lt;/a&gt; avec le role &lt;code&gt;ROOT&lt;/code&gt;&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;si ces deux variables sont renségnées alors mongodb démarre avec le l&#39;authentification obligatoire (voir &lt;code&gt;mongod --auth)&lt;/code&gt;)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Attention:&lt;/strong&gt; l&#39;initialisation de mongod se se base sur un fichier de configuration (docker-entrypoint)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;initialisation-d&#39;une-base-de-donn%C3%A9e-avec-syst%C3%A8me-d&#39;authentification&quot;&gt;Initialisation d&#39;une base de donnée avec système d&#39;authentification &lt;a class=&quot;direct-link&quot; href=&quot;#initialisation-d&#39;une-base-de-donn%C3%A9e-avec-syst%C3%A8me-d&#39;authentification&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Au lancement de mongodb les fichiers d&#39;initialisation (&lt;a href=&quot;https://docker-entrypoint-initdb.d/&quot;&gt;//docker-entrypoint-initdb.d&lt;/a&gt;) sont exécutés dans l&#39;ordre alphabetique.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Si la variable d&#39;environnement &lt;code&gt;MONGO_INITDB_DATABASE&lt;/code&gt; est renseignée alors elle sera utilisée pour l&#39;exécution de ces scripts.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;db.createUser(
+  {
+    user: &amp;quot;auth_login&amp;quot;,
+    pwd: &amp;quot;pwd&amp;quot;, // or cleartext password
+    roles: [ { role: &amp;quot;readWrite&amp;quot;, db: &amp;quot;db-project&amp;quot; } ]
+  }
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour aller plus loins :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/enable-authentication/&quot;&gt;mongodb - Enable Access Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/security/&quot;&gt;mongodb - Security&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;authentification&quot;&gt;Authentification &lt;a class=&quot;direct-link&quot; href=&quot;#authentification&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pour vous connecter il est possible d&#39;utiliser :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$&amp;gt; mongo -u &amp;lt;login&amp;gt; -p &amp;lt;pwd&amp;gt; authentificationDatabase &amp;lt;db_name&amp;gt;
+
+$&amp;gt; mongo -u &amp;lt;login&amp;gt; --authentificationDatabase &amp;lt;db_name&amp;gt;
+
+// exemple
+$&amp;gt; mongo -u auth_login --authentificationDatabase db-project
+Enter your password: ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour aller plus loins: &lt;a href=&quot;http://pierrepironin.github.io/docker-et-mongodb/#Lancer-le-server-MongoDB-en-mode-authentifie&quot;&gt;Encryption SSL&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;mongodb-express&quot;&gt;Mongodb Express &lt;a class=&quot;direct-link&quot; href=&quot;#mongodb-express&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Problèmes rencontrés&lt;/strong&gt; authentification sur bdd mongo via mongo-express&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&amp;gt; Ne pas se tromper dans les variables d&#39;environnement pour disposer d&#39;un accès root en dev (voir section variables d&#39;environnement)&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;d%C3%A9ploiement-via-docker-compose-2&quot;&gt;Déploiement via Docker-compose &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9ploiement-via-docker-compose-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;  mongo-express:
+    image: mongo-express
+    restart: always
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=**root** &amp;lt;-- # Doit correspondre au compte root décrit plus haut
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=**root** &amp;lt;--
+      - ME_CONFIG_BASICAUTH_USERNAME=dev
+      - ME_CONFIG_BASICAUTH_PASSWORD=dev
+    depends_on:
+      - mongo
+    ports:
+      - &amp;quot;8888:8081&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;authentification-2&quot;&gt;Authentification &lt;a class=&quot;direct-link&quot; href=&quot;#authentification-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Attention, a ne pas confondre &lt;code&gt;ME_CONFIG_MONGODB_ADMINUSERNAME&lt;/code&gt; et &lt;code&gt;ME_CONFIG_MONGODB_AUTH_USERNAME&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Les variables suivantes doivent être renseignées si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_AUTH_DATABASE&lt;/td&gt;
+&lt;td&gt;&#39;db&#39;&lt;/td&gt;
+&lt;td&gt;Database name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_AUTH_USERNAME&lt;/td&gt;
+&lt;td&gt;&#39;admin&#39;&lt;/td&gt;
+&lt;td&gt;Database username&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_AUTH_PASSWORD&lt;/td&gt;
+&lt;td&gt;&#39;pass&#39;&lt;/td&gt;
+&lt;td&gt;Database password&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est &lt;code&gt;false&lt;/code&gt;&lt;/strong&gt; alors l&#39;utilisateur définit va &lt;code&gt;ME_CONFIG_MONGODB_AUTH_USERNAME&lt;/code&gt; et &lt;code&gt;ME_CONFIG_MONGODB_AUTH_PASSWORD&lt;/code&gt; ne pourra pas voir toutes les bases de données.&lt;/p&gt;
+&lt;p&gt;Risque d&#39;erreur : &lt;code&gt;MongoError: not authorized on admin to execute command { listDatabases: 1 }&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Attention !&lt;/strong&gt; Si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est a &lt;code&gt;true&lt;/code&gt; alors, il sera possible d&#39;effectuer des actions &lt;strong&gt;critiques&lt;/strong&gt; via mongo-express.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;En dev :&lt;/em&gt; J&#39;utilise &lt;code&gt;ME_CONFIG_MONGODB_ADMINUSERNAME&lt;/code&gt; + compte root&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;variables-d&#39;environnement-2&quot;&gt;Variables d&#39;environnement &lt;a class=&quot;direct-link&quot; href=&quot;#variables-d&#39;environnement-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_BASICAUTH_USERNAME&lt;/td&gt;
+&lt;td&gt;&#39;&#39;&lt;/td&gt;
+&lt;td&gt;mongo-express web username&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_BASICAUTH_PASSWORD&lt;/td&gt;
+&lt;td&gt;&#39;&#39;&lt;/td&gt;
+&lt;td&gt;mongo-express web password&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/td&gt;
+&lt;td&gt;&#39;true&#39;&lt;/td&gt;
+&lt;td&gt;Enable admin access to all databases. Send strings: &lt;code&gt;&amp;quot;true&amp;quot;&lt;/code&gt; or &lt;code&gt;&amp;quot;false&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_ADMINUSERNAME&lt;/td&gt;
+&lt;td&gt;&#39;&#39;&lt;/td&gt;
+&lt;td&gt;MongoDB admin username&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_ADMINPASSWORD&lt;/td&gt;
+&lt;td&gt;&#39;&#39;&lt;/td&gt;
+&lt;td&gt;MongoDB admin password&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_PORT&lt;/td&gt;
+&lt;td&gt;27017&lt;/td&gt;
+&lt;td&gt;MongoDB port&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_MONGODB_SERVER&lt;/td&gt;
+&lt;td&gt;&#39;mongo&#39;&lt;/td&gt;
+&lt;td&gt;MongoDB container name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_OPTIONS_EDITORTHEME&lt;/td&gt;
+&lt;td&gt;&#39;default&#39;&lt;/td&gt;
+&lt;td&gt;mongo-express editor color theme, &lt;a href=&quot;http://codemirror.net/demo/theme.html&quot;&gt;more here&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_REQUEST_SIZE&lt;/td&gt;
+&lt;td&gt;&#39;100kb&#39;&lt;/td&gt;
+&lt;td&gt;Maximum payload size. CRUD operations above this size will fail in &lt;a href=&quot;https://www.npmjs.com/package/body-parser&quot;&gt;body-parser&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_SITE_BASEURL&lt;/td&gt;
+&lt;td&gt;&#39;/&#39;&lt;/td&gt;
+&lt;td&gt;Set the baseUrl to ease mounting at a subdirectory. Remember to include a leading and trailing slash.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_SITE_COOKIESECRET&lt;/td&gt;
+&lt;td&gt;&#39;cookiesecret&#39;&lt;/td&gt;
+&lt;td&gt;String used by &lt;a href=&quot;https://www.npmjs.com/package/cookie-parser&quot;&gt;cookie-parser middleware&lt;/a&gt; to sign cookies.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_SITE_SESSIONSECRET&lt;/td&gt;
+&lt;td&gt;&#39;sessionsecret&#39;&lt;/td&gt;
+&lt;td&gt;String used to sign the session ID cookie by &lt;a href=&quot;https://www.npmjs.com/package/express-session&quot;&gt;express-session middleware&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_SITE_SSL_ENABLED&lt;/td&gt;
+&lt;td&gt;&#39;false&#39;&lt;/td&gt;
+&lt;td&gt;Enable SSL.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_SITE_SSL_CRT_PATH&lt;/td&gt;
+&lt;td&gt;&#39;&#39;&lt;/td&gt;
+&lt;td&gt;SSL certificate file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ME_CONFIG_SITE_SSL_KEY_PATH&lt;/td&gt;
+&lt;td&gt;&#39;&#39;&lt;/td&gt;
+&lt;td&gt;SSL key file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+	</entry>
+</feed>

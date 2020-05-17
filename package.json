@@ -1,0 +1,28 @@
+{
+    "name": "blog_11ty",
+    "version": "1.0.0",
+    "author": "Sébastien ALLEMAND",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/"
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^0.8.3",
+        "@11ty/eleventy-navigation": "^0.1.5",
+        "@11ty/eleventy-plugin-rss": "^1.0.7",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
+        "@tbranyen/jsdom": "^13.0.0",
+        "cross-env": "^5.2.0",
+        "eleventy-plugin-description": "^0.1.2",
+        "eleventy-plugin-reading-time": "0.0.1",
+        "lodash": "^4.17.15",
+        "markdown-it": "^10.0.0",
+        "markdown-it-anchor": "^5.2.5",
+        "slugify": "^1.4.0"
+    },
+    "scripts": {
+        "serve": "eleventy --serve",
+        "production": "npm run sass:process && npm run cms:precompile && npm run cms:bundle && npx eleventy"
+    }
+}

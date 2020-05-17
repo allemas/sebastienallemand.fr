@@ -1,0 +1,13 @@
+---
+permalink: /tags/
+layout: layouts/post-2.njk
+---
+<ul class="listing">
+{% for tag in collections.tagList %}
+  <li>
+    <h3>
+    <a href="/tags/{{ tag | url }}" class="tag">{{ tag }}</a>
+    </h3>
+  </li>
+ {% endfor %}
+</ul>

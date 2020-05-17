@@ -1,0 +1,17 @@
+{
+  "author": {
+    "name": "ALLEMAND Sébastien",
+    "email": "sebastienallemand.as@gmail.com"
+  },
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://myurl.com/feed/feed.xml",
+    "id": "https://myurl.com/"
+  },
+  "title": "Allemand Sébastien",
+  "description": "Dev et ops, passionné d'architecture et de solutions. Je blogue autour de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité & Résilience",
+  "url": "https://sebastienallemand.fr",
+  "locale": "fr_FR"
+}

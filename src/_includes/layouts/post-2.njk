@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+---
+  <h1>{{ title }}</h1>
+  <div class="meta">
+    {% if date %}
+    <time datetime="{{ date | readableDate }}">{{ date | readableDate }}</time>
+    {% endif %}
+     - <span>Temps de lecture environ {{ content | readingTime }}</span>
+  </div>
+  {{ content | safe }}
+  <div class="footer-article">
+    {% if tags %}
+    <i>Mots clés : {% for tag in tags %} {% set tagUrl %}/tags/{{ tag }}/{% endset %} <a href="{{ tagUrl | url }}" class="tag">{{
+      tag }}</a>{% endfor %}</i><br>
+    {% endif %}
+    <i>Auteur : {{ author }}</i>
+  </div>
+</article>
+<hr>
+</div>
+<div class="container">
+  {% if prevPost.url %}
+    <p class="ctr nav-element-left">
+      <a class="previous" href="{{ prevPost.url }}">← Prev.</a>
+    </p>
+  {% endif %}
+
+  {% if nextPost.url %}
+    <p class="ctr nav-element-right">
+      <a class="next" href="{{ nextPost.url }}">Suiv. →</a>
+    </p>
+  {% endif %}
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
+
+  <meta name="title" content="Blog | Sébastien ALLEMAND">
+  <meta name="description" content="{{ renderData.description or description or metadata.description }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sebastienallemand.fr/">
+  <meta property="og:title" content="{{ title }} | Sébastien ALLEMAND">
+  <meta property="og:description" content="{{ renderData.description or description or metadata.description }}">
+  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sebastienallemand.fr/">
+  <meta property="twitter:title" content="{{ title }} | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="{{ renderData.description or description or metadata.description }}">
+  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+
+  <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
+
+  <title>{{ title }} | Sébastien ALLEMAND</title>
+  <style>{% include "css/styles.css" %}</style>
+  <style>{% include "css/logo.css" %}</style>
+</head>
+<body>
+{% include 'layouts/logo.njk' %}
+<div class="container menu-container">
+  <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
+</div>
+<div class="content" role="main" id="main">
+    <article class="container">
+      {{ content | safe }}
+  </div>
+</div>
+<footer>
+  <div class="container">
+    © 2020 <a href="https://twitter.com/allema_s">Sébastien Allemand</a> généré avec <a href="https://11ty.io">Eleventy</a>.
+  </div>
+</footer>
+</body>
+</html>
+

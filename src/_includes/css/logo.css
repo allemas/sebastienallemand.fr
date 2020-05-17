@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+.logo-wrapper {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hp-logo {
+    padding-top: 2rem
+}
+
+.logo-wrapper a {
+    text-decoration: none;
+}
+
+.logo-wrapper>a>.logo {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.logo-wrapper>a>.logo>.name-title {
+    margin: 0px;
+    font-size: calc(1.6rem + .6 * ((100vw - 320px) / 2680));
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-wrapper span.background-title,
+.blog-title {
+    text-transform: uppercase;
+    font-size: calc(4.5rem + .5 * ((100vw - 320px) / 2680));
+    letter-spacing: -11px;
+    line-height: 3.8rem;
+    display: inline;
+    text-align: left;
+}
+
+span.background-title .background-title-spare,
+.blog-title .background-title-spare {
+    display: inline;
+    color: #f02;
+}
+
+.baseline {
+    color: #444;
+    text-align: center;
+    font-weight: 300;
+    font-size: calc(1.2rem + .3 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header {
+    text-align: left;
+}
+
+.logo-post-header>a>.logo>.name-title {
+    font-size: calc(1.2rem + .6 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header span.background-title,
+.blog-title {
+    letter-spacing: -8px;
+    font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
+}

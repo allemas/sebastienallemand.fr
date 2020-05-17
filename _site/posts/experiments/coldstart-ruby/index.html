@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+
+  <meta name="title" content="Blog | Sébastien ALLEMAND">
+  <meta name="description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sebastienallemand.fr/">
+  <meta property="og:title" content="Coldstart Ruby / RubyOnRails en 2019 | Sébastien ALLEMAND">
+  <meta property="og:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sebastienallemand.fr/">
+  <meta property="twitter:title" content="Coldstart Ruby / RubyOnRails en 2019 | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+
+  <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
+
+  <title>Coldstart Ruby / RubyOnRails en 2019 | Sébastien ALLEMAND</title>
+  <style>body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #444;
+  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
+  line-height: 1.6;
+  text-align: center
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 20px
+  }
+}
+
+a:link,
+a:visited {
+  color: #222
+}
+
+footer,
+header {
+  color: #888;
+  font-size: .7em;
+  padding-bottom: 2em;
+  padding-top: 2em
+}
+
+header {
+  border-bottom: 1px solid #eee
+}
+
+.header-logo {
+  border-bottom: 0px solid #eee;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.header-posts {
+  padding: 1rem 0 1rem 0;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  margin-top: 6em
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #111;
+  font-family: sans-serif;
+  line-height: 1
+}
+
+h2 {
+  font-size: 34px;
+  letter-spacing: -.01em
+}
+
+h2 small {
+  color: #888;
+  font-size: .5em;
+  font-weight: 400
+}
+
+h3 {
+  margin-top: 2em
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0
+}
+
+figcaption {
+  color: #888;
+  font-size: .7em;
+  text-align: center
+}
+
+blockquote {
+  border-left: 3px solid #888;
+  font-style: italic;
+  margin-bottom: 0;
+  margin-left: -2em;
+  margin-top: 0;
+  padding-bottom: .5em;
+  padding-left: 2em;
+  padding-top: .5em
+}
+
+blockquote em {
+  font-style: normal
+}
+
+pre {
+  background-color: #eee;
+  font-size: .7em;
+  margin-bottom: 0;
+  margin-top: 0;
+  overflow-x: scroll;
+  padding-left: 1em;
+  padding-right: 1em
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+hr {
+  border-bottom: 1px solid #eee;
+  border-style: none;
+  margin-bottom: 3em;
+  margin-top: 2em
+}
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
+ul.listing {
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 0;
+  padding-top: 1.5em
+}
+
+ul.listing li {
+  margin-bottom: 1em
+}
+
+ul.listing h3 {
+  margin-top: .2rem;
+  margin-bottom: .2rem;
+  padding: 0;
+}
+
+ul.listing p.meta {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.menu-container {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.tag {
+  text-transform: capitalize;
+  border-bottom: 1px dotted #515151;
+}
+
+.tag:hover {
+  text-transform: capitalize;
+  border-bottom: 1px solid #000;
+}
+
+.tag-homepage {
+  text-transform: lowercase;
+  border-bottom: 1px dotted #515151;
+  font-size: 1.1rem;
+}
+
+.tag-homepage:hover {
+  border-bottom: 1px solid #000;
+  font-size: 1.1rem;
+}
+
+.nav-element-left {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.nav-element-right {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: right;
+}
+
+img[src*='#left'] {
+  float: left;
+}
+img[src*='#right'] {
+  float: right;
+}
+img[src*='#center'] {
+  position: relative;
+  display: block;
+  margin: auto;
+}
+img[src*='#banner'] {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+
+.pager {
+  text-align: center;
+}
+
+.footer-article {
+  margin-top: 3rem;
+}
+</style>
+  <style>@import url('https://fonts.googleapis.com/css?family=Poppins');
+.logo-wrapper {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hp-logo {
+    padding-top: 2rem
+}
+
+.logo-wrapper a {
+    text-decoration: none;
+}
+
+.logo-wrapper>a>.logo {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.logo-wrapper>a>.logo>.name-title {
+    margin: 0px;
+    font-size: calc(1.6rem + .6 * ((100vw - 320px) / 2680));
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-wrapper span.background-title,
+.blog-title {
+    text-transform: uppercase;
+    font-size: calc(4.5rem + .5 * ((100vw - 320px) / 2680));
+    letter-spacing: -11px;
+    line-height: 3.8rem;
+    display: inline;
+    text-align: left;
+}
+
+span.background-title .background-title-spare,
+.blog-title .background-title-spare {
+    display: inline;
+    color: #f02;
+}
+
+.baseline {
+    color: #444;
+    text-align: center;
+    font-weight: 300;
+    font-size: calc(1.2rem + .3 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header {
+    text-align: left;
+}
+
+.logo-post-header>a>.logo>.name-title {
+    font-size: calc(1.2rem + .6 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header span.background-title,
+.blog-title {
+    letter-spacing: -8px;
+    font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
+}</style>
+</head>
+<body>
+<header class="container header-logo">
+  <div class="logo-wrapper hp-logo">
+    <a href="/" class="site-link">
+      <div class="logo">
+        <h1 class="name-title">SEBASTIEN</h1>
+        <h1 class="name-title">ALLEMAND</h1>
+      </div>
+      <div class="blog-title">
+        <span class="background-title">Blog <span class="background-title-spare">.</span></span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<div class="container menu-container">
+  <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
+</div>
+<div class="content" role="main" id="main">
+    <article class="container">
+        <h1>Coldstart Ruby / RubyOnRails en 2019</h1>
+  <div class="meta">
+    
+    <time datetime="18-06-2019">18-06-2019</time>
+    
+     - <span>Temps de lecture environ 2 min</span>
+  </div>
+  <p>Il y a plusieurs semaines j’ai fait le choix de découvrir l'écosystème Ruby. N’utilisant pas cette technologie dans mon quotidien professionnel, j’ai choisi de pratiquer pendant mon temps libre.</p>
+<p>Avec maintenant un peu de recul je souhaiterais vous partager une liste de ressources et vous aider à pratiquer le plus rapidement possible avec Ruby et Ruby On Rails.</p>
+<p>Ruby est une technologie plutôt accessible, il ne sera pas nécessaire d’investir une grande quantité de temps pour commencer à voir ses premières pages et avancer sur un side project. La documentation est globalement de bonne qualitée et il n’est pas difficile de trouver réponse à ses questions.</p>
+<p>Je dirais que la principale difficulté qu’on peut rencontrer serait de ne pas oublier qu’on travaille avec un langage tout objet et que sortir de cette approche sera vite douloureux. Le design du langage ne permettra peut être pas de faire ce que vous faites avec d’autres langage, comme PHP par exemple qui lui est plus permissif pour tout ce qui est typage et structure de données.</p>
+<h2 id="mon-side-projet">Mon side projet <a class="direct-link" href="#mon-side-projet">#</a></h2>
+<p>Pour la pratique, j’ai fait le choix de développer un outil de suivi d’activité pour un jeu en ligne de conquête spatiale. Dans un premier temps l’objectif sera de proposer aux utilisateurs un rapport détaillé sur les combats qu’ils ont mené in-game.</p>
+<p>Les données seront récupérées via une API, l’application traitera les données et produira un rapport de combat détaillant les joueurs, les vaisseaux engagés, les gains et les pertes.</p>
+<p>Actuellement le projet n’est pas terminé, j’ai fait le choix de reprendre entièrement l’application pour piloter le développement par les tests et produire dans le temps un harnais de sécurité face aux régressions.</p>
+<p>Les ressources<br>
+Voici une liste des ressources qui m'ont permis de prendre la techno en mains, j'espère quelles vous aideront autant qu'elles mont aidées.</p>
+<h2 id="ruby">Ruby <a class="direct-link" href="#ruby">#</a></h2>
+<ul>
+<li>Installer Ruby</li>
+<li>Structures
+<ul>
+<li>Arrays - Sort</li>
+<li>Ruby arrays insert append length index remove</li>
+<li>Create a JSON object</li>
+<li>Présentation des Hash</li>
+<li>Fusion de hashs</li>
+</ul>
+</li>
+<li>Conception
+<ul>
+<li>DDD - Entités et valeurs</li>
+</ul>
+</li>
+</ul>
+<h2 id="rubyonrails-(ror)">RubyOnRails (ROR) <a class="direct-link" href="#rubyonrails-(ror)">#</a></h2>
+<ul>
+<li>Présentation &amp; installation</li>
+<li>Présentation &amp; Installation ROR</li>
+<li>Installation sqlite
+<ul>
+<li>Installation de gem</li>
+</ul>
+</li>
+<li>Concept Modèle-Vue-Controller &amp; organisation projet
+<ul>
+<li>Concept MVC</li>
+<li>Les bases MVC avec Rails</li>
+<li>Model view controller - en details</li>
+<li>RAD - Create Read Update Delete</li>
+</ul>
+</li>
+<li>Routing / Construction URL
+<ul>
+<li>Basics - Les routes qu'est-ce ? comment ca fonctionne?</li>
+<li>Comprendre les routes et le design RestFull</li>
+</ul>
+</li>
+</ul>
+<p>Construction de routes pour API</p>
+<p>[FR] - Description d'URL avec ROR</p>
+<p>Controller</p>
+<p>Basics - les controllers</p>
+<p>Persistance de données</p>
+<p>Basics - Active record qu'est-ce ?</p>
+<p>Requêtes avancés avec ActiveRecord</p>
+<p>Modèle de données</p>
+<p>Schéma de donnée : Construction / maintenance</p>
+<p>Les migrations Rails</p>
+<p>Migration - Evolution &amp; maintenance de schémas rails</p>
+<p>Theming</p>
+<p>Creating views in ruby on rails</p>
+<p>The Beginner's Guide to Rails Helpers</p>
+<p>API</p>
+<p>How to configure your first rails rest API</p>
+<p>ROR Configuration</p>
+<p>Class Autoloading</p>
+<p>How to safely store API keys in Rails apps</p>
+<p>Tests unitaires</p>
+<p>Test unitaire avec ROR</p>
+<p>How to Properly Test a Rails API with Rspec</p>
+
+  <div class="footer-article">
+    
+    <i>Mots clés :   <a href="/tags/crafting/" class="tag">crafting</a>  <a href="/tags/experiments/" class="tag">experiments</a></i><br>
+    
+    <i>Auteur : Allemand Sébastien</i>
+  </div>
+</article>
+<hr>
+</div>
+<div class="container">
+  
+    <p class="ctr nav-element-left">
+      <a class="previous" href="/posts/craft/l-art-de-nommer/">← Prev.</a>
+    </p>
+  
+
+  
+    <p class="ctr nav-element-right">
+      <a class="next" href="/posts/craft/practical-test-pyramid/">Suiv. →</a>
+    </p>
+  
+</div>
+
+  </div>
+</div>
+<footer>
+  <div class="container">
+    © 2020 <a href="https://twitter.com/allema_s">Sébastien Allemand</a> généré avec <a href="https://11ty.io">Eleventy</a>.
+  </div>
+</footer>
+</body>
+</html>
+
