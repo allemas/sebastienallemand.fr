@@ -2,14 +2,18 @@
 title: "Legacy Code"
 tags: [crafting, refactoring, legacycode]
 author: Allemand Sébastien
+description: Qu'est-ce que le code legacy, comment une application devient legacy et ce que ca implique
 url: legacy-code
 date: 2020-02-15
 ---
+![Legacy](./../../../assets/crafting/legacy-banner.png#center)
+
 
 Si vous travaillez avec des développeurs vous avez certainement entendu parler de legacy. Un projet fréquemment perçu comme quelque chose de mystique, opaque, mal conçu faisant souvent référence à une période douloureuse ravivant de vieilles douleurs du passé…
 
 Mais qu’en est t'il vraiment ? Qu’appelle on Legacy ou bien Legacy Code ?
-J’aimerais partager avec vous ma définition: ce qu’est un projet legacy, le code legacy et comment on a fait pour en arriver la.
+
+_J’aimerais partager avec vous ma définition: ce qu’est un projet legacy, le code legacy et comment on a fait pour en arriver la._
 
 ## Projet legacy, c’est quoi ?
 Selon moi un Projet Legacy est un projet terminé, un projet en production qui a débuté sa phase d’amortissement. Quand je parle d’amortissement je fais référence au fait que l’investissement financier et énergétique permet d’amorcer une phase de retour sur investissement.

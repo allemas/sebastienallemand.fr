@@ -2,26 +2,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-
   <meta name="title" content="Blog | Sébastien ALLEMAND">
-  <meta name="description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta name="description" content="Principales commandes kubernetes / Docker">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sebastienallemand.fr/">
   <meta property="og:title" content="Kubernetes Commands - Toolbox  | Sébastien ALLEMAND">
-  <meta property="og:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="og:description" content="Principales commandes kubernetes / Docker">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://sebastienallemand.fr/">
   <meta property="twitter:title" content="Kubernetes Commands - Toolbox  | Sébastien ALLEMAND">
-  <meta property="twitter:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="twitter:description" content="Principales commandes kubernetes / Docker">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
 
   <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
 
@@ -34,71 +33,56 @@ html {
 
 body {
   color: #444;
-  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
   font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
   line-height: 1.6;
   text-align: center
 }
 
-@media (min-width: 800px) {
-  body {
-    font-size: 20px
-  }
-}
-
-a:link,
-a:visited {
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
   color: #222
 }
 
-footer,
-header {
-  color: #888;
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
   font-size: .7em;
   padding-bottom: 2em;
-  padding-top: 2em
-}
-
-header {
-  border-bottom: 1px solid #eee
-}
-
-.header-logo {
-  border-bottom: 0px solid #eee;
-  padding: 0.5rem 0rem 0.5rem 0rem;
-}
-
-.header-posts {
-  padding: 1rem 0 1rem 0;
-}
-
-footer {
+  padding-top: 2em;
   border-top: 1px solid #eee;
-  margin-top: 6em
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: #111;
-  font-family: sans-serif;
-  line-height: 1
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2 {
-  font-size: 34px;
-  letter-spacing: -.01em
+h1.headline {
+  font-size: 3.5rem;
 }
 
-h2 small {
-  color: #888;
-  font-size: .5em;
-  font-weight: 400
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
 }
 
-h3 {
-  margin-top: 2em
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
 }
 
 figure {
@@ -111,6 +95,7 @@ figcaption {
   font-size: .7em;
   text-align: center
 }
+
 
 blockquote {
   border-left: 3px solid #888;
@@ -127,28 +112,13 @@ blockquote em {
   font-style: normal
 }
 
-pre {
+/*pre {
   background-color: #eee;
   font-size: .7em;
   margin-bottom: 0;
   margin-top: 0;
-  overflow-x: scroll;
-  padding-left: 1em;
-  padding-right: 1em
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  width: 90%
-}
-
-@media (min-width: 800px) {
-  .container {
-    width: 800px
-  }
-}
+  padding: 1em;
+}*/
 
 hr {
   border-bottom: 1px solid #eee;
@@ -157,25 +127,20 @@ hr {
   margin-top: 2em
 }
 
-.post-content img {
-  width: 100%
-}
-
-p.meta {
-  color: #444;
-  font-size: .8em;
-  font-style: italic;
-}
 
 ul.listing {
   list-style: none;
   list-style-position: outside;
   padding-left: 0;
-  padding-top: 1.5em
+/ / padding-top: 1.5 em
 }
 
 ul.listing li {
   margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
 }
 
 ul.listing h3 {
@@ -189,15 +154,44 @@ ul.listing p.meta {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
 
 .menu-container {
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
 
 .tag {
   text-transform: capitalize;
@@ -239,14 +233,18 @@ a {
 img[src*='#left'] {
   float: left;
 }
+
 img[src*='#right'] {
   float: right;
 }
+
 img[src*='#center'] {
   position: relative;
   display: block;
   margin: auto;
+  max-width: 100%;
 }
+
 img[src*='#banner'] {
   position: relative;
   display: block;
@@ -261,8 +259,13 @@ img[src*='#banner'] {
 .footer-article {
   margin-top: 3rem;
 }
+
 </style>
-  <style>@import url('https://fonts.googleapis.com/css?family=Poppins');
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
 .logo-wrapper {
     width: auto;
     margin: 0 auto;
@@ -304,6 +307,12 @@ img[src*='#banner'] {
     text-align: left;
 }
 
+
+
+
+
+
+
 span.background-title .background-title-spare,
 .blog-title .background-title-spare {
     display: inline;
@@ -329,7 +338,14 @@ span.background-title .background-title-spare,
 .blog-title {
     letter-spacing: -8px;
     font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
-}</style>
+}
+</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 <body>
 <header class="container header-logo">
@@ -351,66 +367,51 @@ span.background-title .background-title-spare,
 </div>
 <div class="content" role="main" id="main">
     <article class="container">
-        <h1>Kubernetes Commands - Toolbox </h1>
-  <div class="meta">
-    
-    <time datetime="07-04-2020">07-04-2020</time>
-    
-     - <span>Temps de lecture environ 2 min</span>
-  </div>
-  <hr>
-<h1 id="%E2%9D%97-the-golden-best-practice-%E2%9D%97%EF%B8%8F">❗ The Golden best practice ❗️ <a class="direct-link" href="#%E2%9D%97-the-golden-best-practice-%E2%9D%97%EF%B8%8F">#</a></h1>
-<p>⛔️ <strong>Ne jamais, jamais, jamais déployer a la main</strong> ⛔️</p>
+      <div class="title-wrapper">
+  <h1 class="headline">Kubernetes Commands - Toolbox </h1>
+</div>
+
+<div class="meta">
+  <span>Temps de lecture environ 2 min</span>
+</div>
+
+<div class="wrapper-content">
+  <p><img src="./../../../assets/devops/docker_k8s.png#center" alt=""></p>
 <blockquote>
-<p>Utiliser : kubectl apply -f</p>
+<p>Collection de commandes et tips pour s'en sortir dans kubernetes</p>
 </blockquote>
-<p>Svp, merci.</p>
-<hr>
-<h3 id="investigations-%26-debug">Investigations &amp; debug <a class="direct-link" href="#investigations-%26-debug">#</a></h3>
+<h2 id="d%C3%A9ploiment-manuel">Déploiment manuel <a class="direct-link" href="#d%C3%A9ploiment-manuel">#</a></h2>
+<p>⛔️ <strong>Ne jamais, jamais, jamais déployer a la main</strong> ⛔️</p>
+<p>Utiliser :</p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">kubectl apply -f</span></code></pre>
+<h2 id="investigations-%26-debug">Investigations &amp; debug <a class="direct-link" href="#investigations-%26-debug">#</a></h2>
 <p>Quelques commande pour s'en sortir, quand ca va vraiment pas.</p>
-<pre><code>kubectl logs &lt;podid&gt;
-kubectl describe pod &lt;podid&gt;
-kubectl describe deployer &lt;deploymentid&gt;
-kubectl describe service &lt;serviceid&gt;
-kubectl describe ingress &lt;ingressid&gt;
-kubectl get events
-
-# kubectl top
-kubectl top &lt;pod_name&gt;
-
-#logs
-tail -f /var/log/messages
-systemctl status kubelet
-journalctl -xe
-</code></pre>
-<h3 id="system">System <a class="direct-link" href="#system">#</a></h3>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">kubectl logs <span class="token operator">&lt;</span>podid<span class="token operator">></span></span><br><span class="highlight-line">kubectl describe pod <span class="token operator">&lt;</span>podid<span class="token operator">></span></span><br><span class="highlight-line">kubectl describe deployer <span class="token operator">&lt;</span>deploymentid<span class="token operator">></span></span><br><span class="highlight-line">kubectl describe <span class="token function">service</span> <span class="token operator">&lt;</span>serviceid<span class="token operator">></span></span><br><span class="highlight-line">kubectl describe ingress <span class="token operator">&lt;</span>ingressid<span class="token operator">></span></span><br><span class="highlight-line">kubectl get events</span></code></pre>
+<h4 id="kubectl-top">kubectl top <a class="direct-link" href="#kubectl-top">#</a></h4>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">kubectl <span class="token function">top</span> <span class="token operator">&lt;</span>pod_name<span class="token operator">></span></span></code></pre>
+<h4 id="logs">logs <a class="direct-link" href="#logs">#</a></h4>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token function">tail</span> -f /var/log/messages</span><br><span class="highlight-line">systemctl status kubelet</span><br><span class="highlight-line">journalctl -xe</span></code></pre>
+<h2 id="system">System <a class="direct-link" href="#system">#</a></h2>
 <h4 id="alias-system">Alias system <a class="direct-link" href="#alias-system">#</a></h4>
 <p>Retourner toutes les ressources avec tous les namespaces</p>
-<pre><code>alias kall = 'kubectl get all --all-namespaces'
-alias kw = 'kubectl -owide'
-</code></pre>
-<h4 id="activer-l'autocompletion">Activer l'autocompletion <a class="direct-link" href="#activer-l'autocompletion">#</a></h4>
-<pre><code>yum install bash-autocompletion
-// dans .bashrc &lt;&lt;
-source &lt;(kubectl completion bash)
-</code></pre>
-<h3 id="fichiers-yaml">Fichiers Yaml <a class="direct-link" href="#fichiers-yaml">#</a></h3>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token builtin class-name">alias</span> kall <span class="token operator">=</span> <span class="token string">'kubectl get all --all-namespaces'</span></span><br><span class="highlight-line"><span class="token builtin class-name">alias</span> kw <span class="token operator">=</span> <span class="token string">'kubectl -owide'</span></span></code></pre>
+<h2 id="activer-l'autocompletion">Activer l'autocompletion <a class="direct-link" href="#activer-l'autocompletion">#</a></h2>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">yum <span class="token function">install</span> bash-autocompletion</span><br><span class="highlight-line">// dans .bashrc <span class="token operator">&lt;&lt;</span></span><br><span class="highlight-line"><span class="token builtin class-name">source</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span>kubectl completion <span class="token function">bash</span><span class="token punctuation">)</span></span></code></pre>
+<h2 id="fichiers-yaml">Fichiers Yaml <a class="direct-link" href="#fichiers-yaml">#</a></h2>
 <p>Ne pas hésiter a regrouper plusieurs fichier Kube en un seul grace a <code>---</code></p>
 <p>Récupérer le Yaml d'une ressource existante :</p>
-<pre><code>kubectl get pod &lt;ressource&gt; -oyaml
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">kubectl get pod <span class="token operator">&lt;</span>ressource<span class="token operator">></span> -oyaml</span></code></pre>
 <p>Afficher en json et récupérer des commandes spécifiques</p>
-<pre><code>kubectl get nodes --output=jsonpath='{.items[0].metadata.name}'
-</code></pre>
-<h4 id="utiliser-request-et-limit">Utiliser request et limit <a class="direct-link" href="#utiliser-request-et-limit">#</a></h4>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">kubectl get nodes --output<span class="token operator">=</span>jsonpath<span class="token operator">=</span><span class="token string">'{.items[0].metadata.name}'</span></span></code></pre>
+<h2 id="utiliser-request-et-limit">Utiliser request et limit <a class="direct-link" href="#utiliser-request-et-limit">#</a></h2>
 <p>Détermine les ressources (CPU/ram) minimale toujours disponible (request) et limit limite les ressources dipo</p>
 <p><em>pods sans request -&gt; premier pod premier candidats supprimés</em><br>
 <strong>Bonne pratique</strong>: en définir</p>
 <p><em>Tips : garder des CPU REQUEST a 1, maximise les chances d'etre schédulé / scalé</em><br>
 <em>maximise les chances de trouver un pod avec ressources dispo</em></p>
-<h4 id="limit-ressource-quota">Limit ressource quota <a class="direct-link" href="#limit-ressource-quota">#</a></h4>
+<h2 id="limit-ressource-quota">Limit ressource quota <a class="direct-link" href="#limit-ressource-quota">#</a></h2>
 <p>applique des ressources quota sur un cluster. S'applique sur un namespaces</p>
-<h3 id="utiliser-propre-healtchek">Utiliser propre healtchek <a class="direct-link" href="#utiliser-propre-healtchek">#</a></h3>
+<h2 id="utiliser-propre-healtchek">Utiliser propre healtchek <a class="direct-link" href="#utiliser-propre-healtchek">#</a></h2>
 <ul>
 <li>readiness probes</li>
 <li>liveness probes</li>
@@ -427,41 +428,43 @@ source &lt;(kubectl completion bash)
 <ul>
 <li>var d'environnement / process / connectivité reseau / filesystem &amp; passwords / volume</li>
 </ul>
-<h3 id="utiliser-portforward">Utiliser portforward <a class="direct-link" href="#utiliser-portforward">#</a></h3>
+<h2 id="utiliser-portforward">Utiliser portforward <a class="direct-link" href="#utiliser-portforward">#</a></h2>
 <p>Se connecter depuis la machine locale vers le pod a travers le kubectl<br>
 kubectl port-forward <pod> 8080:88080</p>
 <p>possible entre services<br>
 kubectl port-forward svc/checkit 8080:808080</p>
-<h3 id="ingress">Ingress <a class="direct-link" href="#ingress">#</a></h3>
+<h2 id="ingress">Ingress <a class="direct-link" href="#ingress">#</a></h2>
 <p><em>Collection de règles permettant a une connexion externe d'atteindre des services a l'intérieur du cluster</em>_</p>
 <ul>
 <li>terminaison SSL</li>
 <li>vhost</li>
 <li>path spliting (ex /admin -&gt; spécialement sur un type de services)</li>
 </ul>
-<h1 id="note-%3A-regarder-daemonset">note : regarder daemonSet <a class="direct-link" href="#note-%3A-regarder-daemonset">#</a></h1>
-<p>A regarder</p>
 
-  <div class="footer-article">
-    
-    <i>Mots clés :   <a href="/tags/devops/" class="tag">devops</a>  <a href="/tags/kubernetes/" class="tag">kubernetes</a></i><br>
-    
-    <i>Auteur : Allemand Sébastien</i>
-  </div>
+</div>
+
+<div class="footer-article">
+  
+  <i>Mots clés :   <a href="/tags/devops/"
+                                                                                       class="tag">devops</a>  <a href="/tags/kubernetes/"
+                                                                                       class="tag">kubernetes</a></i><br>
+  
+  <i>Auteur : Allemand Sébastien</i>
+</div>
 </article>
 <hr>
 </div>
 <div class="container">
   
-    <p class="ctr nav-element-left">
-      <a class="previous" href="/posts/devops/openssl-toolbox/">← Prev.</a>
-    </p>
+  <p class="ctr nav-element-left">
+    <a class="previous" href="/posts/devops/openssl-toolbox/">← Prev.</a>
+  </p>
   
 
   
-    <p class="ctr nav-element-right">
-      <a class="next" href="/posts/devops/mongo-db/">Suiv. →</a>
-    </p>
+  <p class="ctr nav-element-right">
+    <a class="next" href="/posts/devops/mongo-db/">Suiv. →</a>
+  </p>
   
 </div>
 

@@ -30,22 +30,22 @@
     <style>{% include "css/styles.css" %}</style>
     <style>{% include "css/logo.css" %}</style>
   </head>
+
   <body>
     {% include 'layouts/logo.njk' %}
       <div class="container menu-container">
         <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
       </div>
     <div class="container">
-      <h2>Articles</h2>
+      <h1 class="headline">Articles</h1>
       {{ content | safe }}
     </div>
     <div class="container">
-      <h2>Qui suis je?</h2>
+      <h1>Qui suis je?</h1>
       <p>Dev et ops, je suis passionné d'architecture et de solutions au service d'un produit.<br>
         Plus intéressé par les solutions et les concepts que par les outils je n'ai pas de préférences techniques.
       </p>
-
-      <p>Refactoring / TDD - DDD -  Infrastructure/Containerisation - Haute dispo. & Résilience</p>
+      <p>Software crafting - Refactoring / TDD - DDD - Infrastructure haute dispo</p>
     </div>
     <hr/>
 

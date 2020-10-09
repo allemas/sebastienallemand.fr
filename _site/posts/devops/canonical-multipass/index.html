@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="title" content="Blog | Sébastien ALLEMAND">
+  <meta name="description" content="Mise en place d&#39;un cluster kubernetes (k8s) avec k3s de rancher et multipass de canonical">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sebastienallemand.fr/">
+  <meta property="og:title" content="Construire un cluster de VM avec Multipass | Sébastien ALLEMAND">
+  <meta property="og:description" content="Mise en place d&#39;un cluster kubernetes (k8s) avec k3s de rancher et multipass de canonical">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sebastienallemand.fr/">
+  <meta property="twitter:title" content="Construire un cluster de VM avec Multipass | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="Mise en place d&#39;un cluster kubernetes (k8s) avec k3s de rancher et multipass de canonical">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
+
+  <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
+
+  <title>Construire un cluster de VM avec Multipass | Sébastien ALLEMAND</title>
+  <style>body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #444;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
+  line-height: 1.6;
+  text-align: center
+}
+
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #222
+}
+
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
+  font-size: .7em;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  border-top: 1px solid #eee;
+}
+
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1.headline {
+  font-size: 3.5rem;
+}
+
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0
+}
+
+figcaption {
+  color: #888;
+  font-size: .7em;
+  text-align: center
+}
+
+
+blockquote {
+  border-left: 3px solid #888;
+  font-style: italic;
+  margin-bottom: 0;
+  margin-left: -2em;
+  margin-top: 0;
+  padding-bottom: .5em;
+  padding-left: 2em;
+  padding-top: .5em
+}
+
+blockquote em {
+  font-style: normal
+}
+
+/*pre {
+  background-color: #eee;
+  font-size: .7em;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 1em;
+}*/
+
+hr {
+  border-bottom: 1px solid #eee;
+  border-style: none;
+  margin-bottom: 3em;
+  margin-top: 2em
+}
+
+
+ul.listing {
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 0;
+/ / padding-top: 1.5 em
+}
+
+ul.listing li {
+  margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
+}
+
+ul.listing h3 {
+  margin-top: .2rem;
+  margin-bottom: .2rem;
+  padding: 0;
+}
+
+ul.listing p.meta {
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu-container {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
+
+.tag {
+  text-transform: capitalize;
+  border-bottom: 1px dotted #515151;
+}
+
+.tag:hover {
+  text-transform: capitalize;
+  border-bottom: 1px solid #000;
+}
+
+.tag-homepage {
+  text-transform: lowercase;
+  border-bottom: 1px dotted #515151;
+  font-size: 1.1rem;
+}
+
+.tag-homepage:hover {
+  border-bottom: 1px solid #000;
+  font-size: 1.1rem;
+}
+
+.nav-element-left {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.nav-element-right {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: right;
+}
+
+img[src*='#left'] {
+  float: left;
+}
+
+img[src*='#right'] {
+  float: right;
+}
+
+img[src*='#center'] {
+  position: relative;
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+img[src*='#banner'] {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+
+.pager {
+  text-align: center;
+}
+
+.footer-article {
+  margin-top: 3rem;
+}
+
+</style>
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+.logo-wrapper {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hp-logo {
+    padding-top: 2rem
+}
+
+.logo-wrapper a {
+    text-decoration: none;
+}
+
+.logo-wrapper>a>.logo {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.logo-wrapper>a>.logo>.name-title {
+    margin: 0px;
+    font-size: calc(1.6rem + .6 * ((100vw - 320px) / 2680));
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-wrapper span.background-title,
+.blog-title {
+    text-transform: uppercase;
+    font-size: calc(4.5rem + .5 * ((100vw - 320px) / 2680));
+    letter-spacing: -11px;
+    line-height: 3.8rem;
+    display: inline;
+    text-align: left;
+}
+
+
+
+
+
+
+
+span.background-title .background-title-spare,
+.blog-title .background-title-spare {
+    display: inline;
+    color: #f02;
+}
+
+.baseline {
+    color: #444;
+    text-align: center;
+    font-weight: 300;
+    font-size: calc(1.2rem + .3 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header {
+    text-align: left;
+}
+
+.logo-post-header>a>.logo>.name-title {
+    font-size: calc(1.2rem + .6 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header span.background-title,
+.blog-title {
+    letter-spacing: -8px;
+    font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
+}
+</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<header class="container header-logo">
+  <div class="logo-wrapper hp-logo">
+    <a href="/" class="site-link">
+      <div class="logo">
+        <h1 class="name-title">SEBASTIEN</h1>
+        <h1 class="name-title">ALLEMAND</h1>
+      </div>
+      <div class="blog-title">
+        <span class="background-title">Blog <span class="background-title-spare">.</span></span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<div class="container menu-container">
+  <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
+</div>
+<div class="content" role="main" id="main">
+    <article class="container">
+      <div class="title-wrapper">
+  <h1 class="headline">Construire un cluster de VM avec Multipass</h1>
+</div>
+
+<div class="meta">
+  <span>Temps de lecture environ 1 min</span>
+</div>
+
+<div class="wrapper-content">
+  <p>Il existe une multitupde d'outils pour virutaliser des machines (VM). Aujourd'hui j'ai décidé pour mes atelier et mes expérience d'utiliser Multipass, un outil de la team <a href="https://multipass.run/">Canonical</a>.<br>
+<a href="https://multipass.run/docs">Multipass</a> est un outil de construction de VMs sous ubuntu, je compte utiliser cet outil pour construire très rapidement un environnement de developpement.</p>
+<h2 id="lancer-une-instance">Lancer une instance <a class="direct-link" href="#lancer-une-instance">#</a></h2>
+<pre><code>multipass launch --name &lt;VM_name&gt;
+</code></pre>
+<h2 id="lister-toutes-les-instance">lister toutes les instance <a class="direct-link" href="#lister-toutes-les-instance">#</a></h2>
+<pre><code>multipass list
+</code></pre>
+<h2 id="arreter-%2F-d%C3%A9marrer-une-instance">Arreter / démarrer une instance <a class="direct-link" href="#arreter-%2F-d%C3%A9marrer-une-instance">#</a></h2>
+<pre><code>multipass stop &lt;VM_name&gt;
+multipass start &lt;VM_name&gt;
+</code></pre>
+<h2 id="supprimer-une-instance">Supprimer une instance <a class="direct-link" href="#supprimer-une-instance">#</a></h2>
+<p>Attention, lorsque vous supprimez une instance elle ne l'est pas réellement.<br>
+Il faut d'abord la supprimer et ensuite purger les Vms.</p>
+<h3 id="supprimer">Supprimer <a class="direct-link" href="#supprimer">#</a></h3>
+<pre><code>multipass delete &lt;vm_name&gt;
+</code></pre>
+<h3 id="purger">Purger <a class="direct-link" href="#purger">#</a></h3>
+<pre><code>multipass purge
+</code></pre>
+<h2 id="ex%C3%A9cuter-commande">Exécuter commande <a class="direct-link" href="#ex%C3%A9cuter-commande">#</a></h2>
+<p>Dans cet exemple installation de k3s</p>
+<pre><code>multipass --verbose exec &lt;vm_name&gt; -- sh -c &quot;
+  curl -sfL https://get.k3s.io | sh -
+&quot;
+</code></pre>
+<p><code>multipass --verbose exec node_name -- sh -c &quot;ls /&quot;</code> : lance une commande sur une machine</p>
+<h2 id="n'h%C3%A9sitez-pas-a-scripter-!">N'hésitez pas a scripter ! <a class="direct-link" href="#n'h%C3%A9sitez-pas-a-scripter-!">#</a></h2>
+
+</div>
+
+<div class="footer-article">
+  
+  <i>Mots clés :   <a href="/tags/devops/"
+                                                                                       class="tag">devops</a>  <a href="/tags/multipass/"
+                                                                                       class="tag">multipass</a>  <a href="/tags/canonical/"
+                                                                                       class="tag">canonical</a></i><br>
+  
+  <i>Auteur : Allemand Sébastien</i>
+</div>
+</article>
+<hr>
+</div>
+<div class="container">
+  
+  <p class="ctr nav-element-left">
+    <a class="previous" href="/posts/craft/legacy-code/">← Prev.</a>
+  </p>
+  
+
+  
+  <p class="ctr nav-element-right">
+    <a class="next" href="/posts/devops/k3s-rancher/">Suiv. →</a>
+  </p>
+  
+</div>
+
+  </div>
+</div>
+<footer>
+  <div class="container">
+    © 2020 <a href="https://twitter.com/allema_s">Sébastien Allemand</a> généré avec <a href="https://11ty.io">Eleventy</a>.
+  </div>
+</footer>
+</body>
+</html>
+

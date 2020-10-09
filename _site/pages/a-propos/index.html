@@ -2,26 +2,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-
   <meta name="title" content="Blog | Sébastien ALLEMAND">
-  <meta name="description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta name="description" content="Devops, passionné d&#39;architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sebastienallemand.fr/">
   <meta property="og:title" content="A propos | Sébastien ALLEMAND">
-  <meta property="og:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="og:description" content="Devops, passionné d&#39;architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://sebastienallemand.fr/">
   <meta property="twitter:title" content="A propos | Sébastien ALLEMAND">
-  <meta property="twitter:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="twitter:description" content="Devops, passionné d&#39;architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
 
   <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
 
@@ -34,71 +33,56 @@ html {
 
 body {
   color: #444;
-  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
   font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
   line-height: 1.6;
   text-align: center
 }
 
-@media (min-width: 800px) {
-  body {
-    font-size: 20px
-  }
-}
-
-a:link,
-a:visited {
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
   color: #222
 }
 
-footer,
-header {
-  color: #888;
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
   font-size: .7em;
   padding-bottom: 2em;
-  padding-top: 2em
-}
-
-header {
-  border-bottom: 1px solid #eee
-}
-
-.header-logo {
-  border-bottom: 0px solid #eee;
-  padding: 0.5rem 0rem 0.5rem 0rem;
-}
-
-.header-posts {
-  padding: 1rem 0 1rem 0;
-}
-
-footer {
+  padding-top: 2em;
   border-top: 1px solid #eee;
-  margin-top: 6em
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: #111;
-  font-family: sans-serif;
-  line-height: 1
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2 {
-  font-size: 34px;
-  letter-spacing: -.01em
+h1.headline {
+  font-size: 3.5rem;
 }
 
-h2 small {
-  color: #888;
-  font-size: .5em;
-  font-weight: 400
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
 }
 
-h3 {
-  margin-top: 2em
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
 }
 
 figure {
@@ -111,6 +95,7 @@ figcaption {
   font-size: .7em;
   text-align: center
 }
+
 
 blockquote {
   border-left: 3px solid #888;
@@ -127,28 +112,13 @@ blockquote em {
   font-style: normal
 }
 
-pre {
+/*pre {
   background-color: #eee;
   font-size: .7em;
   margin-bottom: 0;
   margin-top: 0;
-  overflow-x: scroll;
-  padding-left: 1em;
-  padding-right: 1em
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  width: 90%
-}
-
-@media (min-width: 800px) {
-  .container {
-    width: 800px
-  }
-}
+  padding: 1em;
+}*/
 
 hr {
   border-bottom: 1px solid #eee;
@@ -157,25 +127,20 @@ hr {
   margin-top: 2em
 }
 
-.post-content img {
-  width: 100%
-}
-
-p.meta {
-  color: #444;
-  font-size: .8em;
-  font-style: italic;
-}
 
 ul.listing {
   list-style: none;
   list-style-position: outside;
   padding-left: 0;
-  padding-top: 1.5em
+/ / padding-top: 1.5 em
 }
 
 ul.listing li {
   margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
 }
 
 ul.listing h3 {
@@ -189,15 +154,44 @@ ul.listing p.meta {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
 
 .menu-container {
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
 
 .tag {
   text-transform: capitalize;
@@ -239,14 +233,18 @@ a {
 img[src*='#left'] {
   float: left;
 }
+
 img[src*='#right'] {
   float: right;
 }
+
 img[src*='#center'] {
   position: relative;
   display: block;
   margin: auto;
+  max-width: 100%;
 }
+
 img[src*='#banner'] {
   position: relative;
   display: block;
@@ -261,8 +259,13 @@ img[src*='#banner'] {
 .footer-article {
   margin-top: 3rem;
 }
+
 </style>
-  <style>@import url('https://fonts.googleapis.com/css?family=Poppins');
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
 .logo-wrapper {
     width: auto;
     margin: 0 auto;
@@ -304,6 +307,12 @@ img[src*='#banner'] {
     text-align: left;
 }
 
+
+
+
+
+
+
 span.background-title .background-title-spare,
 .blog-title .background-title-spare {
     display: inline;
@@ -329,7 +338,14 @@ span.background-title .background-title-spare,
 .blog-title {
     letter-spacing: -8px;
     font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
-}</style>
+}
+</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 <body>
 <header class="container header-logo">
@@ -350,15 +366,50 @@ span.background-title .background-title-spare,
   <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
 </div>
 <div class="content" role="main" id="main">
-    <article class="container">
-      <h1 id="qui-suis-je-%3F">Qui suis je ? <a class="direct-link" href="#qui-suis-je-%3F">#</a></h1>
-<p>Dev et ops, je suis passionné d'architecture et de solutions au service d'un produit. Plus intéressé par les solutions et les concepts que par les outils je n'ai pas de préférences techniques. Toujours en recherche de découvertes, je partage mes recherches et mes connaissances autour de sujets qui me passionnent.</p>
-<p>Je blogue Domain Driven Design - Refactoring / Decouplage / TDD - Infrastructure &amp; Containerisation - Haute disponibilité &amp; Résilience</p>
-<h1 id="int%C3%A9rets-techniques">Intérets Techniques <a class="direct-link" href="#int%C3%A9rets-techniques">#</a></h1>
-<p>Architecture logicielle (Hexagonale/CQRS/EvenSourcing...), Domain Driven Design, SOLID, KISS,<br>
-DRY, Refactoring/Découplage, CodingDojo/Kata ,EventStorming, TDD, intégration et déploiement continue.</p>
-<p><a href="./../../assets/cv_2019.pdf">Télécharger mon CV</a></p>
+  <div class="container">
+    <h1 class="headline">A Propos.</h1>
+      <p>Je m'appelle Sébastien et je bricole du code depuis l'age de 12ans.
+          Je suis un passionné par les systèmes d'informations et j'aime comprendre le métier et les contraintes de mes clients.<br>
+          Ma mission, développer, optimiser et automatiser les chaines de productions de valeurs de mes projets.<br/>
+      Plus intéressé par les solutions et les concepts que par les outils je n'ai pas de préférences techniques, je n'ai aucune limite a passer d'une techno a l'autre.</p>
+  </div>
+  <div class="container">
+    <h1>Actuellement:</h1>
+      <b>Tech lead - Référent technique / DevOps</b> dans une équipe agile de 5 personnes <br>
+      Partage et sensibilisation aux bonnes pratiques de conception logicielle pour garantir une certaine capacité au changement Isolation de périmètres fonctionnels - tests de ruptures - stratégie de découplage - problématiques de cache - revue de code - suivi qualité - étude d’impacts - TDD-BDD & pair programming<br/>
+      <br>
+      - Migration d’infrastructure legacy vers infrastructure cloud privé.<br>
+      - Analyse d’incident de production, analyse fonctionnelle, SSL, Loadbalancing, Sécurité (Firewall - WAF - ADC/F5), Cache partagé.<br>
+      - Développement et gestion des évolutions de l’infrastructure logicielle et technique.<br>
+      - Réalisation d’études d’impacts, et identifications d’adhérences entre différentes parties du SI. ProofOfConcept d’outil comme PowerBI avec authentification par service principal
+    </p>
+    <a href="https://www.linkedin.com/in/sebastien-allemand/">
+      <svg aria-hidden="true" class="global-nav__logo" xmlns="http://www.w3.org/2000/svg" width="34" height="34" data-supported-dps="34x34" focusable="false">
+        <g transform="scale(.7083)" fill="none" fill-rule="evenodd">
+          <rect class="bug-text-color" fill="#FFF" x="1" y="1" width="46" height="46" rx="4"></rect>
+          <path d="M0 4.01A4.01 4.01 0 014.01 0h39.98A4.01 4.01 0 0148 4.01v39.98A4.01 4.01 0 0143.99 48H4.01A4.01 4.01 0 010 43.99V4.01zM19 18.3h6.5v3.266C26.437 19.688 28.838 18 32.445 18 39.359 18 41 21.738 41 28.597V41.3h-7V30.159c0-3.906-.937-6.109-3.32-6.109-3.305 0-4.68 2.375-4.68 6.109V41.3h-7v-23zM7 41h7V18H7v23zm8-30.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" class="background" fill="#0077B5"></path>
+        </g>
+      </svg>
+    </a>
 
+  </div>
+  <div class="container">
+    <h1>Intérets techniques.</h1>
+    <p> Software crafting -  Refactoring / TDD - DDD - Infrastructure Haute dispo</p>
+  </div>
+  <div class="container">
+    <h1>Contributions.</h1>
+    <ul>
+      <li><a href="https://almanac.httparchive.org/">Almanac - httparchive</a>
+        <ul>
+          <li>
+            <a href="https://almanac.httparchive.org/fr/2019/compression">Compression HTTP</a>
+          </li>
+          <li>
+            <a href="https://almanac.httparchive.org/fr/2019/caching">Mise en cache</a>
+          </li>
+        </ul>
+    </ul>
   </div>
 </div>
 <footer>

@@ -1,28 +1,30 @@
 ---
-title: "Mongodb - mongo-express - docker-compose"
+title: "Mongodb & Docker  - Expériences & Authentification"
+description: "Workshop autour de mongodb déploiement et administration d'un container mongodb"
 tags: [devops, mongodb, experiments]
 date: 2020-04-14
 author: Allemand Sébastien
 ---
 
-**Création d'une instance mongodb avec docker & dockercompose 🚀**
+![mongodb image](./../../../assets/crafting//docker-mongo.png#center)
+# Contexte
+*Pré-requis : concepts de conteneurisation maitrisés.*
 
-# Mongodb
+Déploiement d'un container mongodb et mongo-express pré-configuré avec `docker-compose`.
 
-_**Problèmes rencontrés** autour du système d'authentification et droits a la base de données._
+## Mongodb
 
----
+### `docker-compose`
 
-## Déploiement via Docker-compose
-```
+```yaml
 version: '3'
 
 services:
   mongo:
     image: mongo
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=**root**
-      - MONGO_INITDB_ROOT_PASSWORD=**root**
+      - MONGO_INITDB_ROOT_USERNAME=<USER>
+      - MONGO_INITDB_ROOT_PASSWORD=<PASSWORD>
       - MONGO_INITDB_DATABASE=test
     volumes:
       - ./etc/mongo-volume:/data/db
@@ -31,19 +33,22 @@ services:
       - "27017:27017"
 ```
 
----
+ _Description du conteneur mongo_
+- Basé sur l'image mongo
+- Descriptions des variables d'environnement
+- Création de volumes pour le partage de fichiers
+- Configuration des flux (ports)
 
-## Variables d'environnement
+⚠️ Ne pas oublier de modifier les valeurs `USER` et `PASSWORD`
 
-Ces variables créent un nouvel utilisateur :
+### Point d'attention
+J'ai rencontré des difficultés avec la gestion des utilisateurs. `mongo-express` n'arrivait pas a se connecter.
+_Pour contourner ce problème j'utilise:_
 - `MONGO_INITDB_ROOT_USERNAME`
 - `MONGO_INITDB_ROOT_PASSWORD`
 
-**Cet utilisateur est crée dans la table : [`admin`](https://docs.mongodb.com/manual/core/security-users/#user-authentication-database) avec le role `ROOT`**
-**si ces deux variables sont renségnées alors mongodb démarre avec le l'authentification obligatoire (voir `mongod --auth)`)**
-
-
-**Attention:** l'initialisation de mongod se se base sur un fichier de configuration (docker-entrypoint)
+Une fois ces variables renseignées alors mongodb démarre avec le l'authentification obligatoire (voir `mongod --auth)`)
+Cet utilisateur est crée dans la table : [`admin`](https://docs.mongodb.com/manual/core/security-users/#user-authentication-database) avec le role `ROOT` et `mongo-express` pourra l'utiliser pour l'administration de la base de données
 
 ---
 
@@ -53,7 +58,7 @@ Ces variables créent un nouvel utilisateur :
 
 Si la variable d'environnement `MONGO_INITDB_DATABASE` est renseignée alors elle sera utilisée pour l'exécution de ces scripts.
 
-```
+```javascript
 db.createUser(
   {
     user: "auth_login",
@@ -64,16 +69,14 @@ db.createUser(
 ```
 
 Pour aller plus loins :
-- [mongodb - Enable Access Control](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
-- [mongodb - Security](https://docs.mongodb.com/manual/security/)
-
----
+- [Enable Access Control](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+- [Security](https://docs.mongodb.com/manual/security/)
 
 ## Authentification
 
-Pour vous connecter il est possible d'utiliser :
+Pour vous connecter et tester votre configuration il est possible :
 
-```
+```bash
 $> mongo -u <login> -p <pwd> authentificationDatabase <db_name>
 
 $> mongo -u <login> --authentificationDatabase <db_name>
@@ -96,7 +99,7 @@ _> Ne pas se tromper dans les variables d'environnement pour disposer d'un accè
 ---
 
 ## Déploiement via Docker-compose
-```
+```yaml
   mongo-express:
     image: mongo-express
     restart: always
@@ -104,8 +107,8 @@ _> Ne pas se tromper dans les variables d'environnement pour disposer d'un accè
       - ME_CONFIG_MONGODB_SERVER=mongo
       - ME_CONFIG_MONGODB_PORT=27017
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=**root** <-- # Doit correspondre au compte root décrit plus haut
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=**root** <--
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=<USER>  # <-- Doit correspondre au compte root décrit plus haut
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=<PASSWORD> # <--
       - ME_CONFIG_BASICAUTH_USERNAME=dev
       - ME_CONFIG_BASICAUTH_PASSWORD=dev
     depends_on:
@@ -131,13 +134,11 @@ ME_CONFIG_MONGODB_AUTH_PASSWORD | 'pass'          | Database password
 ---
 
 **si `ME_CONFIG_MONGODB_ENABLE_ADMIN` est `false`** alors l'utilisateur définit va `ME_CONFIG_MONGODB_AUTH_USERNAME` et `ME_CONFIG_MONGODB_AUTH_PASSWORD` ne pourra pas voir toutes les bases de données.
-
 Risque d'erreur : `MongoError: not authorized on admin to execute command { listDatabases: 1 }`
 
 ---
 
 **Attention !** Si `ME_CONFIG_MONGODB_ENABLE_ADMIN` est a `true` alors, il sera possible d'effectuer des actions **critiques** via mongo-express.
-
 _En dev :_ J'utilise `ME_CONFIG_MONGODB_ADMINUSERNAME` + compte root
 
 ---

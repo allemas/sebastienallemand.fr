@@ -2,30 +2,29 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-
   <meta name="title" content="Blog | Sébastien ALLEMAND">
-  <meta name="description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta name="description" content="Creation d&#39;images docker, démarrage d&#39;un container et gestion des network et volumes">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sebastienallemand.fr/">
-  <meta property="og:title" content="Coldstart - Docker Basics | Sébastien ALLEMAND">
-  <meta property="og:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="og:title" content="Docker Commands - Toolbox | Sébastien ALLEMAND">
+  <meta property="og:description" content="Creation d&#39;images docker, démarrage d&#39;un container et gestion des network et volumes">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://sebastienallemand.fr/">
-  <meta property="twitter:title" content="Coldstart - Docker Basics | Sébastien ALLEMAND">
-  <meta property="twitter:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="twitter:title" content="Docker Commands - Toolbox | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="Creation d&#39;images docker, démarrage d&#39;un container et gestion des network et volumes">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
 
   <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
 
-  <title>Coldstart - Docker Basics | Sébastien ALLEMAND</title>
+  <title>Docker Commands - Toolbox | Sébastien ALLEMAND</title>
   <style>body,
 html {
   margin: 0;
@@ -34,71 +33,56 @@ html {
 
 body {
   color: #444;
-  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
   font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
   line-height: 1.6;
   text-align: center
 }
 
-@media (min-width: 800px) {
-  body {
-    font-size: 20px
-  }
-}
-
-a:link,
-a:visited {
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
   color: #222
 }
 
-footer,
-header {
-  color: #888;
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
   font-size: .7em;
   padding-bottom: 2em;
-  padding-top: 2em
-}
-
-header {
-  border-bottom: 1px solid #eee
-}
-
-.header-logo {
-  border-bottom: 0px solid #eee;
-  padding: 0.5rem 0rem 0.5rem 0rem;
-}
-
-.header-posts {
-  padding: 1rem 0 1rem 0;
-}
-
-footer {
+  padding-top: 2em;
   border-top: 1px solid #eee;
-  margin-top: 6em
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: #111;
-  font-family: sans-serif;
-  line-height: 1
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2 {
-  font-size: 34px;
-  letter-spacing: -.01em
+h1.headline {
+  font-size: 3.5rem;
 }
 
-h2 small {
-  color: #888;
-  font-size: .5em;
-  font-weight: 400
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
 }
 
-h3 {
-  margin-top: 2em
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
 }
 
 figure {
@@ -111,6 +95,7 @@ figcaption {
   font-size: .7em;
   text-align: center
 }
+
 
 blockquote {
   border-left: 3px solid #888;
@@ -127,28 +112,13 @@ blockquote em {
   font-style: normal
 }
 
-pre {
+/*pre {
   background-color: #eee;
   font-size: .7em;
   margin-bottom: 0;
   margin-top: 0;
-  overflow-x: scroll;
-  padding-left: 1em;
-  padding-right: 1em
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  width: 90%
-}
-
-@media (min-width: 800px) {
-  .container {
-    width: 800px
-  }
-}
+  padding: 1em;
+}*/
 
 hr {
   border-bottom: 1px solid #eee;
@@ -157,25 +127,20 @@ hr {
   margin-top: 2em
 }
 
-.post-content img {
-  width: 100%
-}
-
-p.meta {
-  color: #444;
-  font-size: .8em;
-  font-style: italic;
-}
 
 ul.listing {
   list-style: none;
   list-style-position: outside;
   padding-left: 0;
-  padding-top: 1.5em
+/ / padding-top: 1.5 em
 }
 
 ul.listing li {
   margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
 }
 
 ul.listing h3 {
@@ -189,15 +154,44 @@ ul.listing p.meta {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
 
 .menu-container {
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
 
 .tag {
   text-transform: capitalize;
@@ -239,14 +233,18 @@ a {
 img[src*='#left'] {
   float: left;
 }
+
 img[src*='#right'] {
   float: right;
 }
+
 img[src*='#center'] {
   position: relative;
   display: block;
   margin: auto;
+  max-width: 100%;
 }
+
 img[src*='#banner'] {
   position: relative;
   display: block;
@@ -261,8 +259,13 @@ img[src*='#banner'] {
 .footer-article {
   margin-top: 3rem;
 }
+
 </style>
-  <style>@import url('https://fonts.googleapis.com/css?family=Poppins');
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
 .logo-wrapper {
     width: auto;
     margin: 0 auto;
@@ -304,6 +307,12 @@ img[src*='#banner'] {
     text-align: left;
 }
 
+
+
+
+
+
+
 span.background-title .background-title-spare,
 .blog-title .background-title-spare {
     display: inline;
@@ -329,7 +338,14 @@ span.background-title .background-title-spare,
 .blog-title {
     letter-spacing: -8px;
     font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
-}</style>
+}
+</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 <body>
 <header class="container header-logo">
@@ -351,137 +367,103 @@ span.background-title .background-title-spare,
 </div>
 <div class="content" role="main" id="main">
     <article class="container">
-        <h1>Coldstart - Docker Basics</h1>
-  <div class="meta">
-    
-    <time datetime="18-01-2020">18-01-2020</time>
-    
-     - <span>Temps de lecture environ 2 min</span>
-  </div>
-  <h1 id="docker-basics-cmd">Docker Basics Cmd <a class="direct-link" href="#docker-basics-cmd">#</a></h1>
-<h1 id=".dockerignore">.dockerignore <a class="direct-link" href="#.dockerignore">#</a></h1>
-<p><em>example:</em></p>
-<pre><code>node_modules
-npm-debug.log
-Dockerfile
-.dockerignore
-</code></pre>
-<h1 id="build-image">Build image <a class="direct-link" href="#build-image">#</a></h1>
-<p><code>docker build -t &lt;docker_repository&gt;/&lt;image_name&gt; .</code><br>
-The <code>.</code> specifies that the build context is the current directory.</p>
-<h1 id="list-available-images">List available images <a class="direct-link" href="#list-available-images">#</a></h1>
-<p><code>docker images</code></p>
-<h1 id="run-container">Run container <a class="direct-link" href="#run-container">#</a></h1>
-<p><code>docker run --name &lt;container_name&gt; -p &lt;local_port&gt;:&lt;container_port&gt; -d &lt;docker_repository&gt;/&lt;image_name&gt;</code></p>
-<h1 id="run-shell">Run shell <a class="direct-link" href="#run-shell">#</a></h1>
-<p>if stoped :<br>
-<code>docker exec -it &lt;name_container&gt; bash</code><br>
-<em>bash not stoped after exit because interactive mode</em></p>
-<h1 id="remove-container-and-image">Remove container and image <a class="direct-link" href="#remove-container-and-image">#</a></h1>
-<p><code>docker rm -v container_name</code><br>
-<em>remove all inactive containers</em><code>docker container prune</code></p>
-<h1 id="container-network">Container network <a class="direct-link" href="#container-network">#</a></h1>
-<h2 id="create-network">Create network <a class="direct-link" href="#create-network">#</a></h2>
-<p><code>docker network create &lt;name&gt;</code></p>
-<h2 id="connect-container-to-bridge">connect container to bridge <a class="direct-link" href="#connect-container-to-bridge">#</a></h2>
-<p>When you create a new container, you can specify one or more --network flags. This example connects a Nginx container to the my-net network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the my-net network has access to all ports on the my-nginx container, and vice versa.<br>
-<code>docker network connect &lt;network_name&gt; &lt;container2&gt;</code></p>
-<h2 id="inspect-network">inspect network <a class="direct-link" href="#inspect-network">#</a></h2>
-<p><code>docker network inspect</code></p>
-<pre><code>
-    {
-        &quot;Name&quot;: &quot;my-net&quot;,
-        &quot;Id&quot;: &quot;b57e393b7c9ab38d596ad13b5a5341812cdc44600370afd74c25be0daada5663&quot;,
-        &quot;Created&quot;: &quot;2020-02-10T18:17:27.283066902Z&quot;,
-[...]
-        &quot;IPAM&quot;: {
-            &quot;Driver&quot;: &quot;default&quot;,
-            &quot;Options&quot;: {},
-            &quot;Config&quot;: [
-                {
-                    &quot;Subnet&quot;: &quot;172.18.0.0/16&quot;,
-                    &quot;Gateway&quot;: &quot;172.18.0.1&quot;
-                }
-            ]
-        },
-[...]
-        &quot;ConfigOnly&quot;: false,
-        &quot;Containers&quot;: {
-            &quot;13dee2f...7f907&quot;: {
-                &quot;Name&quot;: &quot;n2&quot;,
-                &quot;EndpointID&quot;: &quot;1d2b53ec0...e398c3bbf312&quot;,
-                &quot;MacAddress&quot;: &quot;02:42:ac:12:00:03&quot;,
-                &quot;IPv4Address&quot;: &quot;172.18.0.3/16&quot;,
-                &quot;IPv6Address&quot;: &quot;&quot;
-            },
-            &quot;89d2c008d9e6...049d5679a9a13ad&quot;: {
-                &quot;Name&quot;: &quot;n1&quot;,
-                &quot;EndpointID&quot;: &quot;30d1cd...9b5e246fd7b7fc133&quot;,
-                &quot;MacAddress&quot;: &quot;02:42:ac:12:00:02&quot;,
-                &quot;IPv4Address&quot;: &quot;172.18.0.2/16&quot;,
-                &quot;IPv6Address&quot;: &quot;&quot;
-            }
-        },
-        &quot;Options&quot;: {},
-        &quot;Labels&quot;: {}
-    }
-]
-</code></pre>
-<h2 id="networking-container">Networking container <a class="direct-link" href="#networking-container">#</a></h2>
-<p>Connected to bridge manualy</p>
-<pre><code>root@1f87bccac67c:/# cat /etc/hosts
-127.0.0.1	localhost
-::1	localhost ip6-localhost ip6-loopback
-fe00::0	ip6-localnet
-ff00::0	ip6-mcastprefix
-ff02::1	ip6-allnodes
-ff02::2	ip6-allrouters
-172.17.0.2	1f87bccac67c
-172.18.0.2	1f87bccac67c
-</code></pre>
-<p>Disconnected to bridge manualy</p>
-<pre><code>root@1f87bccac67c:/# cat /etc/hosts
-127.0.0.1	localhost
-::1	localhost ip6-localhost ip6-loopback
-fe00::0	ip6-localnet
-ff00::0	ip6-mcastprefix
-ff02::1	ip6-allnodes
-ff02::2	ip6-allrouters
-</code></pre>
-<ul>
-<li><a href="https://runnable.com/docker/basic-docker-networking">basic networking</a></li>
-</ul>
-<h3 id="links">Links <a class="direct-link" href="#links">#</a></h3>
-<ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-quickstart">how-to-build-a-node-js-application-with-docker-quickstart</a></li>
-</ul>
-<h1 id="docker-volumes">Docker Volumes <a class="direct-link" href="#docker-volumes">#</a></h1>
-<p>create : <code>docker volume create &lt;name&gt;</code><br>
-list : <code>docker volume ls </code><br>
-remove all unused : <code>docker volume prune</code></p>
-<h2 id="docker-mount-volume-to-container">Docker mount volume to container <a class="direct-link" href="#docker-mount-volume-to-container">#</a></h2>
-<p>docker run --name snginx -p 8080:80 --mount source=my-vol,target=/var/www/html s/nginx</p>
+      <div class="title-wrapper">
+  <h1 class="headline">Docker Commands - Toolbox</h1>
+</div>
 
-  <div class="footer-article">
-    
-    <i>Mots clés :   <a href="/tags/devops/" class="tag">devops</a>  <a href="/tags/experiments/" class="tag">experiments</a>  <a href="/tags/devops/" class="tag">devops</a>  <a href="/tags/containers/" class="tag">containers</a></i><br>
-    
-    <i>Auteur : Allemand Sébastien</i>
-  </div>
+<div class="meta">
+  <span>Temps de lecture environ 2 min</span>
+</div>
+
+<div class="wrapper-content">
+  <p><img src="./../../../assets/devops/docker-images-process.png#center" alt=""></p>
+<h1 id="dockerfile">Dockerfile <a class="direct-link" href="#dockerfile">#</a></h1>
+<p>Une image Docker est crée a partir d'un fichier Dockerfile représentant la structure du conteneur. On peut y trouver plusieurs éléments comme des librairies logicielles, une application, de la configuration, l'utilisation de volumes etc. Une fois cette image construire il sera possible de lancer plusieurs container basés sur la même image.</p>
+<h1 id="construire-une-image">Construire une image <a class="direct-link" href="#construire-une-image">#</a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker build -t <span class="token operator">&lt;</span>docker_repository<span class="token operator">></span>/<span class="token operator">&lt;</span>image_name<span class="token operator">></span> <span class="token builtin class-name">.</span></span></code></pre>
+<p>Le <code>.</code> défini que le dockerfile est disposé dans le dossier courant.</p>
+<h1 id="lister-les-images-docker-disponible-sur-la-machine">Lister les images docker disponible sur la machine <a class="direct-link" href="#lister-les-images-docker-disponible-sur-la-machine">#</a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker images</span></code></pre>
+<h1 id="ignorer-des-fichiers-dans-une-image-docker-avec-dockerignore">Ignorer des fichiers dans une image docker avec dockerignore <a class="direct-link" href="#ignorer-des-fichiers-dans-une-image-docker-avec-dockerignore">#</a></h1>
+<p>Fichier  .dockerignore<br>
+<em>example:</em></p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">node_modules</span><br><span class="highlight-line">npm-debug.log</span><br><span class="highlight-line">Dockerfile</span><br><span class="highlight-line">.dockerignore</span></code></pre>
+<hr>
+<h1 id="conteneur-docker">Conteneur Docker <a class="direct-link" href="#conteneur-docker">#</a></h1>
+<p>Un conteneur est comme nous venons de le dire basé sur une image Docker, un conteneur comprend un système d'exploitation, du code applicatif, de la configuration middleware, et etc. Il peut être facilement déplacés et facilite grandement la gestion des infrastructures (surtout en développement).</p>
+<h1 id="demarrer-un-container">Demarrer un container <a class="direct-link" href="#demarrer-un-container">#</a></h1>
+<p>Note : Avant de démarrer un container il est necessaire de le construire (voir commande docker build)</p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker run --name <span class="token operator">&lt;</span>container_name<span class="token operator">></span> -p <span class="token operator">&lt;</span>local_port<span class="token operator">></span>:<span class="token operator">&lt;</span>container_port<span class="token operator">></span> -d <span class="token operator">&lt;</span>docker_repository<span class="token operator">></span>/<span class="token operator">&lt;</span>image_name<span class="token operator">></span></span></code></pre>
+<ul>
+<li><code>--name</code> spécifie le nom du container</li>
+<li><code>-p &lt;local_port&gt;:&lt;container_port&gt;</code> permet de spécifier la correspondance des ports</li>
+<li><code>-d</code> permet de démarrer le container en monde daemon (en tache de fond)</li>
+</ul>
+<h1 id="supprimer-un-container-et-son-image">Supprimer un container et son image <a class="direct-link" href="#supprimer-un-container-et-son-image">#</a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker <span class="token function">rm</span> -v container_name</span></code></pre>
+<h1 id="mode-int%C3%A9ractif">Mode intéractif <a class="direct-link" href="#mode-int%C3%A9ractif">#</a></h1>
+<p>Permet de d'exécuter un commande dans le container et d'intéragir avec. Souvent on utilise la commande pour ouvrir un shell.</p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker <span class="token builtin class-name">exec</span> -it <span class="token operator">&lt;</span>name_container<span class="token operator">></span> bash`</span></code></pre>
+<h1 id="supprimer-tous-les-containers-inactifs">Supprimer tous les containers inactifs <a class="direct-link" href="#supprimer-tous-les-containers-inactifs">#</a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker container prune</span></code></pre>
+<hr>
+<h1 id="docker-network">Docker Network <a class="direct-link" href="#docker-network">#</a></h1>
+<p>Un Docker network est un réseau crée entre plusieurs conteneur. Il permet d'assurer la communiquer entre plusieurs conteneurs.<br>
+Créer un Docker Network permet de limiter les risques en isolant par le reseau les conteneurs et évite les conflits entre des conteneurs qui n'auraient pas a communiquer.</p>
+<h1 id="cr%C3%A9er-un-r%C3%A9seau">Créer un réseau <a class="direct-link" href="#cr%C3%A9er-un-r%C3%A9seau">#</a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker network create <span class="token operator">&lt;</span>name<span class="token operator">></span></span></code></pre>
+<h2 id="connecter-un-conteneur-a-un-r%C3%A9seau">Connecter un conteneur a un réseau <a class="direct-link" href="#connecter-un-conteneur-a-un-r%C3%A9seau">#</a></h2>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker network connect <span class="token operator">&lt;</span>network_name<span class="token operator">></span> <span class="token operator">&lt;</span>container_name<span class="token operator">></span></span></code></pre>
+<p><em>When you create a new container, you can specify one or more --network flags. This example connects a Nginx container to the my-net network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the my-net network has access to all ports on the my-nginx container, and vice versa.</em></p>
+<h2 id="network-inspect">Network inspect <a class="direct-link" href="#network-inspect">#</a></h2>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker network inspect</span></code></pre>
+<h3 id="networking-container">Networking container <a class="direct-link" href="#networking-container">#</a></h3>
+<p>Connected to bridge manualy</p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">root@1f87bccac67c:/<span class="token operator">></span> <span class="token function">cat</span> /etc/hosts</span><br><span class="highlight-line"><span class="token number">127.0</span>.0.1	localhost</span><br><span class="highlight-line">::1	localhost ip6-localhost ip6-loopback</span><br><span class="highlight-line">fe00::0	ip6-localnet</span><br><span class="highlight-line"><span class="token punctuation">..</span>.</span><br><span class="highlight-line"><span class="token number">172.17</span>.0.2	1f87bccac67c   <span class="token operator">&lt;</span>--</span><br><span class="highlight-line"><span class="token number">172.18</span>.0.2	1f87bccac67c   <span class="token operator">&lt;</span>--</span></code></pre>
+<p>Pour aller plus loins :  <a href="https://runnable.com/docker/basic-docker-networking">Basic networking</a></p>
+<hr>
+<h1 id="docker-volumes">Docker Volumes <a class="direct-link" href="#docker-volumes">#</a></h1>
+<p>Un Docker Volume est un système de fichier, monté au démarrage d'un conteneur.<br>
+Un conteneur par design ne stocke <strong>aucunes</strong> données il ne dispose qu'uniquement des données en lecture seules.<br>
+Quand un conteneur modifie une donnée la donnée traverse les couches(layers) du conteneur puis cette donnée est modifiée dans le système de fichier monté au démarrage. C'est un volume.</p>
+<h3 id="creer-un-volume-%3A">Creer un volume : <a class="direct-link" href="#creer-un-volume-%3A">#</a></h3>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker volume create <span class="token operator">&lt;</span>name<span class="token operator">></span>`</span></code></pre>
+<h3 id="lister-les-volumes-%3A">Lister les volumes : <a class="direct-link" href="#lister-les-volumes-%3A">#</a></h3>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token variable"><span class="token variable">`</span>docker volume <span class="token function">ls</span> <span class="token variable">`</span></span></span></code></pre>
+<h3 id="supprimer-les-volumes-non-utilis%C3%A9s-%3A">Supprimer les volumes non utilisés : <a class="direct-link" href="#supprimer-les-volumes-non-utilis%C3%A9s-%3A">#</a></h3>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker volume prune</span></code></pre>
+<h2 id="monter-un-volume-dans-un-conteneur-docker">Monter un volume dans un conteneur docker <a class="direct-link" href="#monter-un-volume-dans-un-conteneur-docker">#</a></h2>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">docker run --name snginx -p <span class="token number">8080</span>:80 --mount <span class="token assign-left variable">source</span><span class="token operator">=</span>my-vol,target<span class="token operator">=</span>/var/www/html s/nginx</span></code></pre>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-quickstart">how-to-build-a-node-js-application-with-docker-quickstart</a></p>
+<h1 id="diff%C3%A9rence-entre-conteneur-et-vm">Différence entre conteneur et VM <a class="direct-link" href="#diff%C3%A9rence-entre-conteneur-et-vm">#</a></h1>
+<p><img src="./../../../assets/devops/docker-vm.png#center" alt=""></p>
+<p>Un conteneur et une VM ont des aspects d'isolation similaires, mais leurs fonctionnement est différent la ou une VM virtualise les couches hardware un conteneur virtualise le système d'exploitation et sa configuration.<br>
+Un conteneur docker va uniquement contenir le code et les dépendances d'une applications la ou une machine virtuelle va démarrer une nouvelle machine(virtuelle) complètement indépendante.</p>
+
+</div>
+
+<div class="footer-article">
+  
+  <i>Mots clés :   <a href="/tags/devops/"
+                                                                                       class="tag">devops</a>  <a href="/tags/experiments/"
+                                                                                       class="tag">experiments</a></i><br>
+  
+  <i>Auteur : Allemand Sébastien</i>
+</div>
 </article>
 <hr>
 </div>
 <div class="container">
   
-    <p class="ctr nav-element-left">
-      <a class="previous" href="/posts/craft/practical-test-pyramid/">← Prev.</a>
-    </p>
+  <p class="ctr nav-element-left">
+    <a class="previous" href="/posts/craft/practical-test-pyramid/">← Prev.</a>
+  </p>
   
 
   
-    <p class="ctr nav-element-right">
-      <a class="next" href="/posts/craft/legacy-code/">Suiv. →</a>
-    </p>
+  <p class="ctr nav-element-right">
+    <a class="next" href="/posts/craft/legacy-code/">Suiv. →</a>
+  </p>
   
 </div>
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="title" content="Blog | Sébastien ALLEMAND">
+  <meta name="description" content="{{ renderData.description or description or metadata.description }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sebastienallemand.fr/">
+  <meta property="og:title" content="{{ title }} | Sébastien ALLEMAND">
+  <meta property="og:description" content="{{ renderData.description or description or metadata.description }}">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sebastienallemand.fr/">
+  <meta property="twitter:title" content="{{ title }} | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="{{ renderData.description or description or metadata.description }}">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
+
+  <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
+
+  <title>{{ title }} | Sébastien ALLEMAND</title>
+  <style>{% include "css/styles.css" %}</style>
+  <style>{% include "css/logo.css" %}</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+{% include 'layouts/logo.njk' %}
+<div class="container menu-container">
+  <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
+</div>
+<div class="content" role="main" id="main">
+  <div class="container">
+    <h1 class="headline">A Propos.</h1>
+      <p>Je m'appelle Sébastien et je bricole du code depuis l'age de 12ans.
+          Je suis un passionné par les systèmes d'informations et j'aime comprendre le métier et les contraintes de mes clients.<br>
+          Ma mission, développer, optimiser et automatiser les chaines de productions de valeurs de mes projets.<br/>
+      Plus intéressé par les solutions et les concepts que par les outils je n'ai pas de préférences techniques, je n'ai aucune limite a passer d'une techno a l'autre.</p>
+  </div>
+  <div class="container">
+    <h1>Actuellement:</h1>
+      <b>Tech lead - Référent technique / DevOps</b> dans une équipe agile de 5 personnes <br>
+      Partage et sensibilisation aux bonnes pratiques de conception logicielle pour garantir une certaine capacité au changement Isolation de périmètres fonctionnels - tests de ruptures - stratégie de découplage - problématiques de cache - revue de code - suivi qualité - étude d’impacts - TDD-BDD & pair programming<br/>
+      <br>
+      - Migration d’infrastructure legacy vers infrastructure cloud privé.<br>
+      - Analyse d’incident de production, analyse fonctionnelle, SSL, Loadbalancing, Sécurité (Firewall - WAF - ADC/F5), Cache partagé.<br>
+      - Développement et gestion des évolutions de l’infrastructure logicielle et technique.<br>
+      - Réalisation d’études d’impacts, et identifications d’adhérences entre différentes parties du SI. ProofOfConcept d’outil comme PowerBI avec authentification par service principal
+    </p>
+    <a href="https://www.linkedin.com/in/sebastien-allemand/">
+      <svg aria-hidden="true" class="global-nav__logo" xmlns="http://www.w3.org/2000/svg" width="34" height="34" data-supported-dps="34x34" focusable="false">
+        <g transform="scale(.7083)" fill="none" fill-rule="evenodd">
+          <rect class="bug-text-color" fill="#FFF" x="1" y="1" width="46" height="46" rx="4"></rect>
+          <path d="M0 4.01A4.01 4.01 0 014.01 0h39.98A4.01 4.01 0 0148 4.01v39.98A4.01 4.01 0 0143.99 48H4.01A4.01 4.01 0 010 43.99V4.01zM19 18.3h6.5v3.266C26.437 19.688 28.838 18 32.445 18 39.359 18 41 21.738 41 28.597V41.3h-7V30.159c0-3.906-.937-6.109-3.32-6.109-3.305 0-4.68 2.375-4.68 6.109V41.3h-7v-23zM7 41h7V18H7v23zm8-30.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" class="background" fill="#0077B5"></path>
+        </g>
+      </svg>
+    </a>
+
+  </div>
+  <div class="container">
+    <h1>Intérets techniques.</h1>
+    <p> Software crafting -  Refactoring / TDD - DDD - Infrastructure Haute dispo</p>
+  </div>
+  <div class="container">
+    <h1>Contributions.</h1>
+    <ul>
+      <li><a href="https://almanac.httparchive.org/">Almanac - httparchive</a>
+        <ul>
+          <li>
+            <a href="https://almanac.httparchive.org/fr/2019/compression">Compression HTTP</a>
+          </li>
+          <li>
+            <a href="https://almanac.httparchive.org/fr/2019/caching">Mise en cache</a>
+          </li>
+        </ul>
+    </ul>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    © 2020 <a href="https://twitter.com/allema_s">Sébastien Allemand</a> généré avec <a href="https://11ty.io">Eleventy</a>.
+  </div>
+</footer>
+</body>
+</html>
+

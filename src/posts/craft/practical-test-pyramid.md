@@ -2,12 +2,12 @@
 title: "The Practical Test Pyramid"
 tags: [crafting, tdd, refactoring]
 url: /practical-test-pyramid
+description: Présentation de la pyramide des tests. Test unitaire, tests d'intégration, test d'interface tout est présenté
 author: Allemand Sébastien
 date: 2019-06-20
 ---
 
 ## tldr;
-
 Passer directement a la présentation de [Pyramid Testing](#pyramid-testing)
 
 ## Contexte

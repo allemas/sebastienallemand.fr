@@ -2,30 +2,29 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-
   <meta name="title" content="Blog | Sébastien ALLEMAND">
-  <meta name="description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta name="description" content="Devops, passionné d&#39;architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sebastienallemand.fr/">
-  <meta property="og:title" content=" | Sébastien ALLEMAND">
-  <meta property="og:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="og:title" content="Articles | Sébastien ALLEMAND">
+  <meta property="og:description" content="Devops, passionné d&#39;architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://sebastienallemand.fr/">
-  <meta property="twitter:title" content=" | Sébastien ALLEMAND">
-  <meta property="twitter:description" content="Dev et ops, passionné d&#39;architecture et de solutions. Je blogue autour de mes expériences Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
-  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="twitter:title" content="Articles | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="Devops, passionné d&#39;architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité &amp; Résilience">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
 
   <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
 
-  <title> | Sébastien ALLEMAND</title>
+  <title>Articles | Sébastien ALLEMAND</title>
   <style>body,
 html {
   margin: 0;
@@ -34,71 +33,56 @@ html {
 
 body {
   color: #444;
-  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
   font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
   line-height: 1.6;
   text-align: center
 }
 
-@media (min-width: 800px) {
-  body {
-    font-size: 20px
-  }
-}
-
-a:link,
-a:visited {
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
   color: #222
 }
 
-footer,
-header {
-  color: #888;
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
   font-size: .7em;
   padding-bottom: 2em;
-  padding-top: 2em
-}
-
-header {
-  border-bottom: 1px solid #eee
-}
-
-.header-logo {
-  border-bottom: 0px solid #eee;
-  padding: 0.5rem 0rem 0.5rem 0rem;
-}
-
-.header-posts {
-  padding: 1rem 0 1rem 0;
-}
-
-footer {
+  padding-top: 2em;
   border-top: 1px solid #eee;
-  margin-top: 6em
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: #111;
-  font-family: sans-serif;
-  line-height: 1
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2 {
-  font-size: 34px;
-  letter-spacing: -.01em
+h1.headline {
+  font-size: 3.5rem;
 }
 
-h2 small {
-  color: #888;
-  font-size: .5em;
-  font-weight: 400
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
 }
 
-h3 {
-  margin-top: 2em
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
 }
 
 figure {
@@ -111,6 +95,7 @@ figcaption {
   font-size: .7em;
   text-align: center
 }
+
 
 blockquote {
   border-left: 3px solid #888;
@@ -127,28 +112,13 @@ blockquote em {
   font-style: normal
 }
 
-pre {
+/*pre {
   background-color: #eee;
   font-size: .7em;
   margin-bottom: 0;
   margin-top: 0;
-  overflow-x: scroll;
-  padding-left: 1em;
-  padding-right: 1em
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  width: 90%
-}
-
-@media (min-width: 800px) {
-  .container {
-    width: 800px
-  }
-}
+  padding: 1em;
+}*/
 
 hr {
   border-bottom: 1px solid #eee;
@@ -157,25 +127,20 @@ hr {
   margin-top: 2em
 }
 
-.post-content img {
-  width: 100%
-}
-
-p.meta {
-  color: #444;
-  font-size: .8em;
-  font-style: italic;
-}
 
 ul.listing {
   list-style: none;
   list-style-position: outside;
   padding-left: 0;
-  padding-top: 1.5em
+/ / padding-top: 1.5 em
 }
 
 ul.listing li {
   margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
 }
 
 ul.listing h3 {
@@ -189,15 +154,44 @@ ul.listing p.meta {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
 
 .menu-container {
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
 
 .tag {
   text-transform: capitalize;
@@ -239,14 +233,18 @@ a {
 img[src*='#left'] {
   float: left;
 }
+
 img[src*='#right'] {
   float: right;
 }
+
 img[src*='#center'] {
   position: relative;
   display: block;
   margin: auto;
+  max-width: 100%;
 }
+
 img[src*='#banner'] {
   position: relative;
   display: block;
@@ -261,8 +259,13 @@ img[src*='#banner'] {
 .footer-article {
   margin-top: 3rem;
 }
+
 </style>
-  <style>@import url('https://fonts.googleapis.com/css?family=Poppins');
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
 .logo-wrapper {
     width: auto;
     margin: 0 auto;
@@ -304,6 +307,12 @@ img[src*='#banner'] {
     text-align: left;
 }
 
+
+
+
+
+
+
 span.background-title .background-title-spare,
 .blog-title .background-title-spare {
     display: inline;
@@ -329,7 +338,14 @@ span.background-title .background-title-spare,
 .blog-title {
     letter-spacing: -8px;
     font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
-}</style>
+}
+</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 <body>
 <header class="container header-logo">
@@ -352,7 +368,7 @@ span.background-title .background-title-spare,
 <div class="content" role="main" id="main">
     <article class="container">
       
-<h1>Articles </h1>
+<h1 class="headline">Articles legacycode</h1>
 
 
 <ul class="listing" >

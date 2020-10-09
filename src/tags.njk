@@ -10,12 +10,11 @@ pagination:
   addAllPagesToCollections: true
 layout: layouts/base.njk
 
-renderData:
-  title: Tagged “{{ tag }}”
+title: Articles
 permalink: /tags/{{ tag }}/
 ---
 
-<h1>Articles </h1>
+<h1 class="headline">Articles {{ tag }}</h1>
 
 {% set postslist = collections[ tag ] %}
 <ul class="listing" >

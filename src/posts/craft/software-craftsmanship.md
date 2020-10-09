@@ -2,6 +2,7 @@
 title: "Software Craftsmanship : Qu'est-ce ?"
 tags: [crafting]
 date: 2018-06-19
+description: Le manifeste Software Craftsmanship est sous titré par Raising the bar, élever le niveau. Partage des valeurs autour du software craftmanship
 author: Allemand Sébastien
 ---
 
@@ -23,8 +24,6 @@ L’approche prônée par cette nouvelle philosophie consiste à replacer la tec
 Grâce à l’expérience des Méthodes Agiles, nous pouvons aujourd’hui nous accorder pour dire que si l’exécution de la qualité ne permet pas l’adaptation et la maintenance d’un logiciel sur le long terme, le produit final ne fonctionnera pas correctement ou qu’en apparence.
 
 ## Des valeurs et une vision de la qualité
-
-
 
 La qualité logicielle n’est pas un nouveau sujet (la norme ISO/IEC 25062, une des premières “SQuaRE”, date de 2006), mais dans un monde où le logiciel devient omniprésent, la qualité est devenue un plus stratégique, à la fois dans la réalisation et dans la communication de ce savoir-faire. Dans notre monde numérique, il est devenu très important d’être en mesure de produire des fonctionnalités interopérables rapidement dans le but de satisfaire ses utilisateurs et ne pas se faire dépasser par ses concurrents. La qualité trouvera sa place dans un contexte où les besoins évoluent, avec une attention particulière à la stabilité. Une application stable et sécurisée est une application qui est, par exemple, en mesure d’évoluer sans subir de fortes régressions techniques (dysfonctionnements) ou fonctionnels (dégradation de l’UX, non-respect de règles métiers).
 

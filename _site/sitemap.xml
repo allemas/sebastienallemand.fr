@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/craft/software-craftsmanship/</loc>
+    <lastmod>2018-06-19T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/craft/l-art-de-nommer/</loc>
+    <lastmod>2019-06-17T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/experiments/coldstart-ruby/</loc>
+    <lastmod>2019-06-18T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/craft/practical-test-pyramid/</loc>
+    <lastmod>2019-06-20T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/devops/docker-cmd/</loc>
+    <lastmod>2020-01-18T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/craft/legacy-code/</loc>
+    <lastmod>2020-02-15T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/devops/canonical-multipass/</loc>
+    <lastmod>2020-02-17T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/</loc>
+    <lastmod>2020-03-09T11:38:52.155Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/crafting/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/refactoring/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/legacycode/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/DDD/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/tdd/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/devops/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/multipass/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/canonical/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/experiments/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/kubernetes/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/mongodb/</loc>
+    <lastmod>2020-03-10T19:06:40.458Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/tags/</loc>
+    <lastmod>2020-03-10T20:49:06.117Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/devops/k3s-rancher/</loc>
+    <lastmod>2020-03-17T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/devops/openssl-toolbox/</loc>
+    <lastmod>2020-03-18T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/pages/a-propos/</loc>
+    <lastmod>2020-03-20T17:05:38.898Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/devops/kubernetes-cmd/</loc>
+    <lastmod>2020-04-07T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/devops/mongo-db/</loc>
+    <lastmod>2020-04-14T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/posts/craft/pattern-testing-1-test-unitaire-pourquoi-comment/</loc>
+    <lastmod>2020-06-30T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sebastienallemand.fr/404.html</loc>
+    <lastmod>2020-10-09T13:13:05.455Z</lastmod>
+  </url>
+</urlset>
+
+
+

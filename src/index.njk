@@ -4,7 +4,7 @@ title: Blog
 pagination:
   reverse: true
   data: collections.posts
-  size: 4
+  size: 8
 ---
 
 <ul class="listing">
@@ -24,10 +24,12 @@ pagination:
   {% endfor %}
 </ul>
 
-
 <div class="pager">
   {%- for pageEntry in pagination.pages %}
   <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url== pagination.hrefs[ loop.index0 ] %}
-     aria-current="page" {% endif %}>{{ loop.index }}</a>
+     aria-current="page" {% endif %} class="pager-link">{{ loop.index }}</a>
   {%- endfor %}
 </div>
+
+
+

@@ -2,10 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
-
   <meta name="title" content="Blog | Sébastien ALLEMAND">
   <meta name="description" content="{{ renderData.description or description or metadata.description }}">
 
@@ -14,20 +13,26 @@
   <meta property="og:url" content="https://sebastienallemand.fr/">
   <meta property="og:title" content="{{ title }} | Sébastien ALLEMAND">
   <meta property="og:description" content="{{ renderData.description or description or metadata.description }}">
-  <meta property="og:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://sebastienallemand.fr/">
   <meta property="twitter:title" content="{{ title }} | Sébastien ALLEMAND">
   <meta property="twitter:description" content="{{ renderData.description or description or metadata.description }}">
-  <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/121151340/1534700835/1500x500">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
 
   <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
 
   <title>{{ title }} | Sébastien ALLEMAND</title>
   <style>{% include "css/styles.css" %}</style>
   <style>{% include "css/logo.css" %}</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 <body>
 {% include 'layouts/logo.njk' %}

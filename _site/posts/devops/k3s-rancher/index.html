@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="title" content="Blog | Sébastien ALLEMAND">
+  <meta name="description" content="Mise en place d&#39;un cluster kubernetes (k8s) avec k3s de rancher et multipass de canonical">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sebastienallemand.fr/">
+  <meta property="og:title" content="Mini cluster Kubernetes avec rancher (k3s)  | Sébastien ALLEMAND">
+  <meta property="og:description" content="Mise en place d&#39;un cluster kubernetes (k8s) avec k3s de rancher et multipass de canonical">
+  <meta property="og:image" content="./../../../assets/all/banner.jpeg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sebastienallemand.fr/">
+  <meta property="twitter:title" content="Mini cluster Kubernetes avec rancher (k3s)  | Sébastien ALLEMAND">
+  <meta property="twitter:description" content="Mise en place d&#39;un cluster kubernetes (k8s) avec k3s de rancher et multipass de canonical">
+  <meta property="twitter:image" content="./../../../assets/all/banner.jpeg">
+
+  <link rel="alternate" type="application/rss+xml" href="/feed/feed.xml">
+
+  <title>Mini cluster Kubernetes avec rancher (k3s)  | Sébastien ALLEMAND</title>
+  <style>body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #444;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
+  line-height: 1.6;
+  text-align: center
+}
+
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #222
+}
+
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
+  font-size: .7em;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  border-top: 1px solid #eee;
+}
+
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1.headline {
+  font-size: 3.5rem;
+}
+
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0
+}
+
+figcaption {
+  color: #888;
+  font-size: .7em;
+  text-align: center
+}
+
+
+blockquote {
+  border-left: 3px solid #888;
+  font-style: italic;
+  margin-bottom: 0;
+  margin-left: -2em;
+  margin-top: 0;
+  padding-bottom: .5em;
+  padding-left: 2em;
+  padding-top: .5em
+}
+
+blockquote em {
+  font-style: normal
+}
+
+/*pre {
+  background-color: #eee;
+  font-size: .7em;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 1em;
+}*/
+
+hr {
+  border-bottom: 1px solid #eee;
+  border-style: none;
+  margin-bottom: 3em;
+  margin-top: 2em
+}
+
+
+ul.listing {
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 0;
+/ / padding-top: 1.5 em
+}
+
+ul.listing li {
+  margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
+}
+
+ul.listing h3 {
+  margin-top: .2rem;
+  margin-bottom: .2rem;
+  padding: 0;
+}
+
+ul.listing p.meta {
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu-container {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
+
+.tag {
+  text-transform: capitalize;
+  border-bottom: 1px dotted #515151;
+}
+
+.tag:hover {
+  text-transform: capitalize;
+  border-bottom: 1px solid #000;
+}
+
+.tag-homepage {
+  text-transform: lowercase;
+  border-bottom: 1px dotted #515151;
+  font-size: 1.1rem;
+}
+
+.tag-homepage:hover {
+  border-bottom: 1px solid #000;
+  font-size: 1.1rem;
+}
+
+.nav-element-left {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.nav-element-right {
+  width: 395px;
+  right: 0;
+  display: inline-block;
+  position: relative;
+  text-align: right;
+}
+
+img[src*='#left'] {
+  float: left;
+}
+
+img[src*='#right'] {
+  float: right;
+}
+
+img[src*='#center'] {
+  position: relative;
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+img[src*='#banner'] {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+
+.pager {
+  text-align: center;
+}
+
+.footer-article {
+  margin-top: 3rem;
+}
+
+</style>
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+.logo-wrapper {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hp-logo {
+    padding-top: 2rem
+}
+
+.logo-wrapper a {
+    text-decoration: none;
+}
+
+.logo-wrapper>a>.logo {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.logo-wrapper>a>.logo>.name-title {
+    margin: 0px;
+    font-size: calc(1.6rem + .6 * ((100vw - 320px) / 2680));
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-wrapper span.background-title,
+.blog-title {
+    text-transform: uppercase;
+    font-size: calc(4.5rem + .5 * ((100vw - 320px) / 2680));
+    letter-spacing: -11px;
+    line-height: 3.8rem;
+    display: inline;
+    text-align: left;
+}
+
+
+
+
+
+
+
+span.background-title .background-title-spare,
+.blog-title .background-title-spare {
+    display: inline;
+    color: #f02;
+}
+
+.baseline {
+    color: #444;
+    text-align: center;
+    font-weight: 300;
+    font-size: calc(1.2rem + .3 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header {
+    text-align: left;
+}
+
+.logo-post-header>a>.logo>.name-title {
+    font-size: calc(1.2rem + .6 * ((100vw - 320px) / 2680));
+}
+
+.logo-post-header span.background-title,
+.blog-title {
+    letter-spacing: -8px;
+    font-size: calc(2.8rem + .5 * ((100vw - 320px) / 2680));
+}
+</style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<header class="container header-logo">
+  <div class="logo-wrapper hp-logo">
+    <a href="/" class="site-link">
+      <div class="logo">
+        <h1 class="name-title">SEBASTIEN</h1>
+        <h1 class="name-title">ALLEMAND</h1>
+      </div>
+      <div class="blog-title">
+        <span class="background-title">Blog <span class="background-title-spare">.</span></span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<div class="container menu-container">
+  <a href="/">← Blog</a> - <a href="/tags/crafting">Software Crafting</a> - <a href="/tags/devops">Devops</a> - <a href="/pages/a-propos">A propos</a>
+</div>
+<div class="content" role="main" id="main">
+    <article class="container">
+      <div class="title-wrapper">
+  <h1 class="headline">Mini cluster Kubernetes avec rancher (k3s) </h1>
+</div>
+
+<div class="meta">
+  <span>Temps de lecture environ 2 min</span>
+</div>
+
+<div class="wrapper-content">
+  <h1 id="d%C3%A9couverte-k3s">Découverte K3S <a class="direct-link" href="#d%C3%A9couverte-k3s">#</a></h1>
+<p>Suivi d'installation d'un cluster mini-kubernetes. Par curiosité je souhaite simuler des systèmes complexe.<br>
+J'aimerais découvrir de nouveaux concepts et apprendre des choses par cet apprentissage.<br>
+Ce que je partage ici n'est que des expérimentations, elles ne sont peut être  <strong>pas poussées jusqu'au bout niviable en prod</strong>.<br>
+Simplement des sujets que je souhaite débunker.</p>
+<p><img src="./../../../assets/devops/how-it-works-k3s.svg#center" alt=""></p>
+<h1 id="outils-utilis%C3%A9s">Outils utilisés <a class="direct-link" href="#outils-utilis%C3%A9s">#</a></h1>
+<ul>
+<li><a href="https://multipass.run/docs/installing-on-macos">Multipass</a></li>
+<li><a href="https://k3s.io/">K3S</a></li>
+</ul>
+<h1 id="cr%C3%A9ation-des-machines">Création des machines <a class="direct-link" href="#cr%C3%A9ation-des-machines">#</a></h1>
+<p>Pour commencer nous allons créer 3 machines : 1 principales et 2 replications a l'aide de la CLI multipass</p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line">multipass launch -n basemaster --cpus <span class="token number">2</span> --mem 2G</span><br><span class="highlight-line">multipass launch -n raiderone --cpus <span class="token number">2</span> --mem 2G</span><br><span class="highlight-line">multipass launch -n raidertwo --cpus <span class="token number">2</span> --mem 2G</span></code></pre>
+<hr>
+<h3 id="creation-de-l'instance-principale">Creation de l'instance principale <a class="direct-link" href="#creation-de-l'instance-principale">#</a></h3>
+<pre class="language-bash"><code class="language-bash">multipass --verbose <span class="token builtin class-name">exec</span> basemaster -- <span class="token function">sh</span> -c <span class="token string">"<br><span class="highlight-line">  curl -sfL https://get.k3s.io | sh -</span><br>"</span></code></pre>
+<h3 id="creation-des-noeud-2-et-3">Creation des noeud 2 et 3 <a class="direct-link" href="#creation-des-noeud-2-et-3">#</a></h3>
+<p>Comme dit dans la <a href="https://rancher.com/docs/k3s/latest/en/quick-start/">documentation</a>.</p>
+<p><code>K3S_URL</code> Configure k3s en <code>worker mode</code> l'agent s'abonnera au master définit dans K3S_URL='<a href="https://:6443$IP">https://:6443$IP</a>' <em>(IP de basemaster)</em>.</p>
+<p><code>K3S_TOKEN</code> est le tocken d'auth stocké dans /var/lib/rancher/k3s/server/node-token du k3s principal <em>(basemaster dans notre exemple)</em>.</p>
+<p>Pour faire ca il est possible d'utiliser les variables d'environnements</p>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token builtin class-name">export</span> <span class="token assign-left variable">TOKEN</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>multipass <span class="token builtin class-name">exec</span> basemaster <span class="token function">sudo</span> <span class="token function">cat</span> /var/lib/rancher/k3s/server/node-token<span class="token variable">)</span></span></span><br><span class="highlight-line"><span class="token builtin class-name">export</span> <span class="token assign-left variable">IP</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>multipass info basemaster <span class="token operator">|</span> <span class="token function">grep</span> IPv4 <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token variable">)</span></span></span></code></pre>
+<h3 id="cr%C3%A9ation-noeud-2">Création noeud 2 <a class="direct-link" href="#cr%C3%A9ation-noeud-2">#</a></h3>
+<pre><code>multipass --verbose exec raiderone -- sh -c &quot; curl -sfL https://get.k3s.io | K3S_URL='https://$IP:6443' K3S_TOKEN='$TOKEN' sh - &quot;
+</code></pre>
+<h3 id="cr%C3%A9ation-noeud-3">Création noeud 3 <a class="direct-link" href="#cr%C3%A9ation-noeud-3">#</a></h3>
+<pre><code>multipass --verbose exec raidertwo -- sh -c &quot; curl -sfL https://get.k3s.io | K3S_URL='https://$IP:6443' K3S_TOKEN='$TOKEN' sh - &quot;
+</code></pre>
+<h1 id="environnement-k3s">Environnement k3s <a class="direct-link" href="#environnement-k3s">#</a></h1>
+<p>Pour que kublectl(CLI kubernetes) puisse communiquer avec le k3s-master il est necessaire d'y passer le fichier décrivant l'environnement. <em>Avec l'ip du cluster et le token</em> 🙂</p>
+<p>Pour cela il est necessaire de copier localement la configuration du master et de remplacer l'IP locale par son IP réseau :</p>
+<pre><code>multipass exec basemaster sudo cat /etc/rancher/k3s/k3s.yaml &gt; k3s.yaml
+sed -i '' &quot;s/127.0.0.1/$IP/&quot; k3s.yaml
+</code></pre>
+<p>Note : <em>sed -i '' &quot;s/schema/remplaceent&quot; <file></em></p>
+<p>On renseignera la configuration a utiliser via : <code>export KUBECONFIG=./k3s.yaml</code></p>
+<h1 id="description-de-l'environnement">Description de l'environnement <a class="direct-link" href="#description-de-l'environnement">#</a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token builtin class-name">export</span> <span class="token assign-left variable">KUBECONFIG</span><span class="token operator">=</span>./k3s.yaml</span><br><span class="highlight-line">kubectl <span class="token function">top</span> nodes</span><br><span class="highlight-line"></span><br><span class="highlight-line">NAME         CPU<span class="token punctuation">(</span>cores<span class="token punctuation">)</span>   CPU%   MEMORY<span class="token punctuation">(</span>bytes<span class="token punctuation">)</span>   MEMORY%</span><br><span class="highlight-line">basemaster   198m         <span class="token number">9</span>%     747Mi           <span class="token number">37</span>%</span><br><span class="highlight-line">raidone      17m          <span class="token number">0</span>%     263Mi           <span class="token number">13</span>%</span><br><span class="highlight-line">raidtwo      16m          <span class="token number">0</span>%     258Mi           <span class="token number">12</span>%</span></code></pre>
+<h1 id="enjoy-!">Enjoy ! <a class="direct-link" href="#enjoy-!">#</a></h1>
+<p>Votre cluster mini cluster Kubernetes est maintenant up ! 🙌<br>
+Vous pouvez maintenant déployer vos pods 👷‍♂️</p>
+<h3 id="ressources">Ressources <a class="direct-link" href="#ressources">#</a></h3>
+<ul>
+<li><a href="https://medium.com/better-programming/local-k3s-cluster-made-easy-with-multipass-108bf6ce577c">Local K3s Cluster Made Easy With Multipass</a></li>
+<li><a href="https://k33g.gitlab.io/articles/2020-02-21-K3S-01-CLUSTER.html">Setup cluster k3s</a></li>
+<li><a href="https://rancher.com/docs/k3s/latest/en/quick-start/">Quick start k3s</a></li>
+<li><a href="https://itnext.io/setup-a-private-registry-on-k3s-f30404f8e4d3">Setup a private registry on K3s</a></li>
+</ul>
+
+</div>
+
+<div class="footer-article">
+  
+  <i>Mots clés :   <a href="/tags/devops/"
+                                                                                       class="tag">devops</a>  <a href="/tags/kubernetes/"
+                                                                                       class="tag">kubernetes</a></i><br>
+  
+  <i>Auteur : Allemand Sébastien</i>
+</div>
+</article>
+<hr>
+</div>
+<div class="container">
+  
+  <p class="ctr nav-element-left">
+    <a class="previous" href="/posts/devops/canonical-multipass/">← Prev.</a>
+  </p>
+  
+
+  
+  <p class="ctr nav-element-right">
+    <a class="next" href="/posts/devops/openssl-toolbox/">Suiv. →</a>
+  </p>
+  
+</div>
+
+  </div>
+</div>
+<footer>
+  <div class="container">
+    © 2020 <a href="https://twitter.com/allema_s">Sébastien Allemand</a> généré avec <a href="https://11ty.io">Eleventy</a>.
+  </div>
+</footer>
+</body>
+</html>
+

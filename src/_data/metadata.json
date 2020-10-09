@@ -4,14 +4,14 @@
     "email": "sebastienallemand.as@gmail.com"
   },
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": ".",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "url": "https://myurl.com/feed/feed.xml",
-    "id": "https://myurl.com/"
+    "url": "https://sebastienallemand.fr/feed/feed.xml",
+    "id": "https://sebastienallemand.fr/"
   },
   "title": "Allemand Sébastien",
-  "description": "Dev et ops, passionné d'architecture et de solutions. Je blogue autour de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité & Résilience",
+  "description": "Devops, passionné d'architecture et de solutions. Je blogue de mes expériences : Refactoring - TDD - DDD - Infra - Haute disponibilité & Résilience",
   "url": "https://sebastienallemand.fr",
   "locale": "fr_FR"
 }

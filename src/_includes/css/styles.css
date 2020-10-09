@@ -6,71 +6,56 @@ html {
 
 body {
   color: #444;
-  font-family: Georgia, Cambria, Times New Roman, Times, serif;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
   font-size: calc(16px + 4 * ((100vw - 320px) / 2680));
   line-height: 1.6;
   text-align: center
 }
 
-@media (min-width: 800px) {
-  body {
-    font-size: 20px
-  }
-}
-
-a:link,
-a:visited {
+/*------ Links ----------*/
+a, a:link, a:visited {
+  text-decoration: none;
   color: #222
 }
 
-footer,
-header {
-  color: #888;
+/*------ Footer ----------*/
+footer {
+  color: #3d4449;
   font-size: .7em;
   padding-bottom: 2em;
-  padding-top: 2em
-}
-
-header {
-  border-bottom: 1px solid #eee
-}
-
-.header-logo {
-  border-bottom: 0px solid #eee;
-  padding: 0.5rem 0rem 0.5rem 0rem;
-}
-
-.header-posts {
-  padding: 1rem 0 1rem 0;
-}
-
-footer {
+  padding-top: 2em;
   border-top: 1px solid #eee;
-  margin-top: 6em
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: #111;
-  font-family: sans-serif;
-  line-height: 1
+/*------ h1, h2, h3, h4 ----------*/
+h1, h2, h3, h4 {
+  color: #333333;
+  line-height: 1;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2 {
-  font-size: 34px;
-  letter-spacing: -.01em
+h1.headline {
+  font-size: 3.5rem;
 }
 
-h2 small {
-  color: #888;
-  font-size: .5em;
-  font-weight: 400
+/*------ Container ----------*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 90%
 }
 
-h3 {
-  margin-top: 2em
+@media (min-width: 800px) {
+  .container {
+    width: 800px
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 960px
+  }
 }
 
 figure {
@@ -83,6 +68,7 @@ figcaption {
   font-size: .7em;
   text-align: center
 }
+
 
 blockquote {
   border-left: 3px solid #888;
@@ -99,28 +85,13 @@ blockquote em {
   font-style: normal
 }
 
-pre {
+/*pre {
   background-color: #eee;
   font-size: .7em;
   margin-bottom: 0;
   margin-top: 0;
-  overflow-x: scroll;
-  padding-left: 1em;
-  padding-right: 1em
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  width: 90%
-}
-
-@media (min-width: 800px) {
-  .container {
-    width: 800px
-  }
-}
+  padding: 1em;
+}*/
 
 hr {
   border-bottom: 1px solid #eee;
@@ -129,25 +100,20 @@ hr {
   margin-top: 2em
 }
 
-.post-content img {
-  width: 100%
-}
-
-p.meta {
-  color: #444;
-  font-size: .8em;
-  font-style: italic;
-}
 
 ul.listing {
   list-style: none;
   list-style-position: outside;
   padding-left: 0;
-  padding-top: 1.5em
+/ / padding-top: 1.5 em
 }
 
 ul.listing li {
   margin-bottom: 1em
+}
+
+ul.listing .list-headline{
+  font-size: 1.8rem;
 }
 
 ul.listing h3 {
@@ -161,15 +127,44 @@ ul.listing p.meta {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
 
 .menu-container {
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.menu-container a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+.pager-link
+{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro', Georgia, Cambria, Times New Roman, Times, serif;
+  text-transform: capitalize;
+}
+
+
+.post-content img {
+  width: 100%
+}
+
+p.meta {
+  color: #444;
+  font-size: .8em;
+  font-style: italic;
+}
+
 
 .tag {
   text-transform: capitalize;
@@ -211,14 +206,18 @@ a {
 img[src*='#left'] {
   float: left;
 }
+
 img[src*='#right'] {
   float: right;
 }
+
 img[src*='#center'] {
   position: relative;
   display: block;
   margin: auto;
+  max-width: 100%;
 }
+
 img[src*='#banner'] {
   position: relative;
   display: block;
@@ -233,3 +232,4 @@ img[src*='#banner'] {
 .footer-article {
   margin-top: 3rem;
 }
+

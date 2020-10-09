@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Allemand Sébastien</title>
-	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
-	<link href="https://myurl.com/feed/feed.xml" rel="self"/>
+	<subtitle>.</subtitle>
+	<link href="https://sebastienallemand.fr/feed/feed.xml" rel="self"/>
 	<link href="https://sebastienallemand.fr"/>
-	<updated>2020-04-14T02:00:00+02:00</updated>
-	<id>https://myurl.com/</id>
+	<updated>2020-06-30T02:00:00+02:00</updated>
+	<id>https://sebastienallemand.fr/</id>
 	<author>
 		<name>ALLEMAND Sébastien</name>
 		<email>sebastienallemand.as@gmail.com</email>
@@ -264,113 +264,73 @@ Ces tests ne sont pas efficaces pour valider les échanges entre composants, les
 	</entry>
 	
 	<entry>
-		<title>Coldstart - Docker Basics</title>
+		<title>Docker Commands - Toolbox</title>
 		<link href="https://sebastienallemand.fr/posts/devops/docker-cmd/"/>
 		<updated>2020-01-18T01:00:00+01:00</updated>
 		<id>https://sebastienallemand.fr/posts/devops/docker-cmd/</id>
-		<content type="html">&lt;h1 id=&quot;docker-basics-cmd&quot;&gt;Docker Basics Cmd &lt;a class=&quot;direct-link&quot; href=&quot;#docker-basics-cmd&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&quot;.dockerignore&quot;&gt;.dockerignore &lt;a class=&quot;direct-link&quot; href=&quot;#.dockerignore&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;example:&lt;/em&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;node_modules
-npm-debug.log
-Dockerfile
-.dockerignore
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&quot;build-image&quot;&gt;Build image &lt;a class=&quot;direct-link&quot; href=&quot;#build-image&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;docker build -t &amp;lt;docker_repository&amp;gt;/&amp;lt;image_name&amp;gt; .&lt;/code&gt;&lt;br&gt;
-The &lt;code&gt;.&lt;/code&gt; specifies that the build context is the current directory.&lt;/p&gt;
-&lt;h1 id=&quot;list-available-images&quot;&gt;List available images &lt;a class=&quot;direct-link&quot; href=&quot;#list-available-images&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;docker images&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id=&quot;run-container&quot;&gt;Run container &lt;a class=&quot;direct-link&quot; href=&quot;#run-container&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;docker run --name &amp;lt;container_name&amp;gt; -p &amp;lt;local_port&amp;gt;:&amp;lt;container_port&amp;gt; -d &amp;lt;docker_repository&amp;gt;/&amp;lt;image_name&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id=&quot;run-shell&quot;&gt;Run shell &lt;a class=&quot;direct-link&quot; href=&quot;#run-shell&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;if stoped :&lt;br&gt;
-&lt;code&gt;docker exec -it &amp;lt;name_container&amp;gt; bash&lt;/code&gt;&lt;br&gt;
-&lt;em&gt;bash not stoped after exit because interactive mode&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id=&quot;remove-container-and-image&quot;&gt;Remove container and image &lt;a class=&quot;direct-link&quot; href=&quot;#remove-container-and-image&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;docker rm -v container_name&lt;/code&gt;&lt;br&gt;
-&lt;em&gt;remove all inactive containers&lt;/em&gt;&lt;code&gt;docker container prune&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id=&quot;container-network&quot;&gt;Container network &lt;a class=&quot;direct-link&quot; href=&quot;#container-network&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&quot;create-network&quot;&gt;Create network &lt;a class=&quot;direct-link&quot; href=&quot;#create-network&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;docker network create &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;connect-container-to-bridge&quot;&gt;connect container to bridge &lt;a class=&quot;direct-link&quot; href=&quot;#connect-container-to-bridge&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;When you create a new container, you can specify one or more --network flags. This example connects a Nginx container to the my-net network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the my-net network has access to all ports on the my-nginx container, and vice versa.&lt;br&gt;
-&lt;code&gt;docker network connect &amp;lt;network_name&amp;gt; &amp;lt;container2&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;inspect-network&quot;&gt;inspect network &lt;a class=&quot;direct-link&quot; href=&quot;#inspect-network&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;docker network inspect&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-    {
-        &amp;quot;Name&amp;quot;: &amp;quot;my-net&amp;quot;,
-        &amp;quot;Id&amp;quot;: &amp;quot;b57e393b7c9ab38d596ad13b5a5341812cdc44600370afd74c25be0daada5663&amp;quot;,
-        &amp;quot;Created&amp;quot;: &amp;quot;2020-02-10T18:17:27.283066902Z&amp;quot;,
-[...]
-        &amp;quot;IPAM&amp;quot;: {
-            &amp;quot;Driver&amp;quot;: &amp;quot;default&amp;quot;,
-            &amp;quot;Options&amp;quot;: {},
-            &amp;quot;Config&amp;quot;: [
-                {
-                    &amp;quot;Subnet&amp;quot;: &amp;quot;172.18.0.0/16&amp;quot;,
-                    &amp;quot;Gateway&amp;quot;: &amp;quot;172.18.0.1&amp;quot;
-                }
-            ]
-        },
-[...]
-        &amp;quot;ConfigOnly&amp;quot;: false,
-        &amp;quot;Containers&amp;quot;: {
-            &amp;quot;13dee2f...7f907&amp;quot;: {
-                &amp;quot;Name&amp;quot;: &amp;quot;n2&amp;quot;,
-                &amp;quot;EndpointID&amp;quot;: &amp;quot;1d2b53ec0...e398c3bbf312&amp;quot;,
-                &amp;quot;MacAddress&amp;quot;: &amp;quot;02:42:ac:12:00:03&amp;quot;,
-                &amp;quot;IPv4Address&amp;quot;: &amp;quot;172.18.0.3/16&amp;quot;,
-                &amp;quot;IPv6Address&amp;quot;: &amp;quot;&amp;quot;
-            },
-            &amp;quot;89d2c008d9e6...049d5679a9a13ad&amp;quot;: {
-                &amp;quot;Name&amp;quot;: &amp;quot;n1&amp;quot;,
-                &amp;quot;EndpointID&amp;quot;: &amp;quot;30d1cd...9b5e246fd7b7fc133&amp;quot;,
-                &amp;quot;MacAddress&amp;quot;: &amp;quot;02:42:ac:12:00:02&amp;quot;,
-                &amp;quot;IPv4Address&amp;quot;: &amp;quot;172.18.0.2/16&amp;quot;,
-                &amp;quot;IPv6Address&amp;quot;: &amp;quot;&amp;quot;
-            }
-        },
-        &amp;quot;Options&amp;quot;: {},
-        &amp;quot;Labels&amp;quot;: {}
-    }
-]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;networking-container&quot;&gt;Networking container &lt;a class=&quot;direct-link&quot; href=&quot;#networking-container&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/devops/docker-images-process.png#center&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;dockerfile&quot;&gt;Dockerfile &lt;a class=&quot;direct-link&quot; href=&quot;#dockerfile&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Une image Docker est crée a partir d&#39;un fichier Dockerfile représentant la structure du conteneur. On peut y trouver plusieurs éléments comme des librairies logicielles, une application, de la configuration, l&#39;utilisation de volumes etc. Une fois cette image construire il sera possible de lancer plusieurs container basés sur la même image.&lt;/p&gt;
+&lt;h1 id=&quot;construire-une-image&quot;&gt;Construire une image &lt;a class=&quot;direct-link&quot; href=&quot;#construire-une-image&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker build -t &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;docker_repository&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Le &lt;code&gt;.&lt;/code&gt; défini que le dockerfile est disposé dans le dossier courant.&lt;/p&gt;
+&lt;h1 id=&quot;lister-les-images-docker-disponible-sur-la-machine&quot;&gt;Lister les images docker disponible sur la machine &lt;a class=&quot;direct-link&quot; href=&quot;#lister-les-images-docker-disponible-sur-la-machine&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker images&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;ignorer-des-fichiers-dans-une-image-docker-avec-dockerignore&quot;&gt;Ignorer des fichiers dans une image docker avec dockerignore &lt;a class=&quot;direct-link&quot; href=&quot;#ignorer-des-fichiers-dans-une-image-docker-avec-dockerignore&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Fichier  .dockerignore&lt;br&gt;
+&lt;em&gt;example:&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;node_modules&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;npm-debug.log&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;Dockerfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;.dockerignore&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;conteneur-docker&quot;&gt;Conteneur Docker &lt;a class=&quot;direct-link&quot; href=&quot;#conteneur-docker&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Un conteneur est comme nous venons de le dire basé sur une image Docker, un conteneur comprend un système d&#39;exploitation, du code applicatif, de la configuration middleware, et etc. Il peut être facilement déplacés et facilite grandement la gestion des infrastructures (surtout en développement).&lt;/p&gt;
+&lt;h1 id=&quot;demarrer-un-container&quot;&gt;Demarrer un container &lt;a class=&quot;direct-link&quot; href=&quot;#demarrer-un-container&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Note : Avant de démarrer un container il est necessaire de le construire (voir commande docker build)&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker run --name &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;container_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; -p &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;local_port&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;container_port&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; -d &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;docker_repository&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--name&lt;/code&gt; spécifie le nom du container&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p &amp;lt;local_port&amp;gt;:&amp;lt;container_port&amp;gt;&lt;/code&gt; permet de spécifier la correspondance des ports&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt; permet de démarrer le container en monde daemon (en tache de fond)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;supprimer-un-container-et-son-image&quot;&gt;Supprimer un container et son image &lt;a class=&quot;direct-link&quot; href=&quot;#supprimer-un-container-et-son-image&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -v container_name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;mode-int%C3%A9ractif&quot;&gt;Mode intéractif &lt;a class=&quot;direct-link&quot; href=&quot;#mode-int%C3%A9ractif&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Permet de d&#39;exécuter un commande dans le container et d&#39;intéragir avec. Souvent on utilise la commande pour ouvrir un shell.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker &lt;span class=&quot;token builtin class-name&quot;&gt;exec&lt;/span&gt; -it &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;name_container&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; bash`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;supprimer-tous-les-containers-inactifs&quot;&gt;Supprimer tous les containers inactifs &lt;a class=&quot;direct-link&quot; href=&quot;#supprimer-tous-les-containers-inactifs&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker container prune&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;docker-network&quot;&gt;Docker Network &lt;a class=&quot;direct-link&quot; href=&quot;#docker-network&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Un Docker network est un réseau crée entre plusieurs conteneur. Il permet d&#39;assurer la communiquer entre plusieurs conteneurs.&lt;br&gt;
+Créer un Docker Network permet de limiter les risques en isolant par le reseau les conteneurs et évite les conflits entre des conteneurs qui n&#39;auraient pas a communiquer.&lt;/p&gt;
+&lt;h1 id=&quot;cr%C3%A9er-un-r%C3%A9seau&quot;&gt;Créer un réseau &lt;a class=&quot;direct-link&quot; href=&quot;#cr%C3%A9er-un-r%C3%A9seau&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker network create &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;connecter-un-conteneur-a-un-r%C3%A9seau&quot;&gt;Connecter un conteneur a un réseau &lt;a class=&quot;direct-link&quot; href=&quot;#connecter-un-conteneur-a-un-r%C3%A9seau&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker network connect &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;network_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;container_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;When you create a new container, you can specify one or more --network flags. This example connects a Nginx container to the my-net network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the my-net network has access to all ports on the my-nginx container, and vice versa.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;network-inspect&quot;&gt;Network inspect &lt;a class=&quot;direct-link&quot; href=&quot;#network-inspect&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker network inspect&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;networking-container&quot;&gt;Networking container &lt;a class=&quot;direct-link&quot; href=&quot;#networking-container&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Connected to bridge manualy&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;root@1f87bccac67c:/# cat /etc/hosts
-127.0.0.1	localhost
-::1	localhost ip6-localhost ip6-loopback
-fe00::0	ip6-localnet
-ff00::0	ip6-mcastprefix
-ff02::1	ip6-allnodes
-ff02::2	ip6-allrouters
-172.17.0.2	1f87bccac67c
-172.18.0.2	1f87bccac67c
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Disconnected to bridge manualy&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;root@1f87bccac67c:/# cat /etc/hosts
-127.0.0.1	localhost
-::1	localhost ip6-localhost ip6-loopback
-fe00::0	ip6-localnet
-ff00::0	ip6-mcastprefix
-ff02::1	ip6-allnodes
-ff02::2	ip6-allrouters
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://runnable.com/docker/basic-docker-networking&quot;&gt;basic networking&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;links&quot;&gt;Links &lt;a class=&quot;direct-link&quot; href=&quot;#links&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-quickstart&quot;&gt;how-to-build-a-node-js-application-with-docker-quickstart&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;root@1f87bccac67c:/&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; /etc/hosts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;.0.1	localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;::1	localhost ip6-localhost ip6-loopback&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;fe00::0	ip6-localnet&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token number&quot;&gt;172.17&lt;/span&gt;.0.2	1f87bccac67c   &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;--&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token number&quot;&gt;172.18&lt;/span&gt;.0.2	1f87bccac67c   &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;--&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour aller plus loins :  &lt;a href=&quot;https://runnable.com/docker/basic-docker-networking&quot;&gt;Basic networking&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;h1 id=&quot;docker-volumes&quot;&gt;Docker Volumes &lt;a class=&quot;direct-link&quot; href=&quot;#docker-volumes&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;create : &lt;code&gt;docker volume create &amp;lt;name&amp;gt;&lt;/code&gt;&lt;br&gt;
-list : &lt;code&gt;docker volume ls &lt;/code&gt;&lt;br&gt;
-remove all unused : &lt;code&gt;docker volume prune&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;docker-mount-volume-to-container&quot;&gt;Docker mount volume to container &lt;a class=&quot;direct-link&quot; href=&quot;#docker-mount-volume-to-container&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;docker run --name snginx -p 8080:80 --mount source=my-vol,target=/var/www/html s/nginx&lt;/p&gt;
+&lt;p&gt;Un Docker Volume est un système de fichier, monté au démarrage d&#39;un conteneur.&lt;br&gt;
+Un conteneur par design ne stocke &lt;strong&gt;aucunes&lt;/strong&gt; données il ne dispose qu&#39;uniquement des données en lecture seules.&lt;br&gt;
+Quand un conteneur modifie une donnée la donnée traverse les couches(layers) du conteneur puis cette donnée est modifiée dans le système de fichier monté au démarrage. C&#39;est un volume.&lt;/p&gt;
+&lt;h3 id=&quot;creer-un-volume-%3A&quot;&gt;Creer un volume : &lt;a class=&quot;direct-link&quot; href=&quot;#creer-un-volume-%3A&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker volume create &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;lister-les-volumes-%3A&quot;&gt;Lister les volumes : &lt;a class=&quot;direct-link&quot; href=&quot;#lister-les-volumes-%3A&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;`&lt;/span&gt;docker volume &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;supprimer-les-volumes-non-utilis%C3%A9s-%3A&quot;&gt;Supprimer les volumes non utilisés : &lt;a class=&quot;direct-link&quot; href=&quot;#supprimer-les-volumes-non-utilis%C3%A9s-%3A&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker volume prune&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;monter-un-volume-dans-un-conteneur-docker&quot;&gt;Monter un volume dans un conteneur docker &lt;a class=&quot;direct-link&quot; href=&quot;#monter-un-volume-dans-un-conteneur-docker&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;docker run --name snginx -p &lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;:80 --mount &lt;span class=&quot;token assign-left variable&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;my-vol,target&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;/var/www/html s/nginx&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-quickstart&quot;&gt;how-to-build-a-node-js-application-with-docker-quickstart&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;diff%C3%A9rence-entre-conteneur-et-vm&quot;&gt;Différence entre conteneur et VM &lt;a class=&quot;direct-link&quot; href=&quot;#diff%C3%A9rence-entre-conteneur-et-vm&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/devops/docker-vm.png#center&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Un conteneur et une VM ont des aspects d&#39;isolation similaires, mais leurs fonctionnement est différent la ou une VM virtualise les couches hardware un conteneur virtualise le système d&#39;exploitation et sa configuration.&lt;br&gt;
+Un conteneur docker va uniquement contenir le code et les dépendances d&#39;une applications la ou une machine virtuelle va démarrer une nouvelle machine(virtuelle) complètement indépendante.&lt;/p&gt;
 </content>
 	</entry>
 	
@@ -379,9 +339,10 @@ remove all unused : &lt;code&gt;docker volume prune&lt;/code&gt;&lt;/p&gt;
 		<link href="https://sebastienallemand.fr/posts/craft/legacy-code/"/>
 		<updated>2020-02-15T01:00:00+01:00</updated>
 		<id>https://sebastienallemand.fr/posts/craft/legacy-code/</id>
-		<content type="html">&lt;p&gt;Si vous travaillez avec des développeurs vous avez certainement entendu parler de legacy. Un projet fréquemment perçu comme quelque chose de mystique, opaque, mal conçu faisant souvent référence à une période douloureuse ravivant de vieilles douleurs du passé…&lt;/p&gt;
-&lt;p&gt;Mais qu’en est t&#39;il vraiment ? Qu’appelle on Legacy ou bien Legacy Code ?&lt;br&gt;
-J’aimerais partager avec vous ma définition: ce qu’est un projet legacy, le code legacy et comment on a fait pour en arriver la.&lt;/p&gt;
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting/legacy-banner.png#center&quot; alt=&quot;Legacy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Si vous travaillez avec des développeurs vous avez certainement entendu parler de legacy. Un projet fréquemment perçu comme quelque chose de mystique, opaque, mal conçu faisant souvent référence à une période douloureuse ravivant de vieilles douleurs du passé…&lt;/p&gt;
+&lt;p&gt;Mais qu’en est t&#39;il vraiment ? Qu’appelle on Legacy ou bien Legacy Code ?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;J’aimerais partager avec vous ma définition: ce qu’est un projet legacy, le code legacy et comment on a fait pour en arriver la.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;projet-legacy%2C-c%E2%80%99est-quoi-%3F&quot;&gt;Projet legacy, c’est quoi ? &lt;a class=&quot;direct-link&quot; href=&quot;#projet-legacy%2C-c%E2%80%99est-quoi-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Selon moi un Projet Legacy est un projet terminé, un projet en production qui a débuté sa phase d’amortissement. Quand je parle d’amortissement je fais référence au fait que l’investissement financier et énergétique permet d’amorcer une phase de retour sur investissement.&lt;/p&gt;
 &lt;p&gt;Nous arrivons donc dans une phase ou le projet est stable, matur et viable pour répondre au besoin pour lequel il a été écrit. La base de code sur lequel il est bâti est considéré comme terminée et ne subira plus d’évolution majeure.&lt;/p&gt;
@@ -406,6 +367,100 @@ A ne pas confondre avec de la couverture de composants techniques : couverture d
 &lt;p&gt;Travailler dans un système ancien, développé par d’autres, en production avec des utilisateurs est très formateur. Peu importe votre niveau, travailler dans un legacy éveillera votre esprit d’analyse et critique.&lt;/p&gt;
 &lt;p&gt;Vous pouvez chercher à éviter de travailler sur de tels systèmes ou bien vous pouvez voir cette opportunité comme l’occasion d’apprendre et d&#39;acquérir de l’expérience sur nouveaux concepts.&lt;/p&gt;
 &lt;p&gt;Avec la généralisation de l’informatique, le besoin de culture du legacy risque de s’intensifier. Nous devrons être en mesure de maintenir un niveau de service et de faire cohabiter les nouveaux systèmes avec les plus anciens.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Construire un cluster de VM avec Multipass</title>
+		<link href="https://sebastienallemand.fr/posts/devops/canonical-multipass/"/>
+		<updated>2020-02-17T01:00:00+01:00</updated>
+		<id>https://sebastienallemand.fr/posts/devops/canonical-multipass/</id>
+		<content type="html">&lt;p&gt;Il existe une multitupde d&#39;outils pour virutaliser des machines (VM). Aujourd&#39;hui j&#39;ai décidé pour mes atelier et mes expérience d&#39;utiliser Multipass, un outil de la team &lt;a href=&quot;https://multipass.run/&quot;&gt;Canonical&lt;/a&gt;.&lt;br&gt;
+&lt;a href=&quot;https://multipass.run/docs&quot;&gt;Multipass&lt;/a&gt; est un outil de construction de VMs sous ubuntu, je compte utiliser cet outil pour construire très rapidement un environnement de developpement.&lt;/p&gt;
+&lt;h2 id=&quot;lancer-une-instance&quot;&gt;Lancer une instance &lt;a class=&quot;direct-link&quot; href=&quot;#lancer-une-instance&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;multipass launch --name &amp;lt;VM_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;lister-toutes-les-instance&quot;&gt;lister toutes les instance &lt;a class=&quot;direct-link&quot; href=&quot;#lister-toutes-les-instance&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;multipass list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;arreter-%2F-d%C3%A9marrer-une-instance&quot;&gt;Arreter / démarrer une instance &lt;a class=&quot;direct-link&quot; href=&quot;#arreter-%2F-d%C3%A9marrer-une-instance&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;multipass stop &amp;lt;VM_name&amp;gt;
+multipass start &amp;lt;VM_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;supprimer-une-instance&quot;&gt;Supprimer une instance &lt;a class=&quot;direct-link&quot; href=&quot;#supprimer-une-instance&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Attention, lorsque vous supprimez une instance elle ne l&#39;est pas réellement.&lt;br&gt;
+Il faut d&#39;abord la supprimer et ensuite purger les Vms.&lt;/p&gt;
+&lt;h3 id=&quot;supprimer&quot;&gt;Supprimer &lt;a class=&quot;direct-link&quot; href=&quot;#supprimer&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;multipass delete &amp;lt;vm_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;purger&quot;&gt;Purger &lt;a class=&quot;direct-link&quot; href=&quot;#purger&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;multipass purge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;ex%C3%A9cuter-commande&quot;&gt;Exécuter commande &lt;a class=&quot;direct-link&quot; href=&quot;#ex%C3%A9cuter-commande&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Dans cet exemple installation de k3s&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;multipass --verbose exec &amp;lt;vm_name&amp;gt; -- sh -c &amp;quot;
+  curl -sfL https://get.k3s.io | sh -
+&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;multipass --verbose exec node_name -- sh -c &amp;quot;ls /&amp;quot;&lt;/code&gt; : lance une commande sur une machine&lt;/p&gt;
+&lt;h2 id=&quot;n&#39;h%C3%A9sitez-pas-a-scripter-!&quot;&gt;N&#39;hésitez pas a scripter ! &lt;a class=&quot;direct-link&quot; href=&quot;#n&#39;h%C3%A9sitez-pas-a-scripter-!&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Mini cluster Kubernetes avec rancher (k3s) </title>
+		<link href="https://sebastienallemand.fr/posts/devops/k3s-rancher/"/>
+		<updated>2020-03-17T01:00:00+01:00</updated>
+		<id>https://sebastienallemand.fr/posts/devops/k3s-rancher/</id>
+		<content type="html">&lt;h1 id=&quot;d%C3%A9couverte-k3s&quot;&gt;Découverte K3S &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9couverte-k3s&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Suivi d&#39;installation d&#39;un cluster mini-kubernetes. Par curiosité je souhaite simuler des systèmes complexe.&lt;br&gt;
+J&#39;aimerais découvrir de nouveaux concepts et apprendre des choses par cet apprentissage.&lt;br&gt;
+Ce que je partage ici n&#39;est que des expérimentations, elles ne sont peut être  &lt;strong&gt;pas poussées jusqu&#39;au bout niviable en prod&lt;/strong&gt;.&lt;br&gt;
+Simplement des sujets que je souhaite débunker.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/devops/how-it-works-k3s.svg#center&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;outils-utilis%C3%A9s&quot;&gt;Outils utilisés &lt;a class=&quot;direct-link&quot; href=&quot;#outils-utilis%C3%A9s&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://multipass.run/docs/installing-on-macos&quot;&gt;Multipass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://k3s.io/&quot;&gt;K3S&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;cr%C3%A9ation-des-machines&quot;&gt;Création des machines &lt;a class=&quot;direct-link&quot; href=&quot;#cr%C3%A9ation-des-machines&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Pour commencer nous allons créer 3 machines : 1 principales et 2 replications a l&#39;aide de la CLI multipass&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;multipass launch -n basemaster --cpus &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; --mem 2G&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;multipass launch -n raiderone --cpus &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; --mem 2G&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;multipass launch -n raidertwo --cpus &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; --mem 2G&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;creation-de-l&#39;instance-principale&quot;&gt;Creation de l&#39;instance principale &lt;a class=&quot;direct-link&quot; href=&quot;#creation-de-l&#39;instance-principale&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;multipass --verbose &lt;span class=&quot;token builtin class-name&quot;&gt;exec&lt;/span&gt; basemaster -- &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&quot;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;  curl -sfL https://get.k3s.io | sh -&lt;/span&gt;&lt;br&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;creation-des-noeud-2-et-3&quot;&gt;Creation des noeud 2 et 3 &lt;a class=&quot;direct-link&quot; href=&quot;#creation-des-noeud-2-et-3&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Comme dit dans la &lt;a href=&quot;https://rancher.com/docs/k3s/latest/en/quick-start/&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;K3S_URL&lt;/code&gt; Configure k3s en &lt;code&gt;worker mode&lt;/code&gt; l&#39;agent s&#39;abonnera au master définit dans K3S_URL=&#39;&lt;a href=&quot;https://:6443$IP&quot;&gt;https://:6443$IP&lt;/a&gt;&#39; &lt;em&gt;(IP de basemaster)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;K3S_TOKEN&lt;/code&gt; est le tocken d&#39;auth stocké dans /var/lib/rancher/k3s/server/node-token du k3s principal &lt;em&gt;(basemaster dans notre exemple)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Pour faire ca il est possible d&#39;utiliser les variables d&#39;environnements&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;TOKEN&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;multipass &lt;span class=&quot;token builtin class-name&quot;&gt;exec&lt;/span&gt; basemaster &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; /var/lib/rancher/k3s/server/node-token&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;IP&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;multipass info basemaster &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; IPv4 &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;{print &lt;span class=&quot;token variable&quot;&gt;$2&lt;/span&gt;}&#39;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;cr%C3%A9ation-noeud-2&quot;&gt;Création noeud 2 &lt;a class=&quot;direct-link&quot; href=&quot;#cr%C3%A9ation-noeud-2&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;multipass --verbose exec raiderone -- sh -c &amp;quot; curl -sfL https://get.k3s.io | K3S_URL=&#39;https://$IP:6443&#39; K3S_TOKEN=&#39;$TOKEN&#39; sh - &amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;cr%C3%A9ation-noeud-3&quot;&gt;Création noeud 3 &lt;a class=&quot;direct-link&quot; href=&quot;#cr%C3%A9ation-noeud-3&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;multipass --verbose exec raidertwo -- sh -c &amp;quot; curl -sfL https://get.k3s.io | K3S_URL=&#39;https://$IP:6443&#39; K3S_TOKEN=&#39;$TOKEN&#39; sh - &amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;environnement-k3s&quot;&gt;Environnement k3s &lt;a class=&quot;direct-link&quot; href=&quot;#environnement-k3s&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Pour que kublectl(CLI kubernetes) puisse communiquer avec le k3s-master il est necessaire d&#39;y passer le fichier décrivant l&#39;environnement. &lt;em&gt;Avec l&#39;ip du cluster et le token&lt;/em&gt; 🙂&lt;/p&gt;
+&lt;p&gt;Pour cela il est necessaire de copier localement la configuration du master et de remplacer l&#39;IP locale par son IP réseau :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;multipass exec basemaster sudo cat /etc/rancher/k3s/k3s.yaml &amp;gt; k3s.yaml
+sed -i &#39;&#39; &amp;quot;s/127.0.0.1/$IP/&amp;quot; k3s.yaml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note : &lt;em&gt;sed -i &#39;&#39; &amp;quot;s/schema/remplaceent&amp;quot; &lt;file&gt;&lt;/file&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;On renseignera la configuration a utiliser via : &lt;code&gt;export KUBECONFIG=./k3s.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;description-de-l&#39;environnement&quot;&gt;Description de l&#39;environnement &lt;a class=&quot;direct-link&quot; href=&quot;#description-de-l&#39;environnement&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;KUBECONFIG&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;./k3s.yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl &lt;span class=&quot;token function&quot;&gt;top&lt;/span&gt; nodes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;NAME         CPU&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cores&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   CPU%   MEMORY&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bytes&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   MEMORY%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;basemaster   198m         &lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;%     747Mi           &lt;span class=&quot;token number&quot;&gt;37&lt;/span&gt;%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;raidone      17m          &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;%     263Mi           &lt;span class=&quot;token number&quot;&gt;13&lt;/span&gt;%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;raidtwo      16m          &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;%     258Mi           &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt;%&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;enjoy-!&quot;&gt;Enjoy ! &lt;a class=&quot;direct-link&quot; href=&quot;#enjoy-!&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Votre cluster mini cluster Kubernetes est maintenant up ! 🙌&lt;br&gt;
+Vous pouvez maintenant déployer vos pods 👷‍♂️&lt;/p&gt;
+&lt;h3 id=&quot;ressources&quot;&gt;Ressources &lt;a class=&quot;direct-link&quot; href=&quot;#ressources&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/better-programming/local-k3s-cluster-made-easy-with-multipass-108bf6ce577c&quot;&gt;Local K3s Cluster Made Easy With Multipass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://k33g.gitlab.io/articles/2020-02-21-K3S-01-CLUSTER.html&quot;&gt;Setup cluster k3s&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://rancher.com/docs/k3s/latest/en/quick-start/&quot;&gt;Quick start k3s&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://itnext.io/setup-a-private-registry-on-k3s-f30404f8e4d3&quot;&gt;Setup a private registry on K3s&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
 	</entry>
 	
@@ -488,59 +543,42 @@ A ne pas confondre avec de la couverture de composants techniques : couverture d
 		<link href="https://sebastienallemand.fr/posts/devops/kubernetes-cmd/"/>
 		<updated>2020-04-07T02:00:00+02:00</updated>
 		<id>https://sebastienallemand.fr/posts/devops/kubernetes-cmd/</id>
-		<content type="html">&lt;hr&gt;
-&lt;h1 id=&quot;%E2%9D%97-the-golden-best-practice-%E2%9D%97%EF%B8%8F&quot;&gt;❗ The Golden best practice ❗️ &lt;a class=&quot;direct-link&quot; href=&quot;#%E2%9D%97-the-golden-best-practice-%E2%9D%97%EF%B8%8F&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;⛔️ &lt;strong&gt;Ne jamais, jamais, jamais déployer a la main&lt;/strong&gt; ⛔️&lt;/p&gt;
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/devops/docker_k8s.png#center&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Utiliser : kubectl apply -f&lt;/p&gt;
+&lt;p&gt;Collection de commandes et tips pour s&#39;en sortir dans kubernetes&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Svp, merci.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;investigations-%26-debug&quot;&gt;Investigations &amp;amp; debug &lt;a class=&quot;direct-link&quot; href=&quot;#investigations-%26-debug&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id=&quot;d%C3%A9ploiment-manuel&quot;&gt;Déploiment manuel &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9ploiment-manuel&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;⛔️ &lt;strong&gt;Ne jamais, jamais, jamais déployer a la main&lt;/strong&gt; ⛔️&lt;/p&gt;
+&lt;p&gt;Utiliser :&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl apply -f&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;investigations-%26-debug&quot;&gt;Investigations &amp;amp; debug &lt;a class=&quot;direct-link&quot; href=&quot;#investigations-%26-debug&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Quelques commande pour s&#39;en sortir, quand ca va vraiment pas.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;kubectl logs &amp;lt;podid&amp;gt;
-kubectl describe pod &amp;lt;podid&amp;gt;
-kubectl describe deployer &amp;lt;deploymentid&amp;gt;
-kubectl describe service &amp;lt;serviceid&amp;gt;
-kubectl describe ingress &amp;lt;ingressid&amp;gt;
-kubectl get events
-
-# kubectl top
-kubectl top &amp;lt;pod_name&amp;gt;
-
-#logs
-tail -f /var/log/messages
-systemctl status kubelet
-journalctl -xe
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;system&quot;&gt;System &lt;a class=&quot;direct-link&quot; href=&quot;#system&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl logs &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;podid&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl describe pod &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;podid&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl describe deployer &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;deploymentid&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl describe &lt;span class=&quot;token function&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;serviceid&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl describe ingress &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;ingressid&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl get events&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;kubectl-top&quot;&gt;kubectl top &lt;a class=&quot;direct-link&quot; href=&quot;#kubectl-top&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl &lt;span class=&quot;token function&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;pod_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;logs&quot;&gt;logs &lt;a class=&quot;direct-link&quot; href=&quot;#logs&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token function&quot;&gt;tail&lt;/span&gt; -f /var/log/messages&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;systemctl status kubelet&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;journalctl -xe&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;system&quot;&gt;System &lt;a class=&quot;direct-link&quot; href=&quot;#system&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;h4 id=&quot;alias-system&quot;&gt;Alias system &lt;a class=&quot;direct-link&quot; href=&quot;#alias-system&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Retourner toutes les ressources avec tous les namespaces&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;alias kall = &#39;kubectl get all --all-namespaces&#39;
-alias kw = &#39;kubectl -owide&#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;activer-l&#39;autocompletion&quot;&gt;Activer l&#39;autocompletion &lt;a class=&quot;direct-link&quot; href=&quot;#activer-l&#39;autocompletion&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;yum install bash-autocompletion
-// dans .bashrc &amp;lt;&amp;lt;
-source &amp;lt;(kubectl completion bash)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;fichiers-yaml&quot;&gt;Fichiers Yaml &lt;a class=&quot;direct-link&quot; href=&quot;#fichiers-yaml&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;alias&lt;/span&gt; kall &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;kubectl get all --all-namespaces&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;alias&lt;/span&gt; kw &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;kubectl -owide&#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;activer-l&#39;autocompletion&quot;&gt;Activer l&#39;autocompletion &lt;a class=&quot;direct-link&quot; href=&quot;#activer-l&#39;autocompletion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;yum &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; bash-autocompletion&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;// dans .bashrc &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;kubectl completion &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;fichiers-yaml&quot;&gt;Fichiers Yaml &lt;a class=&quot;direct-link&quot; href=&quot;#fichiers-yaml&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ne pas hésiter a regrouper plusieurs fichier Kube en un seul grace a &lt;code&gt;---&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Récupérer le Yaml d&#39;une ressource existante :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;kubectl get pod &amp;lt;ressource&amp;gt; -oyaml
-&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl get pod &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;ressource&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; -oyaml&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Afficher en json et récupérer des commandes spécifiques&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;kubectl get nodes --output=jsonpath=&#39;{.items[0].metadata.name}&#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;utiliser-request-et-limit&quot;&gt;Utiliser request et limit &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-request-et-limit&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;kubectl get nodes --output&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;jsonpath&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{.items[0].metadata.name}&#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;utiliser-request-et-limit&quot;&gt;Utiliser request et limit &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-request-et-limit&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Détermine les ressources (CPU/ram) minimale toujours disponible (request) et limit limite les ressources dipo&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;pods sans request -&amp;gt; premier pod premier candidats supprimés&lt;/em&gt;&lt;br&gt;
 &lt;strong&gt;Bonne pratique&lt;/strong&gt;: en définir&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Tips : garder des CPU REQUEST a 1, maximise les chances d&#39;etre schédulé / scalé&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;maximise les chances de trouver un pod avec ressources dispo&lt;/em&gt;&lt;/p&gt;
-&lt;h4 id=&quot;limit-ressource-quota&quot;&gt;Limit ressource quota &lt;a class=&quot;direct-link&quot; href=&quot;#limit-ressource-quota&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;h2 id=&quot;limit-ressource-quota&quot;&gt;Limit ressource quota &lt;a class=&quot;direct-link&quot; href=&quot;#limit-ressource-quota&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;applique des ressources quota sur un cluster. S&#39;applique sur un namespaces&lt;/p&gt;
-&lt;h3 id=&quot;utiliser-propre-healtchek&quot;&gt;Utiliser propre healtchek &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-propre-healtchek&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id=&quot;utiliser-propre-healtchek&quot;&gt;Utiliser propre healtchek &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-propre-healtchek&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;readiness probes&lt;/li&gt;
 &lt;li&gt;liveness probes&lt;/li&gt;
@@ -557,109 +595,71 @@ source &amp;lt;(kubectl completion bash)
 &lt;ul&gt;
 &lt;li&gt;var d&#39;environnement / process / connectivité reseau / filesystem &amp;amp; passwords / volume&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;utiliser-portforward&quot;&gt;Utiliser portforward &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-portforward&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id=&quot;utiliser-portforward&quot;&gt;Utiliser portforward &lt;a class=&quot;direct-link&quot; href=&quot;#utiliser-portforward&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Se connecter depuis la machine locale vers le pod a travers le kubectl&lt;br&gt;
 kubectl port-forward &lt;pod&gt; 8080:88080&lt;/pod&gt;&lt;/p&gt;
 &lt;p&gt;possible entre services&lt;br&gt;
 kubectl port-forward svc/checkit 8080:808080&lt;/p&gt;
-&lt;h3 id=&quot;ingress&quot;&gt;Ingress &lt;a class=&quot;direct-link&quot; href=&quot;#ingress&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id=&quot;ingress&quot;&gt;Ingress &lt;a class=&quot;direct-link&quot; href=&quot;#ingress&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Collection de règles permettant a une connexion externe d&#39;atteindre des services a l&#39;intérieur du cluster&lt;/em&gt;_&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;terminaison SSL&lt;/li&gt;
 &lt;li&gt;vhost&lt;/li&gt;
 &lt;li&gt;path spliting (ex /admin -&amp;gt; spécialement sur un type de services)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;note-%3A-regarder-daemonset&quot;&gt;note : regarder daemonSet &lt;a class=&quot;direct-link&quot; href=&quot;#note-%3A-regarder-daemonset&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;A regarder&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
-		<title>Mongodb - mongo-express - docker-compose</title>
+		<title>Mongodb &amp; Docker  - Expériences &amp; Authentification</title>
 		<link href="https://sebastienallemand.fr/posts/devops/mongo-db/"/>
 		<updated>2020-04-14T02:00:00+02:00</updated>
 		<id>https://sebastienallemand.fr/posts/devops/mongo-db/</id>
-		<content type="html">&lt;p&gt;&lt;strong&gt;Création d&#39;une instance mongodb avec docker &amp;amp; dockercompose 🚀&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&quot;mongodb&quot;&gt;Mongodb &lt;a class=&quot;direct-link&quot; href=&quot;#mongodb&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Problèmes rencontrés&lt;/strong&gt; autour du système d&#39;authentification et droits a la base de données.&lt;/em&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;d%C3%A9ploiement-via-docker-compose&quot;&gt;Déploiement via Docker-compose &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9ploiement-via-docker-compose&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;version: &#39;3&#39;
-
-services:
-  mongo:
-    image: mongo
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=**root**
-      - MONGO_INITDB_ROOT_PASSWORD=**root**
-      - MONGO_INITDB_DATABASE=test
-    volumes:
-      - ./etc/mongo-volume:/data/db
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-    ports:
-      - &amp;quot;27017:27017&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;variables-d&#39;environnement&quot;&gt;Variables d&#39;environnement &lt;a class=&quot;direct-link&quot; href=&quot;#variables-d&#39;environnement&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Ces variables créent un nouvel utilisateur :&lt;/p&gt;
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://sebastienallemand.fr/assets/crafting//docker-mongo.png#center&quot; alt=&quot;mongodb image&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;contexte&quot;&gt;Contexte &lt;a class=&quot;direct-link&quot; href=&quot;#contexte&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Pré-requis : concepts de conteneurisation maitrisés.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Déploiement d&#39;un container mongodb et mongo-express pré-configuré avec &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;mongodb&quot;&gt;Mongodb &lt;a class=&quot;direct-link&quot; href=&quot;#mongodb&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;docker-compose&quot;&gt;&lt;code&gt;docker-compose&lt;/code&gt; &lt;a class=&quot;direct-link&quot; href=&quot;#docker-compose&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;3&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;  &lt;span class=&quot;token key atrule&quot;&gt;mongo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; mongo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; MONGO_INITDB_ROOT_USERNAME=&amp;lt;USER&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; MONGO_INITDB_ROOT_PASSWORD=&amp;lt;PASSWORD&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; MONGO_INITDB_DATABASE=test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ./etc/mongo&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;volume&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;/data/db&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ./init&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;mongo.js&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;/docker&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;entrypoint&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;initdb.d/init&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;mongo.js&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ro&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;27017:27017&quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Description du conteneur mongo&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basé sur l&#39;image mongo&lt;/li&gt;
+&lt;li&gt;Descriptions des variables d&#39;environnement&lt;/li&gt;
+&lt;li&gt;Création de volumes pour le partage de fichiers&lt;/li&gt;
+&lt;li&gt;Configuration des flux (ports)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;⚠️ Ne pas oublier de modifier les valeurs &lt;code&gt;USER&lt;/code&gt; et &lt;code&gt;PASSWORD&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;point-d&#39;attention&quot;&gt;Point d&#39;attention &lt;a class=&quot;direct-link&quot; href=&quot;#point-d&#39;attention&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;J&#39;ai rencontré des difficultés avec la gestion des utilisateurs. &lt;code&gt;mongo-express&lt;/code&gt; n&#39;arrivait pas a se connecter.&lt;br&gt;
+&lt;em&gt;Pour contourner ce problème j&#39;utilise:&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;MONGO_INITDB_ROOT_USERNAME&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;MONGO_INITDB_ROOT_PASSWORD&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Cet utilisateur est crée dans la table : &lt;a href=&quot;https://docs.mongodb.com/manual/core/security-users/#user-authentication-database&quot;&gt;&lt;code&gt;admin&lt;/code&gt;&lt;/a&gt; avec le role &lt;code&gt;ROOT&lt;/code&gt;&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;si ces deux variables sont renségnées alors mongodb démarre avec le l&#39;authentification obligatoire (voir &lt;code&gt;mongod --auth)&lt;/code&gt;)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Attention:&lt;/strong&gt; l&#39;initialisation de mongod se se base sur un fichier de configuration (docker-entrypoint)&lt;/p&gt;
+&lt;p&gt;Une fois ces variables renseignées alors mongodb démarre avec le l&#39;authentification obligatoire (voir &lt;code&gt;mongod --auth)&lt;/code&gt;)&lt;br&gt;
+Cet utilisateur est crée dans la table : &lt;a href=&quot;https://docs.mongodb.com/manual/core/security-users/#user-authentication-database&quot;&gt;&lt;code&gt;admin&lt;/code&gt;&lt;/a&gt; avec le role &lt;code&gt;ROOT&lt;/code&gt; et &lt;code&gt;mongo-express&lt;/code&gt; pourra l&#39;utiliser pour l&#39;administration de la base de données&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;initialisation-d&#39;une-base-de-donn%C3%A9e-avec-syst%C3%A8me-d&#39;authentification&quot;&gt;Initialisation d&#39;une base de donnée avec système d&#39;authentification &lt;a class=&quot;direct-link&quot; href=&quot;#initialisation-d&#39;une-base-de-donn%C3%A9e-avec-syst%C3%A8me-d&#39;authentification&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Au lancement de mongodb les fichiers d&#39;initialisation (&lt;a href=&quot;https://docker-entrypoint-initdb.d/&quot;&gt;//docker-entrypoint-initdb.d&lt;/a&gt;) sont exécutés dans l&#39;ordre alphabetique.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Si la variable d&#39;environnement &lt;code&gt;MONGO_INITDB_DATABASE&lt;/code&gt; est renseignée alors elle sera utilisée pour l&#39;exécution de ces scripts.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;db.createUser(
-  {
-    user: &amp;quot;auth_login&amp;quot;,
-    pwd: &amp;quot;pwd&amp;quot;, // or cleartext password
-    roles: [ { role: &amp;quot;readWrite&amp;quot;, db: &amp;quot;db-project&amp;quot; } ]
-  }
-)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createUser&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    user&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;auth_login&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    pwd&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pwd&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// or cleartext password&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    roles&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; role&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;readWrite&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; db&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;db-project&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pour aller plus loins :&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/enable-authentication/&quot;&gt;mongodb - Enable Access Control&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/security/&quot;&gt;mongodb - Security&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/enable-authentication/&quot;&gt;Enable Access Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/security/&quot;&gt;Security&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
 &lt;h2 id=&quot;authentification&quot;&gt;Authentification &lt;a class=&quot;direct-link&quot; href=&quot;#authentification&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Pour vous connecter il est possible d&#39;utiliser :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$&amp;gt; mongo -u &amp;lt;login&amp;gt; -p &amp;lt;pwd&amp;gt; authentificationDatabase &amp;lt;db_name&amp;gt;
-
-$&amp;gt; mongo -u &amp;lt;login&amp;gt; --authentificationDatabase &amp;lt;db_name&amp;gt;
-
-// exemple
-$&amp;gt; mongo -u auth_login --authentificationDatabase db-project
-Enter your password: ...
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour vous connecter et tester votre configuration il est possible :&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;$&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; mongo -u &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;login&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; -p &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;pwd&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; authentificationDatabase &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;db_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;$&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; mongo -u &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;login&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; --authentificationDatabase &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;db_name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;// exemple&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;$&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; mongo -u auth_login --authentificationDatabase db-project&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;Enter your password: &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pour aller plus loins: &lt;a href=&quot;http://pierrepironin.github.io/docker-et-mongodb/#Lancer-le-server-MongoDB-en-mode-authentifie&quot;&gt;Encryption SSL&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;mongodb-express&quot;&gt;Mongodb Express &lt;a class=&quot;direct-link&quot; href=&quot;#mongodb-express&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;Problèmes rencontrés&lt;/strong&gt; authentification sur bdd mongo via mongo-express&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&amp;gt; Ne pas se tromper dans les variables d&#39;environnement pour disposer d&#39;un accès root en dev (voir section variables d&#39;environnement)&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;d%C3%A9ploiement-via-docker-compose-2&quot;&gt;Déploiement via Docker-compose &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9ploiement-via-docker-compose-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;  mongo-express:
-    image: mongo-express
-    restart: always
-    environment:
-      - ME_CONFIG_MONGODB_SERVER=mongo
-      - ME_CONFIG_MONGODB_PORT=27017
-      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=**root** &amp;lt;-- # Doit correspondre au compte root décrit plus haut
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=**root** &amp;lt;--
-      - ME_CONFIG_BASICAUTH_USERNAME=dev
-      - ME_CONFIG_BASICAUTH_PASSWORD=dev
-    depends_on:
-      - mongo
-    ports:
-      - &amp;quot;8888:8081&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;d%C3%A9ploiement-via-docker-compose&quot;&gt;Déploiement via Docker-compose &lt;a class=&quot;direct-link&quot; href=&quot;#d%C3%A9ploiement-via-docker-compose&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;  &lt;span class=&quot;token key atrule&quot;&gt;mongo-express&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; mongo&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;express&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; always&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_MONGODB_SERVER=mongo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_MONGODB_PORT=27017&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_MONGODB_ENABLE_ADMIN=true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_MONGODB_ADMINUSERNAME=&amp;lt;USER&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# &amp;lt;-- Doit correspondre au compte root décrit plus haut&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_MONGODB_ADMINPASSWORD=&amp;lt;PASSWORD&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# &amp;lt;--&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_BASICAUTH_USERNAME=dev&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ME_CONFIG_BASICAUTH_PASSWORD=dev&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; mongo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token key atrule&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;8888:8081&quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;authentification-2&quot;&gt;Authentification &lt;a class=&quot;direct-link&quot; href=&quot;#authentification-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Attention, a ne pas confondre &lt;code&gt;ME_CONFIG_MONGODB_ADMINUSERNAME&lt;/code&gt; et &lt;code&gt;ME_CONFIG_MONGODB_AUTH_USERNAME&lt;/code&gt;&lt;/p&gt;
@@ -692,13 +692,13 @@ Enter your password: ...
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est &lt;code&gt;false&lt;/code&gt;&lt;/strong&gt; alors l&#39;utilisateur définit va &lt;code&gt;ME_CONFIG_MONGODB_AUTH_USERNAME&lt;/code&gt; et &lt;code&gt;ME_CONFIG_MONGODB_AUTH_PASSWORD&lt;/code&gt; ne pourra pas voir toutes les bases de données.&lt;/p&gt;
-&lt;p&gt;Risque d&#39;erreur : &lt;code&gt;MongoError: not authorized on admin to execute command { listDatabases: 1 }&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est &lt;code&gt;false&lt;/code&gt;&lt;/strong&gt; alors l&#39;utilisateur définit va &lt;code&gt;ME_CONFIG_MONGODB_AUTH_USERNAME&lt;/code&gt; et &lt;code&gt;ME_CONFIG_MONGODB_AUTH_PASSWORD&lt;/code&gt; ne pourra pas voir toutes les bases de données.&lt;br&gt;
+Risque d&#39;erreur : &lt;code&gt;MongoError: not authorized on admin to execute command { listDatabases: 1 }&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Attention !&lt;/strong&gt; Si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est a &lt;code&gt;true&lt;/code&gt; alors, il sera possible d&#39;effectuer des actions &lt;strong&gt;critiques&lt;/strong&gt; via mongo-express.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;En dev :&lt;/em&gt; J&#39;utilise &lt;code&gt;ME_CONFIG_MONGODB_ADMINUSERNAME&lt;/code&gt; + compte root&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Attention !&lt;/strong&gt; Si &lt;code&gt;ME_CONFIG_MONGODB_ENABLE_ADMIN&lt;/code&gt; est a &lt;code&gt;true&lt;/code&gt; alors, il sera possible d&#39;effectuer des actions &lt;strong&gt;critiques&lt;/strong&gt; via mongo-express.&lt;br&gt;
+&lt;em&gt;En dev :&lt;/em&gt; J&#39;utilise &lt;code&gt;ME_CONFIG_MONGODB_ADMINUSERNAME&lt;/code&gt; + compte root&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;variables-d&#39;environnement-2&quot;&gt;Variables d&#39;environnement &lt;a class=&quot;direct-link&quot; href=&quot;#variables-d&#39;environnement-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;variables-d&#39;environnement&quot;&gt;Variables d&#39;environnement &lt;a class=&quot;direct-link&quot; href=&quot;#variables-d&#39;environnement&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -785,6 +785,72 @@ Enter your password: ...
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Pattern testing #1 - Tests unitaires pourquoi ? comment?</title>
+		<link href="https://sebastienallemand.fr/posts/craft/pattern-testing-1-test-unitaire-pourquoi-comment/"/>
+		<updated>2020-06-30T02:00:00+02:00</updated>
+		<id>https://sebastienallemand.fr/posts/craft/pattern-testing-1-test-unitaire-pourquoi-comment/</id>
+		<content type="html">&lt;p&gt;Aujourd’hui, il est très facile d’enrichir de tests unitaires un projet; malheureusement même si la tendance tend vers une généralisation de ce type de tests, j’ai l&#39;impression qu’on passe encore a côté de la philosophie des tests et de leurs utilités.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Un Test Unitaire est un bout de code (généralement une méthode) chargé d’appeler d’autres bouts de codes pour vérifier certaines hypothèses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;pourquoi-%3F&quot;&gt;Pourquoi ? &lt;a class=&quot;direct-link&quot; href=&quot;#pourquoi-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Permet de vérifier si un bloc de code fonctionne&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Protège des régressions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Permet le refactoring et les évolutions de design&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Réduit les coûts des tests et de QA&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ouvre des discussions et débats dans l’équipe.&lt;/strong&gt; Ex: comment tester  un composant critique d’un point de vue métier ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;br&gt;
+Je remarque que dans encore beaucoup de projets, les tests sont rédigés une fois les développements terminé voir sont vus comme &lt;em&gt;&lt;strong&gt;des bonus&lt;/strong&gt;&lt;/em&gt;. Je pense que c’est très dommage. En rédigeant les tests après avoir fait le développement, on passe a côté de tous leurs bénéfices.&lt;br&gt;
+ &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Valider la compréhension du besoin :&lt;/strong&gt; on peut discuter de certains cas de tests avec le métier et livrer les résultats en QA pour attester du bon fonctionnement de l’application&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Valider les contrats d’interfaces (logiciel ou archi)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mettre en évidence les schémas de conception et la logique&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pratiquer la micro intégration&lt;/strong&gt; : intégration douce de nouveaux composants dans le système&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Comment valider tout ça le plus en amont si le travail est déjà achevé ?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;mais-alors%2C-qu%E2%80%99est-ce-qu%E2%80%99on-teste-%3F&quot;&gt;Mais alors, qu’est-ce qu’on teste ? &lt;a class=&quot;direct-link&quot; href=&quot;#mais-alors%2C-qu%E2%80%99est-ce-qu%E2%80%99on-teste-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;les cas passants / non passants&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La logique fonctionnelle&lt;/strong&gt; : toute portion de code avec de la logique métier ou fonctionnelle : règles de gestion, calculs …&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les parties critiques de l’application&lt;/strong&gt;: fortement utilisées ou avec une forte attente du métier&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les portions de code subissant des corrections&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les contrats d’échanges&lt;/strong&gt; : les frontières fonctionnelles (Api, Objets métiers, Modèles, parsing etc.). Curseur à positionner en fonction de votre niveau de maturité&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;qu%E2%80%99est-ce-qu%E2%80%99on-ne-teste-pas-%3F&quot;&gt;Qu’est-ce qu’on ne teste pas ? &lt;a class=&quot;direct-link&quot; href=&quot;#qu%E2%80%99est-ce-qu%E2%80%99on-ne-teste-pas-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Le code avec un besoin d’interagir avec d’autres systèmes externes.&lt;/strong&gt; C’est un test d’intégration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Parties tierces - Frameworks etc..&lt;/strong&gt; :testez votre code et faites confiance aux développeurs qui maintiennent votre framework, libs etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interface graphique&lt;/strong&gt; : ça ne teste pas les rouages interne de votre système, sans parler des cas de faux positifs…&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Si le test est plus difficile à écrire que le code lui-même&lt;/strong&gt; (on peut se poser des questions sur sa conception)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;un prototype&lt;/strong&gt; : C’est fait pour être ré-écrit :)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;quelques-bonnes-pratiques&quot;&gt;Quelques bonnes pratiques &lt;a class=&quot;direct-link&quot; href=&quot;#quelques-bonnes-pratiques&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;On ne test qu’une seule chose a la fois : un comportement ou bien un algorithme&lt;/li&gt;
+&lt;li&gt;Faire des tests simple, quitte à en écrire beaucoup mais on ne les duplique pas&lt;/li&gt;
+&lt;li&gt;On s’assure d’un harnais de test avant de refactorer un bout de code (voir golden master)&lt;/li&gt;
+&lt;li&gt;Ecrire des tests maintenables et compréhensibles&lt;/li&gt;
+&lt;li&gt;Tester les contrats et interfaces de chaque élément du système&lt;/li&gt;
+&lt;li&gt;Opter pour une couverture progressive, avec de nouvelles fonctionnalités couvertes, plutôt que de faire des sprints uniquement “test unitaire”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Pour aller plus loins&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.manning.com/books/the-art-of-unit-testing&quot;&gt;The Art of Unit Testing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://signalvnoise.com/posts/3159-testing-like-the-tsa&quot;&gt;Testing like the TSA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://softwareengineering.stackexchange.com/questions/750/what-should-you-test-with-unit-tests/754#754&quot;&gt;Software Engineering - What should you test with unit tests?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.codecademy.com/articles/tdd-red-green-refactor&quot;&gt;Red, Green, Refactor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.crafting-labs.fr/2013/10/21/test-unitaire-et-methodes-privees/&quot;&gt;Le test unitaire et les méthodes privées&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
 	</entry>
 </feed>

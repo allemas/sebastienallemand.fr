@@ -4,6 +4,8 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const readingTime = require("eleventy-plugin-reading-time");
 const description = require("eleventy-plugin-description");
+var hljs = require('highlight.js'); // https://highlightjs.org/
+
 const markdownIt = require("markdown-it");
 
 const markdownItAnchor = require("markdown-it-anchor");
@@ -25,6 +27,10 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toString();
+  });
 
   eleventyConfig.addFilter("categories", dateObj => {
     return dateObj.filter(item => {
@@ -52,17 +58,53 @@ module.exports = function (eleventyConfig) {
     return collection;
   });
 
+  const util = require('util')
+
+  eleventyConfig.addFilter('dump', obj => {
+    return util.inspect(obj)
+  });
+
+  const fs = require("fs");
+
+
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: function (err, bs) {
+
+        bs.addMiddleware("*", (req, res) => {
+          const content_404 = fs.readFileSync('_site/404.html');
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          // Add 404 http status code in request header.
+          // res.writeHead(404, { "Content-Type": "text/html" });
+          res.writeHead(404);
+          res.end();
+        });
+      }
+    }
+  });
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
-    linkify: true
+    linkify: true,
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(lang, str).value;
+        } catch (__) {
+        }
+      }
+
+      return ''; // use external default escaping
+    }
   }).use(markdownItAnchor, {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#"
-  });
+  })
+
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   return {

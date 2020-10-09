@@ -2,6 +2,7 @@
 title: "L'art de nommer"
 tags: [crafting, DDD, refactoring]
 author: Allemand Sébastien
+decription: l'art de nommer, présentation des notions autour de Ubiquitous Language & Bounded Context dans le Domain Driven Design (DDD)
 date: 2019-06-17
 ---
 
