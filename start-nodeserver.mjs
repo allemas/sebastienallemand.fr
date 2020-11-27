@@ -114,12 +114,6 @@ async function run() {
                         xFrameOptions('DENY'),
                         ifProduction(hsts({ maxAge: ONE_YEAR, includeSubDomains: true })),
                         chainUntilResponse([
-                            ifProduction(redirectHttps()),
-                            (context) => {
-                                if (context.requestUrl.hostname.endsWith('hsablonniere.com')) {
-                                    return redirectWww;
-                                }
-                            },
                             redirectNormalizedPath(),
                             staticFile({ root: '_site', enableRange: true }),
                             redirectBasedOnHash({ root: '_site' }),
