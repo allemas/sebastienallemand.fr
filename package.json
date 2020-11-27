@@ -25,7 +25,7 @@
         "slugify": "^1.4.0"
     },
     "scripts": {
-        "start": "eleventy --serve",
+        "start": "node start-nodeserver.mjs",
         "production": "npm run sass:process && npm run cms:precompile && npm run cms:bundle && npx eleventy"
     }
 }
